@@ -1,3 +1,3 @@
 # Всякие приколюхи, найденные в процессе
 
-Ducks - все картинки уточек с задника на <a href="se.ifmo.ru"> se.ifmo.ru </a>
+Ducks - все картинки уточек с задника на <a href="https://se.ifmo.ru"> se.ifmo.ru </a>
