@@ -1,3 +1,6 @@
+/**
+ * Программа для первой лабы
+*/
 public class Lab1 {
     public static void main(String[] args) {
         long[] z = new long[14];
@@ -11,38 +14,45 @@ public class Lab1 {
             x[i] = -15 + random_num*28;
         }
 
-        z_out(
-            z_generator(x, z)
+        zOut(
+            zGenerator(x, z)
         );
     }
 
-    public static void z_out(float[][] arr){
+    /**
+    * Вывод двумерного массива
+    */
+    public static void zOut(float[][] arr){
         for (float[] line: arr){
             for (float sym: line){
                 System.out.format("%.3f ", sym);
             }
-            System.err.println();
+            System.out.println();
         }
     }
 
-    public static float[][] z_generator(float[] x, long[] z_) {
+    /**
+    * Создание двумерного массива
+    */
+    public static float[][] zGenerator(float[] x, long[] z_) {
         float[][] z = new float[14][12];
 
         for (int i = 0; i < 14; i ++){
             for (int j = 0; j<12; j++){
-                if (z_[i] == 9){
-                    z[i][j] = cond1(x[j]);
-                } else if (z_[i] == 2 || z_[i] == 6 || (11 <= z_[i] & z_[i] <= 15)) {
-                    z[i][j] = cond2(x[j]);
-                } else {
-                    z[i][j] = cond3(x[j]);
-                }
+                z[i][j] = switch ((int) z_[i]){
+                    case 9 -> cond1(x[j]);
+                    case 2,6,11,12,13,14,15 -> cond2(x[j]);
+                    default -> cond3(x[j]);
+                };
             }
         }
 
         return z;
     }
 
+    /**
+    * Условие генерации строки двумерного массива №1
+    */
     public static float cond1(float x){
         float result = (float) Math.pow(
             Math.cbrt(
@@ -61,6 +71,9 @@ public class Lab1 {
         return result;
     }
 
+    /**
+    * Условие генерации строки двумерного массива №2
+    */
     public static float cond2(float x){
         float result = (float) Math.tan(
             Math.cos(
@@ -73,6 +86,9 @@ public class Lab1 {
         return result;
     }
 
+    /**
+    * Условие генерации строки двумерного массива №3
+    */
     public static float cond3(float x){
         float result = (float) Math.sin(
             Math.pow(
