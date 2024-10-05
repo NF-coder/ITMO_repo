@@ -13,7 +13,7 @@ def main():
         validator = Validator(int(inp_bits))
         _ = (
             int(inp_bits),
-            int(log2(int(inp_bits) + 1))
+            int(inp_bits) - int(log2(int(inp_bits)+1))
         )
 
         inp = input(f"Введите классический код хэмминга {str(_).replace(", ", ";")}: ")
