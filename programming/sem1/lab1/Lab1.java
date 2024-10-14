@@ -2,7 +2,7 @@
  * Программа для первой лабы
 */
 public class Lab1 {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         long[] z = new long[14];
         for (int i = 2; i <= 15; i++) {
             z[i-2] = (long) i; // int -> long
@@ -10,8 +10,8 @@ public class Lab1 {
         
         float[] x = new float[12];
         for (int i = 0; i < 12; i++) {
-            float random_num = (float) Math.random(); // double -> float
-            x[i] = -15 + random_num*28;
+            float randomNum = (float) Math.random(); // double -> float
+            x[i] = -15 + randomNum*28;
         }
 
         zOut(
@@ -78,7 +78,7 @@ public class Lab1 {
         float result = (float) Math.tan(
             Math.cos(
                 Math.pow(
-                    x - 1/4,
+                    x - 0.25,
                     x
                 )
             )
