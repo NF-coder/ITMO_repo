@@ -22,9 +22,9 @@ def x100_time(converter: object, inpFile: str = "./timetable.xml") -> float:
 
 if __name__ == "__main__":
     
-    main(С1(True).main, outFile = "out1.json")) # ОЗ, ДЗ-3
-    main(С2(True).main, outFile = "out2.json")) # ДЗ-2
-    main(C3().main, outFile = "out3.json")) # ДЗ-1
+    main(С1(True).main, outFile = "out1.json") # ОЗ, ДЗ-3
+    main(С2(True).main, outFile = "out2.json") # ДЗ-2
+    main(C3().main, outFile = "out3.json") # ДЗ-1
 
     for i in [С1(True).main, С2(True).main, C3().main]:
         print(i.__code__.co_filename, f"{x100_time(i)/10**9:.6f}c ({x100_time(i)}нс)")

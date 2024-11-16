@@ -1,0 +1,62 @@
+﻿syntax = "proto3";
+
+message Root{
+
+	Schedule0 schedule0 = 1;
+	message Schedule0{
+	
+		Weeks0 weeks0 = 1;
+		message Weeks0{
+			repeated string num = 1;
+		}
+	
+		Lesson1 lesson1 = 2;
+		message Lesson1{
+			string name = 1;
+			string type = 2;
+			string format = 3;
+			string teacher = 4;
+		
+			Time0 time0 = 5;
+			message Time0{
+				string start = 1;
+				string end = 2;
+			}
+		
+			Place1 place1 = 6;
+			message Place1{
+				string address = 1;
+				string classroom = 2;
+			}
+		}
+	}
+
+	Schedule1 schedule1 = 2;
+	message Schedule1{
+	
+		Weeks0 weeks0 = 1;
+		message Weeks0{
+			repeated string num = 1;
+		}
+	
+		repeated Lesson1 lesson1 = 2;
+		message Lesson1{
+			string name = 1;
+			string type = 2;
+			string format = 3;
+			string teacher = 4;
+		
+			Time0 time0 = 5;
+			message Time0{
+				string start = 1;
+				string end = 2;
+			}
+		
+			Place1 place1 = 6;
+			message Place1{
+				string address = 1;
+				string classroom = 2;
+			}
+		}
+	}
+}
