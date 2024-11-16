@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<schedule>
+		<weeks>
+			<num>1</num>
+			<num>3</num>
+			<num>5</num>
+			<num>7</num>
+			<num>9</num>
+			<num>11</num>
+			<num>13</num>
+			<num>15</num>
+		</weeks>
+		<lesson>
+			<name>Программирование</name>
+			<type>Лекция</type>
+			<format>Очно-Дистанционный</format>
+			<time>
+				<start>8:20</start>
+				<end>9:50</end>
+			</time>
+			<place>
+				<address>ул.Ломоносова, д.9, лит. М</address>
+				<classroom>Ауд. Актовый зал (1216/0 (усл))</classroom>
+			</place>
+			<teacher>Гаврилов Антон Валерьевич</teacher>
+		</lesson>
+	</schedule>
+	<schedule>
+		<weeks>
+			<num>2</num>
+			<num>4</num>
+			<num>6</num>
+			<num>8</num>
+			<num>10</num>
+			<num>12</num>
+			<num>14</num>
+			<num>16</num>
+		</weeks>
+		<lesson>
+			<name>Информатика</name>
+			<type>Лекция</type>
+			<format>Очно</format>
+			<time>
+				<start>8:20</start>
+				<end>9:50</end>
+			</time>
+			<place>
+				<address>ул.Ломоносова, д.9, лит. М</address>
+				<classroom>Ауд. Актовый зал (1216/0 (усл))</classroom>
+			</place>
+			<teacher>Балакшин Павел Валерьевич</teacher>
+		</lesson>
+		<lesson>
+			<name>Основы профессиональной деятельности</name>
+			<type>Лекция</type>
+			<format>Очно</format>
+			<time>
+				<start>10:00</start>
+				<end>11:30</end>
+			</time>
+			<place>
+				<address>ул.Ломоносова, д.9, лит. М</address>
+				<classroom>Ауд. Актовый зал (1216/0 (усл))</classroom>
+			</place>
+			<teacher>Клименков Сергей Викторович</teacher>
+		</lesson>
+	</schedule>
+</root>
