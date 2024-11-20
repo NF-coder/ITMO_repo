@@ -27,6 +27,11 @@
 		</lesson>
 	</schedule>
 	<schedule>
+		<test>
+			<test1></test1>
+			<test2>aaaa</test2>
+			<t3><t4><t5><t6><t7>aa</t7></t6></t5></t4></t3>
+			</test>
 		<weeks>
 			<num>2</num>
 			<num>4</num>

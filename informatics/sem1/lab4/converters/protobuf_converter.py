@@ -42,8 +42,8 @@ class Converter(): # GOVNOKOD
             out_msg_buffer_2 = out_msg_buffer_1
             for idx, elem in enumerate(_):
                 out_msg_buffer_2 += "\n"
-                out_msg_buffer_2 += f"\n\t{"repeated " if _1.count(elem) > 1 else ""}{elem["type"]}{idx} {elem["type"].lower()}{idx} = {len(out_structure_buffer)+idx+1};"
-                out_msg_buffer_2 += f"\n\t{"\n\t".join(elem["data"].split("\n"))}".replace(elem["type"], f"{elem["type"]}{idx}")
+                out_msg_buffer_2 += f"\n\t{"repeated " if _1.count(elem) > 1 else ""}{elem["type"]} {elem["type"].lower()} = {len(out_structure_buffer)+idx+1};"
+                out_msg_buffer_2 += f"\n\t{"\n\t".join(elem["data"].split("\n"))}".replace(elem["type"], f"{elem["type"]}")
             else: out_msg_buffer_2 += "\n}"
 
             return {
