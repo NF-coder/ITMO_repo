@@ -1,0 +1,56 @@
+Kabutops Безымянный Kabutops из команды синих вступает в бой!
+Kabuto Безымянный Kabuto из команды красных вступает в бой!
+Kabutops Безымянный Kabutops промахивается
+
+Kabuto Безымянный Kabuto промахивается
+
+Kabutops Безымянный Kabutops использует атаку X-Scissor (PhysicalMove). 
+Kabuto Безымянный Kabuto теряет 6 здоровья.
+
+Kabuto Безымянный Kabuto промахивается
+
+Kabutops Безымянный Kabutops использует атаку Ancient Power (SpecialMove). 
+Kabuto Безымянный Kabuto теряет 5 здоровья.
+
+Kabuto Безымянный Kabuto использует атаку Ice Beam (SpecialMove). 
+Kabutops Безымянный Kabutops теряет 2 здоровья.
+
+Kabutops Безымянный Kabutops использует атаку Ancient Power (SpecialMove). 
+Kabuto Безымянный Kabuto теряет 6 здоровья.
+Kabuto Безымянный Kabuto теряет сознание.
+Groudon Безымянный Groudon из команды красных вступает в бой!
+Groudon Безымянный Groudon использует атаку Overheat (SpecialMove). 
+Kabutops Безымянный Kabutops теряет 2 здоровья.
+
+Kabutops Безымянный Kabutops промахивается
+
+Groudon Безымянный Groudon промахивается
+
+Kabutops Безымянный Kabutops использует атаку Ancient Power (SpecialMove). 
+Groudon Безымянный Groudon теряет 4 здоровья.
+
+Groudon Безымянный Groudon использует атаку Stone Edge (PhysicalMove). 
+Kabutops Безымянный Kabutops теряет 6 здоровья.
+
+Kabutops Безымянный Kabutops использует атаку Ancient Power (SpecialMove). 
+Groudon Безымянный Groudon теряет 3 здоровья.
+
+Groudon Безымянный Groudon промахивается
+
+Kabutops Безымянный Kabutops использует атаку Ice Beam (SpecialMove). 
+Groudon Безымянный Groudon теряет 10 здоровья.
+Groudon Безымянный Groudon теряет сознание.
+Flabebe Безымянный Flabebe из команды красных вступает в бой!
+Kabutops Безымянный Kabutops использует атаку Ancient Power (SpecialMove). 
+Критический удар!
+Flabebe Безымянный Flabebe теряет 12 здоровья.
+
+Flabebe Безымянный Flabebe использует атаку Magical Leaf (SpecialMove). 
+Kabutops Безымянный Kabutops теряет 14 здоровья.
+Kabutops Безымянный Kabutops теряет сознание.
+Floette Безымянный Floette из команды синих вступает в бой!
+Floette Безымянный Floette использует атаку Magical Leaf (SpecialMove). 
+Flabebe Безымянный Flabebe теряет 3 здоровья.
+Flabebe Безымянный Flabebe теряет сознание.
+В команде красных не осталось покемонов.
+Команда синих побеждает в этом бою!
