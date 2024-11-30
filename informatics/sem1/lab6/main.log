@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.11.29)  30 NOV 2024 15:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.11.29)  30 NOV 2024 16:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -987,30 +987,30 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \c@sqcolumns=\count300
 
 
-./6.tex:52: LaTeX Error: Can be used only in preamble.
+./6.tex:54: LaTeX Error: Can be used only in preamble.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.52 \begin{document}
+l.54 \begin{document}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-./6.tex:54: Illegal unit of measure (pt inserted).
+./6.tex:56: Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.54         \vspace{87}
+l.56         \vspace{87}
                         
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1022,52 +1022,52 @@ two letters. (See Chapter 27 of The TeXbook.)
 <image.png, id=9, 198.7425pt x 159.59625pt>
 File: image.png Graphic file (type png)
 <use image.png>
-Package pdftex.def Info: image.png  used on input line 59.
+Package pdftex.def Info: image.png  used on input line 61.
 (pdftex.def)             Requested size: 140.26883pt x 112.64442pt.
 
-Underfull \hbox (badness 2401) in paragraph at lines 55--60
+Underfull \hbox (badness 2401) in paragraph at lines 57--62
 []|\T2A/cmr/bx/n/10 Ф617. \T2A/cmr/m/it/10 Га-зет-ный текст фо-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
+Underfull \hbox (badness 10000) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 то-гра-фи-ру-ет-ся ап-па-ра-том
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 55--60
+Underfull \hbox (badness 1009) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 ѕЗе-нитї c объ-ек-ти-вом, име-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
+Underfull \hbox (badness 10000) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 ю-щим фо-кус-ное рас-сто-я-ние
  []
 
 
-Underfull \hbox (badness 1184) in paragraph at lines 55--60
+Underfull \hbox (badness 1184) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 25 мм (таe-же с ми-ни-маль-
  []
 
 
-Underfull \hbox (badness 4543) in paragraph at lines 55--60
+Underfull \hbox (badness 4543) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 но воз-мож-но-го рас-сто-я-ния).
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 55--60
+Underfull \hbox (badness 3168) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 изоб-ра-же-ний, по-лу-чен-ных на
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--60
+Underfull \hbox (badness 10000) in paragraph at lines 57--62
 \T2A/cmr/m/it/10 фо-томплјн-ке в этих двух
  []
 
-./6.tex:72: Illegal unit of measure (pt inserted).
+./6.tex:74: Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.72         \hspace{3}
+l.74         \hspace{3}
                        
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1076,10 +1076,10 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-./6.tex:115: Illegal unit of measure (pt inserted).
+./6.tex:117: Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.115         \vspace{22}
+l.117         \vspace{22}
                          
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1089,14 +1089,14 @@ delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
+Underfull \hbox (badness 10000) in paragraph at lines 119--121
 []|\T2A/cmr/bx/n/20.74 Неоконченная
  []
 
-./6.tex:124: Undefined control sequence.
+./6.tex:126: Undefined control sequence.
 <template> ...tartpbox {0.3\textwidth }\Centering 
                                                   \ignorespaces 
-l.124         \vspace
+l.126         \vspace
                      {0}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1104,10 +1104,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./6.tex:124: Illegal unit of measure (pt inserted).
+./6.tex:126: Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.124         \vspace{0}
+l.126         \vspace{0}
                         
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1116,10 +1116,10 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-./6.tex:140: Illegal unit of measure (pt inserted).
+./6.tex:142: Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.140         \vspace{23}
+l.142         \vspace{23}
                          
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1128,8 +1128,8 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-./6.tex:141: Undefined control sequence.
-l.141 ...Р· - СЃ РїРѕРІРѕСЂРѕС‚РѕРј РЅР° 90\degree
+./6.tex:143: Undefined control sequence.
+l.143 ...Р· - СЃ РїРѕРІРѕСЂРѕС‚РѕРј РЅР° 90\degree
                                                   ). Р’ Р·Р°С€РёС„СЂРѕРІР°РЅ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1138,34 +1138,34 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 141--143
+Underfull \hbox (badness 1603) in paragraph at lines 143--145
 \T2A/cmr/m/n/10 в ней со-об-ще-нии букв мень-
  []
 
 
-Underfull \hbox (badness 5878) in paragraph at lines 141--143
+Underfull \hbox (badness 5878) in paragraph at lines 143--145
 \T2A/cmr/m/n/10 шеЮ чем кле-ток квад-ра-та,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 \T2A/cmr/m/n/10 ѕлиш-ниеї кле-теи остав-ле-ны
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 [] \T2A/cmr/m/n/10 Рас-шиф-руй-те за-шиф-ро-ван-
  []
 
 
-Overfull \hbox (2.63474pt too wide) in paragraph at lines 114--148
+Overfull \hbox (2.63474pt too wide) in paragraph at lines 116--150
 [][] 
  []
 
 [1 <./image.png>] (./main.aux) ) )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 52 (\begingroup)
+### semi simple group (level 1) entered at line 54 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
  6219 strings out of 476041
