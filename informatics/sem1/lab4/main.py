@@ -21,12 +21,13 @@ def x100_time(converter: object, inpFile: str = "./timetable.xml") -> float:
     return (time.time_ns() - start)*100
 
 if __name__ == "__main__":
-    
+    main(C0(True).main, outFile = "out0.json") # ?
+
     main(С1(True).main, outFile = "out1.json") # ОЗ, ДЗ-3
     main(С2(True).main, outFile = "out2.json") # ДЗ-2
     main(C3().main, outFile = "out3.json") # ДЗ-1
 
-    for i in [С1(True).main, С2(True).main, C3().main]:
+    for i in [С1().main, С1(False).main, С2(False).main, C3().main]:
         print(i.__code__.co_filename, f"{x100_time(i)/10**9:.6f}c ({x100_time(i)}нс)")
     
     main(C4().main, outFile = "out4.proto")

@@ -34,35 +34,12 @@ message Root{
 	Schedule schedule = 2;
 	message Schedule{
 	
-		Test test = 1;
-		message Test{
-			string test1 = 1;
-			string test2 = 2;
-		
-			T3 t3 = 3;
-			message T3{
-			
-				T4 t4 = 1;
-				message T4{
-				
-					T5 t5 = 1;
-					message T5{
-					
-						T6 t6 = 1;
-						message T6{
-							string t7 = 1;
-						}
-					}
-				}
-			}
-		}
-	
-		Weeks weeks = 2;
+		Weeks weeks = 1;
 		message Weeks{
 			repeated string num = 1;
 		}
 	
-		repeated Lesson lesson = 3;
+		repeated Lesson lesson = 2;
 		message Lesson{
 			string name = 1;
 			string type = 2;

@@ -30,7 +30,6 @@
                 }
             },
             {
-                "test": "\n\t\t\t<test1></test1>\n\t\t\t<test2>aaaa</test2>\n\t\t\t<t3><t4><t5><t6><t7>aa</t7></t6></t5></t4></t3>\n\t\t\t",
                 "weeks": {
                     "num": [
                         "2",
