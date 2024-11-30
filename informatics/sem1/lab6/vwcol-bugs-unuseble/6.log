@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.11.29)  30 NOV 2024 03:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.11.29)  29 NOV 2024 19:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6"
-(/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex
+**"/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/vwcol-bugs-unuseble/6"
+(/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/vwcol-bugs-unuseble/6.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -44,25 +44,67 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layouthoffset=\dimen147
 \Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks17
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+) (/usr/share/texlive/texmf-dist/tex/latex/vwcol/vwcol.sty
+Package: vwcol 2015/02/10 v0.2 Variable-width multicolumn text
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count196
+\calc@Bcount=\count197
+\calc@Adimen=\dimen149
+\calc@Bdimen=\dimen150
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count198
+\calc@Cskip=\skip52
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen149
-\Gin@req@width=\dimen150
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2023/02/25 v3.4 ragged2e Package
+\CenteringLeftskip=\skip53
+\RaggedLeftLeftskip=\skip54
+\RaggedRightLeftskip=\skip55
+\CenteringRightskip=\skip56
+\RaggedLeftRightskip=\skip57
+\RaggedRightRightskip=\skip58
+\CenteringParfillskip=\skip59
+\RaggedLeftParfillskip=\skip60
+\RaggedRightParfillskip=\skip61
+\JustifyingParfillskip=\skip62
+\CenteringParindent=\skip63
+\RaggedLeftParindent=\skip64
+\RaggedRightParindent=\skip65
+\JustifyingParindent=\skip66
+)
+\vwcol@sep=\skip67
+\vwcol@rule=\skip68
+\vwcol@totalwidth=\skip69
+\vwcol@averagewidth=\skip70
+\vwcol@parindent=\skip71
+\vwcol@last=\count199
+\vwcol@Ncols=\count266
+\vwcol@Nlines=\count267
+\vwcol@maxrecursion=\count268
+\vwcol@box=\box51
+\vwcol@plainbox=\box52
+\vwcol@outputbox=\box53
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks18
-\inpenc@posthook=\toks19
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
 File: utf8x.def 2022/08/07 UCS: Input encoding UTF-8
 
@@ -508,12 +550,12 @@ Now handling font encoding U ...
    defining Unicode char U+FEFF (decimal 65279)
 ))) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2023/02/13 3.86 The Babel package
-\babel@savecnt=\count196
+\babel@savecnt=\count269
 \U@D=\dimen151
 \l@unhyphenated=\language85
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count197
+\bbl@dirlevel=\count270
  (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -744,151 +786,46 @@ Package babel Info: Importing font and identification data for russian
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
-) (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
-Package: blindtext 2012/01/06 V2.0 blindtext-Package
- (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-\c@blindtext=\count198
-\c@Blindtext=\count199
-\c@blind@countparstart=\count266
-\blind@countxx=\count267
-\blindtext@numBlindtext=\count268
-\blind@countyy=\count269
-\c@blindlist=\count270
-\c@blindlistlevel=\count271
-\c@blindlist@level=\count272
-\blind@listitem=\count273
-\c@blind@listcount=\count274
-\c@blind@levelcount=\count275
-\blind@mathformula=\count276
-\blind@Mathformula=\count277
-\c@blind@randomcount=\count278
-\c@blind@randommax=\count279
-\c@blind@pangramcount=\count280
-\c@blind@pangrammax=\count281
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
- (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen152
-\ar@mcellbox=\box51
-\extrarowheight=\dimen153
-\NC@list=\toks20
-\extratabsurround=\skip50
-\backup@length=\skip51
-\ar@cellbox=\box52
+Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\TX@col@width=\dimen154
-\TX@old@table=\dimen155
-\TX@old@col=\dimen156
-\TX@target=\dimen157
-\TX@delta=\dimen158
-\TX@cols=\count282
-\TX@ftn=\toks21
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
-Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
- (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-)
-\c@r@tfl@t=\count283
-\rotFPtop=\skip52
-\rotFPbot=\skip53
-\rot@float@box=\box53
-\rot@mess@toks=\toks22
-) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks23
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/share/texlive/texmf-dist/tex/latex/vwcol/vwcol.sty
-Package: vwcol 2015/02/10 v0.2 Variable-width multicolumn text
- (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count284
-\calc@Bcount=\count285
-\calc@Adimen=\dimen159
-\calc@Bdimen=\dimen160
-\calc@Askip=\skip54
-\calc@Bskip=\skip55
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count286
-\calc@Cskip=\skip56
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 149.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
- (/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)
-\@envbody=\toks24
-) (/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
-Package: ragged2e 2023/02/25 v3.4 ragged2e Package
-\CenteringLeftskip=\skip57
-\RaggedLeftLeftskip=\skip58
-\RaggedRightLeftskip=\skip59
-\CenteringRightskip=\skip60
-\RaggedLeftRightskip=\skip61
-\RaggedRightRightskip=\skip62
-\CenteringParfillskip=\skip63
-\RaggedLeftParfillskip=\skip64
-\RaggedRightParfillskip=\skip65
-\JustifyingParfillskip=\skip66
-\CenteringParindent=\skip67
-\RaggedLeftParindent=\skip68
-\RaggedRightParindent=\skip69
-\JustifyingParindent=\skip70
-)
-\vwcol@sep=\skip71
-\vwcol@rule=\skip72
-\vwcol@totalwidth=\skip73
-\vwcol@averagewidth=\skip74
-\vwcol@parindent=\skip75
-\vwcol@last=\count287
-\vwcol@Ncols=\count288
-\vwcol@Nlines=\count289
-\vwcol@maxrecursion=\count290
-\vwcol@box=\box54
-\vwcol@plainbox=\box55
-\vwcol@outputbox=\box56
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count291
-\l__pdf_internal_box=\box57
-)
-No file 6.aux.
+\l__color_backend_stack_int=\count271
+\l__pdf_internal_box=\box54
+) (./6.aux
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
 \openout1 = `6.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 16.
-LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 16.
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
-File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -926,167 +863,380 @@ LaTeX Font Info:    ... okay on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count292
-\scratchdimen=\dimen161
-\scratchbox=\box58
-\nofMPsegments=\count293
-\nofMParguments=\count294
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count295
-\MPscratchDim=\dimen162
-\MPnumerator=\count296
-\makeMPintoPDFobject=\count297
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count272
+\scratchdimen=\dimen154
+\scratchbox=\box55
+\nofMPsegments=\count273
+\nofMParguments=\count274
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count275
+\MPscratchDim=\dimen155
+\MPnumerator=\count276
+\makeMPintoPDFobject=\count277
+\everyMPtoPDFconversion=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \th on input line 16.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex:21: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.21 \vspace{87}
-                
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
+LaTeX Info: Redefining \th on input line 10.
 <image.png, id=1, 198.7425pt x 159.59625pt>
 File: image.png Graphic file (type png)
 <use image.png>
-Package pdftex.def Info: image.png  used on input line 26.
+Package pdftex.def Info: image.png  used on input line 22.
+(pdftex.def)             Requested size: 145.137pt x 116.55298pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 22.
+File: image.png Graphic file (type png)
+<use image.png>
+Package pdftex.def Info: image.png  used on input line 22.
 (pdftex.def)             Requested size: 145.137pt x 116.55298pt.
 
-Underfull \hbox (badness 6157) in paragraph at lines 22--27
-[]|\T2A/cmr/bx/n/10 Ф617. \T2A/cmr/m/it/10 Га-зет-ный текст фо-
- []
-
-/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex:39: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.39 \hspace{3}
-               
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex:82: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.82 \vspace{10}
-                
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex:84: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.84 ...xtbf{РќРµРѕРєРѕРЅС‡РµРЅРЅР°СЏ} \vspace{20}
-                                                   \textbf{РєСЂРёРїС‚РѕРіСЂР...
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
-[]|\T2A/cmr/bx/n/20.74 Неоконченная
+Underfull \hbox (badness 2828) in paragraph at lines 22--22
+|\T2A/cmr/bx/n/10 Ф617. \T2A/cmr/m/it/10 Га-зет-ный текст фо-
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 84--86
-\T2A/cmr/m/n/9 рую мож-но про-чесь с по-мо-щью
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 то-гра-фи-ру-ет-ся ап-па-ра-том
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 84--86
-\T2A/cmr/m/n/9 неко-то-рой ре-шет-ки (что это та-
+Underfull \hbox (badness 1264) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ѕЗе-нитї c объ-ек-ти-вом, име-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
-\T2A/cmr/m/n/9 ѕСа-мо-сов-ме-ще-ния квад-ра-та и
- []
-
-/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex:87: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   !
-l.87 \vspace{1}
-               
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-Overfull \hbox (3.05138pt too wide) in paragraph at lines 88--107
-[]|[]| 
- []
-
-/home/nf/Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»/РёРјС‚Рѕ/ITMO_repo/informatics/sem1/lab6/6.tex:108: Undefined control sequence.
-l.108 ...Р· - СЃ РїРѕРІРѕСЂРѕС‚РѕРј РЅР° 90\degree
-                                                  ). Р’ Р·Р°С€РёС„СЂРѕРІР°РЅ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
-\T2A/cmr/m/n/10 неко-то-рые его ока-зы-ва-ют-ся
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ю-щим фо-кус-ное рас-сто-я-ние
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
-\T2A/cmr/m/n/10 Рас-шиф-руй-те за-шиф-ро-ван-ное
+Underfull \hbox (badness 4846) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 2) по-сле при-со-еди-не-ния объ-
  []
 
 
-Overfull \hbox (0.95615pt too wide) in paragraph at lines 83--115
-[][] 
+Underfull \hbox (badness 1097) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ек-ти-ва к ка-ме-ре че-рез удли-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-тель-ное коль-цо вы-со-той
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 h = 25 мм (таe-же с ми-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-маль-но воз-мож-но-го рас-
+ []
+
+
+Underfull \hbox (badness 5359) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 сто-я-ния). Най-ди-те от-но-ше-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ние раз-ме-ров изоб-ра-же-ний,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 по-лу-чен-ных на фо-томплјн-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ке в этих двух слу-ча-ях.
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 22--22
+[]\T2A/cmr/m/n/10 So far while specifying the
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 22
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[] []|[] []
+ []
+
+File: image.png Graphic file (type png)
+<use image.png>
+Package pdftex.def Info: image.png  used on input line 22.
+(pdftex.def)             Requested size: 145.137pt x 116.55298pt.
+
+Underfull \hbox (badness 2828) in paragraph at lines 22--22
+|\T2A/cmr/bx/n/10 Ф617. \T2A/cmr/m/it/10 Га-зет-ный текст фо-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 то-гра-фи-ру-ет-ся ап-па-ра-том
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ѕЗе-нитї c объ-ек-ти-вом, име-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ю-щим фо-кус-ное рас-сто-я-ние
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 2) по-сле при-со-еди-не-ния объ-
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ек-ти-ва к ка-ме-ре че-рез удли-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-тель-ное коль-цо вы-со-той
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 h = 25 мм (таe-же с ми-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-маль-но воз-мож-но-го рас-
+ []
+
+
+Underfull \hbox (badness 5359) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 сто-я-ния). Най-ди-те от-но-ше-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ние раз-ме-ров изоб-ра-же-ний,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 по-лу-чен-ных на фо-томплјн-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ке в этих двух слу-ча-ях.
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 22--22
+[]\T2A/cmr/m/n/10 So far while specifying the
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 22
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[] []|[] []
+ []
+
+File: image.png Graphic file (type png)
+<use image.png>
+Package pdftex.def Info: image.png  used on input line 22.
+(pdftex.def)             Requested size: 145.137pt x 116.55298pt.
+
+Underfull \hbox (badness 2828) in paragraph at lines 22--22
+|\T2A/cmr/bx/n/10 Ф617. \T2A/cmr/m/it/10 Га-зет-ный текст фо-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 то-гра-фи-ру-ет-ся ап-па-ра-том
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ѕЗе-нитї c объ-ек-ти-вом, име-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ю-щим фо-кус-ное рас-сто-я-ние
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 2) по-сле при-со-еди-не-ния объ-
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ек-ти-ва к ка-ме-ре че-рез удли-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-тель-ное коль-цо вы-со-той
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 h = 25 мм (таe-же с ми-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-маль-но воз-мож-но-го рас-
+ []
+
+
+Underfull \hbox (badness 5359) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 сто-я-ния). Най-ди-те от-но-ше-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ние раз-ме-ров изоб-ра-же-ний,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 по-лу-чен-ных на фо-томплјн-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ке в этих двух слу-ча-ях.
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 22--22
+[]\T2A/cmr/m/n/10 So far while specifying the
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 22
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[] []|[] []
+ []
+
+File: image.png Graphic file (type png)
+<use image.png>
+Package pdftex.def Info: image.png  used on input line 22.
+(pdftex.def)             Requested size: 145.137pt x 116.55298pt.
+
+Underfull \hbox (badness 2828) in paragraph at lines 22--22
+|\T2A/cmr/bx/n/10 Ф617. \T2A/cmr/m/it/10 Га-зет-ный текст фо-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 то-гра-фи-ру-ет-ся ап-па-ра-том
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ѕЗе-нитї c объ-ек-ти-вом, име-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ю-щим фо-кус-ное рас-сто-я-ние
+ []
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 2) по-сле при-со-еди-не-ния объ-
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ек-ти-ва к ка-ме-ре че-рез удли-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-тель-ное коль-цо вы-со-той
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 h = 25 мм (таe-же с ми-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ни-маль-но воз-мож-но-го рас-
+ []
+
+
+Underfull \hbox (badness 5359) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 сто-я-ния). Най-ди-те от-но-ше-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ние раз-ме-ров изоб-ра-же-ний,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 по-лу-чен-ных на фо-томплјн-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\T2A/cmr/m/it/10 ке в этих двух слу-ча-ях.
+ []
+
+
+Underfull \hbox (badness 2809) in paragraph at lines 22--22
+[]\T2A/cmr/m/n/10 So far while specifying the
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 22
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 22
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./image.png>] [2] (./6.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./image.png>] (./6.aux) ) 
 Here is how much of TeX's memory you used:
- 5047 strings out of 476041
- 80200 string characters out of 5793163
- 1871388 words of memory out of 6000000
- 25412 multiletter control sequences out of 15000+600000
- 518906 words of font info for 46 fonts, out of 8000000 for 9000
+ 4024 strings out of 476041
+ 65545 string characters out of 5793163
+ 1864388 words of memory out of 6000000
+ 24428 multiletter control sequences out of 15000+600000
+ 514775 words of font info for 35 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 57i,14n,62p,487b,252s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on 6.pdf (2 pages, 178903 bytes).
+ 57i,8n,62p,799b,362s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on 6.pdf (1 page, 68413 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 27 PDF objects out of 1000 (max. 8388607)
+ 15 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
