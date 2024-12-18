@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8x]{inputenc} % поддержка utf8
+\usepackage[english,russian]{babel} % переносы
+\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{tikz} % рисование
+\usepackage{amssymb}
+\usepackage{tabularx} % таблички
+\usepackage{setspace}
+
+\usepackage[margin=2cm,bottom=1.5cm]{geometry} % отступ сбоку
+
+\usepackage{graphicx}
+\usepackage{wrapfig} % удержание текста около фигур
+
+\pagestyle{empty} % убираем нумерацию
+
+\definecolor{myorange}{HTML}{d94d1a}
+\definecolor{myyellow}{HTML}{f2b31a}
+
+\newcommand{\solidline}[6]{
+    \begin{tikzpicture}[scale=1.5, line width=2pt]
+        \draw[#6, #3] (#4,1) -- (#5,1);
+        
+        \node[above] at (#4,1) {\tiny #1};
+        \node[above] at (#5,1) {\tiny #2};
+    \end{tikzpicture}
+}
+
+\newcommand{\longline}[3]{
+    \solidline{#1}{#2}{#3}{1}{1.6}{}
+}
+
+\newcommand{\shortline}[3]{
+    \solidline{#1}{#2}{#3}{1}{1.4}{}
+}
+
+\newcommand{\shortdashedline}[3]{
+    \solidline{#1}{#2}{#3}{1}{1.4}{dashed}
+}
+
+\newcommand{\splitline}[2]{
+    \begin{tikzpicture}[scale=1.5, line width=2pt]
+        \draw[black] (1,1) -- (1.3,1);
+        \draw[dashed, black] (1.3,1) -- (1.6,1);
+        \node[above] at (1,1) {\tiny #1};
+        \node[above] at (1.6,1) {\tiny #2};
+    \end{tikzpicture}
+}
+
+
+
+\begin{document}
+
+
+\begin{tabular}{p{0.2\textwidth}p{0.7\textwidth}}
+    test
+
+    &
+
+    {4\raisebox{0.1em}{0}} \hspace{1cm} КНИГА I ПРЕДЛ. XVI. ТЕОРЕМА
+
+    \begin{wrapfigure}[7]{l}{0.19\textwidth}
+        \includegraphics[width=0.2\textwidth]{capital.png}
+    \end{wrapfigure}
+    \begin{spacing}{1.2}
+        \large \textit{ \newline ри продолжении стороны треугольника}
+        \begin{tikzpicture}[scale=0.5, line width=2.5pt]
+            \node[below left] at (0,1) {\small A};
+            \node[above] at (1,4) {\small B};
+            \node[below right] at (2,1) {\small C};
+            \draw[dashed, myyellow] (1, 4) -- (0,1);
+            \draw[dashed, blue] (1, 4) -- (1.5, 2.5);
+            \draw[blue] (1.5, 2.5) -- (2, 1);
+            \draw[black] (0,1) -- (2, 1);
+        \end{tikzpicture}
+        \large \textit{ внешний угол }
+    \end{spacing}
+    
+
+\end{tabular}
+
+
+
+\end{document}
