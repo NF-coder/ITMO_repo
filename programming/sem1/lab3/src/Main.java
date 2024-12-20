@@ -2,6 +2,8 @@ package src;
 
 import src.Character.Skuperfild;
 import src.Clothes.Cloth;
+import src.Locations.FieldEnd;
+import src.Locations.FieldMiddle;
 import src.Locations.FieldStart;
 import src.Locations.Location;
 
@@ -13,6 +15,8 @@ public class Main {
         Character1.setCloth(Cloth1);
 
         FieldStart Location1 = new FieldStart(Character1);
-        Location1.run();
+        FieldMiddle Location2 = (FieldMiddle) Location1.run();
+        FieldEnd Location3 = (FieldEnd) Location2.run();
+        Location3.run();
     }
 }
