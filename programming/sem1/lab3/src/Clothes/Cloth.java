@@ -1,6 +1,6 @@
 package src.Clothes;
 
-import src.IBasicObj;
+/*import src.IBasicObj;
 
 public abstract class Cloth implements IBasicObj {
     private final int id;
@@ -14,10 +14,12 @@ public abstract class Cloth implements IBasicObj {
         this.id = 0;
     }
 
-    public void stepPotatoes(){
+    public void makeStep(){
         potatoesCount -= stepIncriment;
     }
 
     public String getName(){ return this.name; }
     public int getId(){ return this.id; }
-}
+}*/
+
+public record Cloth(String name, int stepIncriment) { }

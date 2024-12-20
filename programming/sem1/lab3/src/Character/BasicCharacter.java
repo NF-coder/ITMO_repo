@@ -8,6 +8,7 @@ public abstract class BasicCharacter implements IBasicObj {
     private final int id;
     protected Cloth cloth;
     private int energy;
+    private int potatoes;
 
     // init
     public BasicCharacter(String name) {
@@ -16,20 +17,15 @@ public abstract class BasicCharacter implements IBasicObj {
     }
 
     // Cloth setter
-    public void setCloth(Cloth cloth){
-        this.cloth = cloth;
-    }
+    public void setCloth(Cloth cloth){ this.cloth = cloth; }
 
-    // Energy getter/setter + increment
-    public void setEnergy(int energy){
-        this.energy = energy;
-    }
-    public int getEnergy(){
-        return this.energy;
-    }
-    public void makeEnergyStep(){
-        this.energy -= 1;
-    }
+    // Energy getter/setter
+    public void setEnergy(int energy) { this.energy = energy; }
+    public int getEnergy(){ return this.energy; }
+
+    // Potatoes getter/setter
+    public void setPotatoes(int potatoes) { this.potatoes = energy; }
+    public int getPotatoes(){ return this.potatoes; }
 
     // IBasicObj getters
     public String getName(){ return this.name; }
