@@ -18,5 +18,7 @@ public class Main {
         FieldMiddle Location2 = (FieldMiddle) Location1.run();
         FieldEnd Location3 = (FieldEnd) Location2.run();
         Location3.run();
+        
+        System.out.println();
     }
 }
