@@ -1,2 +1,2 @@
-javac -d bin -classpath ./lib/*:./bin/:./ ./src/Main.java
-cd bin; jar cfm ../Main.jar ../Manifest.mf src/; cd ..
+javac -d bin -classpath ./bin/:./ ./src/Main.java
+cd bin; jar cfm ../Main.jar ../MANIFEST.mf src/; cd ..

@@ -1,6 +1,7 @@
 package src.Locations;
 
 import src.Character.BasicCharacter;
+import src.Character.NegativePotatoesException;
 import src.Clothes.Cloth;
 import src.Clothes.ClothesEnum;
 import src.Locations.FieldStartPkg.GroundType;
@@ -36,7 +37,8 @@ public class FieldStart extends Location {
         final String characterName = character.getName();
         final int potatoesCnt = this.rnd.nextInt(1, 20);
 
-        character.setPotatoes(potatoesCnt);
+        try { character.setPotatoes(potatoesCnt); }
+        catch (NegativePotatoesException e){ System.out.println("Error: Potatoes cannot be negative "); }
 
         int pickGround = rnd.nextInt(GroundType.values().length);
 

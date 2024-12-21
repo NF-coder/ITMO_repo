@@ -28,7 +28,7 @@ public abstract class BasicCharacter implements IBasicObj {
     public int getEnergy(){ return this.energy; }
 
     // Potatoes getter/setter
-    public void setPotatoes(int potatoes) {
+    public void setPotatoes(int potatoes) throws NegativePotatoesException{
         if (potatoes < 0){throw new NegativePotatoesException();}
         this.potatoes = potatoes;
     }
@@ -39,7 +39,8 @@ public abstract class BasicCharacter implements IBasicObj {
     public int getId(){ return this.id; }
 
     public void throwPotatoes(){
-        this.setPotatoes(0);
+        try { this.setPotatoes(0); }
+        catch (NegativePotatoesException e){ System.out.println("Error: Potatoes cannot be negative "); }
         System.out.print(this.getName() + " швырнул картофель в сторону. ");
     }
 
