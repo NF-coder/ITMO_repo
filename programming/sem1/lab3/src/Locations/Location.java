@@ -2,7 +2,7 @@ package src.Locations;
 
 import src.Character.BasicCharacter;
 import src.IBasicObj;
-
+import java.util.Objects;
 import java.util.Random;
 
 public abstract class Location implements IBasicObj {
@@ -23,4 +23,25 @@ public abstract class Location implements IBasicObj {
 
     public String getName(){return name;}
     public int getId(){return id;}
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location loc = (Location) o;
+        return getName().equals(loc.getName()) && getCharacter().equals(loc.getCharacter());
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "name=" + this.getName() +
+                ", character=" + this.getCharacter() +
+                '}';
+    }
 }

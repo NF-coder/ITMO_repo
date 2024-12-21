@@ -2,6 +2,9 @@ package src.Character;
 
 import src.Clothes.Cloth;
 import src.IBasicObj;
+import src.Locations.Location;
+
+import java.util.Objects;
 
 public abstract class BasicCharacter implements IBasicObj {
     private final String name;
@@ -34,7 +37,32 @@ public abstract class BasicCharacter implements IBasicObj {
 
     public void throwPotatoes(){
         this.setPotatoes(0);
-        System.out.println(this.getName() + " швырнул картофель в сторону.");
+        System.out.print(this.getName() + " швырнул картофель в сторону. ");
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName(), this.getEnergy(), this.getPotatoes());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BasicCharacter character = (BasicCharacter) o;
+        return this.getName().equals(character.getName()) &&
+                this.getCloth().equals(character.getCloth()) &&
+                this.getEnergy() == character.getEnergy() &&
+                this.getPotatoes() == character.getPotatoes();
+    }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name=" + this.getName() +
+                ", energy=" + this.getEnergy() +
+                ", potatoes=" + this.getPotatoes() +
+                ", cloth=" + this.getCloth() +
+                '}';
+    }
 }

@@ -1,13 +1,15 @@
 package src.Random;
 
 
+import src.Clothes.ClothesEnum;
+
 import java.util.Random;
 
-public class RandomWrapper {
-    protected final Random rnd = new Random();
+public class RandomWrapper extends Random{
+    public final Random rnd = new Random();
 
-    /*public String enumRandomPick(T[] aValues){
-        int pick = this.rnd.nextInt(aValues.length);
-        return aValues[pick];
+    /*public <T> String enumRandomPick(T enumItem){
+        int pick = rnd.nextInt(enumItem.values().length);
+        return enumItem.values()[pick];
     }*/
 }
