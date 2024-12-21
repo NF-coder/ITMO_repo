@@ -28,7 +28,10 @@ public abstract class BasicCharacter implements IBasicObj {
     public int getEnergy(){ return this.energy; }
 
     // Potatoes getter/setter
-    public void setPotatoes(int potatoes) { this.potatoes = potatoes; }
+    public void setPotatoes(int potatoes) {
+        if (potatoes < 0){throw new NegativePotatoesException();}
+        this.potatoes = potatoes;
+    }
     public int getPotatoes(){ return this.potatoes; }
 
     // IBasicObj getters

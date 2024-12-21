@@ -1,6 +1,7 @@
 package src.Locations;
 
 import src.Character.BasicCharacter;
+import src.Character.NegativePotatoesException;
 
 public class FieldMiddle extends Location{
 
@@ -21,12 +22,15 @@ public class FieldMiddle extends Location{
                 rnd.nextInt(0, fieldLenght+halvedPotatoes)
         );
 
-        if (character.getCloth().stepIncriment()*fieldLenght > character.getPotatoes()){
+        try {
+            character.setPotatoes(
+                    character.getPotatoes()-character.getCloth().stepIncriment()*fieldLenght
+            );
+        } catch (NegativePotatoesException e){
             System.out.print("В какой-то момент " +
                     character.getName() +
                     " ощутил необычайную лёгкость и решил проверить карманы. Он обнаружил, что из прорех вывалился весь картофель, "
             );
-
 
             try {
                 reclaimPotatoes = rnd.nextInt(0,halvedPotatoes);
@@ -35,7 +39,7 @@ public class FieldMiddle extends Location{
                 } else {
                     System.out.print("он решил не подбирать картофель и пойти дальше. ");
                 }
-            } catch (IllegalArgumentException e){ // bound must be greater than origin
+            } catch (IllegalArgumentException e2){ // bound must be greater than origin
                 System.out.print("он решил не подбирать картофель и пойти дальше. ");
             }
         }
