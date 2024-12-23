@@ -17,7 +17,7 @@ public class Main {
         FieldMiddle Location2 = (FieldMiddle) Location1.run();
         FieldEnd Location3 = (FieldEnd) Location2.run();
         try { Location3.run(); }
-        catch (NullPointerException e){ return; }
+        catch (NullPointerException e){ }
         
         System.out.println();
     }
