@@ -1,4 +1,4 @@
-package src.Locations.FieldEndPkg;
+package src.Locations.LocationsEnums;
 
 public enum SmellType {
     SMOKE, FOOD;

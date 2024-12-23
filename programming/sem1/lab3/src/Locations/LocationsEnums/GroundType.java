@@ -1,4 +1,4 @@
-package src.Locations.FieldStartPkg;
+package src.Locations.LocationsEnums;
 
 public enum GroundType {
     SOIL, SAND;

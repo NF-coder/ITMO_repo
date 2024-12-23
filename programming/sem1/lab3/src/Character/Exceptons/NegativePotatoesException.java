@@ -1,4 +1,4 @@
-package src.Character;
+package src.Character.Exceptons;
 
 public class NegativePotatoesException extends Exception {
     public NegativePotatoesException() {

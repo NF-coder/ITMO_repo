@@ -1,15 +1,15 @@
 package src.Locations;
 
-import src.Character.BasicCharacter;
 import src.IBasicObj;
+import src.Random.RandomWrapper;
 import java.util.Objects;
-import java.util.Random;
+import src.Character.BasicCharacter;
 
 public abstract class Location implements IBasicObj {
     private int id;
     private final String name;
-    protected final Random rnd = new Random();
     private BasicCharacter character;
+    protected final RandomWrapper rnd = new RandomWrapper();
 
     public Location(String name, BasicCharacter character) {
         this.name = name;
