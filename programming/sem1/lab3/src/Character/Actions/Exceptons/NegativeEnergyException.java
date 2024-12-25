@@ -1,4 +1,4 @@
-package src.Character.Exceptons;
+package src.Character.Actions.Exceptons;
 
 public class NegativeEnergyException extends Exception {
     public NegativeEnergyException() {

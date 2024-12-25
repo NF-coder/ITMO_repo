@@ -1,13 +1,10 @@
 package src.Clothes;
-import src.Character.Exceptons.NegativePotatoesException;
+import src.Character.Actions.Exceptons.NegativePotatoesException;
 import src.IBasicObj;
-import src.Locations.Location;
 import src.Objects.Potato;
 import src.Random.RandomWrapper;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Objects;
 
 public class Cloth implements IBasicObj {

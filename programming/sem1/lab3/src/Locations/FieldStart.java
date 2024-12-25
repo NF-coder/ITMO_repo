@@ -9,7 +9,7 @@ public class FieldStart extends Location {
         super("FieldStart", character);
     }
 
-    public Location run(){
+    public Location execute(){
         final BasicCharacter character = this.getCharacter();
         final int potatoesCnt = rnd.randomizePotatoes();
         final GroundType groundType = rnd.randomizeGroundType();
@@ -27,7 +27,7 @@ public class FieldStart extends Location {
                             " " +
                             potatoesCnt +
                             " картофелин в карман "+
-                            character.getCloth().getName() +
+                            character.characterName.getName() +
                             ". "
                     );
                     character.checkIfClothBroken();
@@ -38,16 +38,16 @@ public class FieldStart extends Location {
                         " " +
                         potatoesCnt +
                         " картофелин в карман " +
-                        character.getCloth().getName() +
+                        character.characterCloth.getCloth().getName() +
                         ". "
                 );
                 character.checkIfClothBroken();
             }
         } else {
-            System.out.print("Затем он быстро суёт их в карман " +  character.getCloth().getName() + ". ");
+            System.out.print("Затем он быстро суёт их в карман " + character.characterCloth.getCloth().getName() + ". ");
             character.checkIfClothBroken();
         }
 
-        return new FieldMiddle(character);
+        return new FieldMiddle(character, groundType);
     }
 }

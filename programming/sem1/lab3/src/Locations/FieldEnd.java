@@ -1,51 +1,36 @@
 package src.Locations;
 
-import src.Character.StepsEnums.StepStatusAfterReclaim;
 import src.Character.BasicCharacter;
+import src.Character.Actions.StepsEnums.StepStatus;
+import src.Locations.FieldMethods.FieldLenght;
 
 public class FieldEnd extends Location{
-    private int fieldLenght;
-
-    private void setFieldLenght(int fieldLenght) {
-        this.fieldLenght = fieldLenght;
-    }
-    private int getFieldLenght() {return this.fieldLenght;}
-    private void incrementFieldLenght(){
-        this.setFieldLenght(this.getFieldLenght()-1);
-    }
+    final private FieldLenght fieldLenght = new FieldLenght();
 
     public FieldEnd(BasicCharacter character, int fieldLenght) {
         super("FieldEnd", character);
-        this.fieldLenght = fieldLenght;
+        this.fieldLenght.setFieldLenght(fieldLenght);
     }
 
-    public Location run(){
+    public Location execute(){
         BasicCharacter character = this.getCharacter();
         character.tellBadWords();
 
-        StepStatusAfterReclaim lastStepStatus = StepStatusAfterReclaim.OK;
-        while (this.getFieldLenght() != 0){
+        StepStatus lastStepStatus = StepStatus.OK;
+        while (this.fieldLenght.getFieldLenght() != 0){
             lastStepStatus = character.makeStepAfterReclaim();
-            if (lastStepStatus == StepStatusAfterReclaim.OK){
-                this.incrementFieldLenght();
+            if (lastStepStatus == StepStatus.OK){
+                this.fieldLenght.incrementFieldLenght();
             }
             else{break;}
         }
 
-        if (lastStepStatus == StepStatusAfterReclaim.LAST_STEP) {
-            System.out.print("Он еле-еле смог доползти до конца поля и ступив на твёрдую землю он сразу лёг в траву и уснул.");
+        if (lastStepStatus == StepStatus.LAST_STEP) {
+            character.sleepOnGround();
         } else {
-            System.out.print("Как и следовало ожидать, ему все же удалось в конце концов добраться до края картофельного поля. " +
-                    "Выбравшись на твердую почву, Скуперфильд облегченно вздохнул "
-            );
-
-            if (rnd.randomizeCanSmell()){
-                System.out.print("и в тот же момент ощутил доносившийся откуда-то запах " +
-                        rnd.randomizeSmell() +
-                        ". От этого запаха на него словно повеяло теплом и домашним уютом.");
-            } else {
-                System.out.print(". Он ещё никогда не был так рад ощущать траву под ногами.");
-            }
+            character.leaveField();
+            if (rnd.randomizeCanSmell()){ character.smellFood(); }
+            else { character.enjoyGrass(); }
         }
 
         return null;
