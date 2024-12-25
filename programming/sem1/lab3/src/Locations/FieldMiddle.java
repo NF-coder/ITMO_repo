@@ -17,14 +17,13 @@ public class FieldMiddle extends Location{
 
     public Location execute(){
         BasicCharacter character = this.getCharacter();
-        int reclaimPotatoes = 0;
         character.characterEnergy.setEnergy(
                 rnd.randomizeEnergy(this.fieldLenght.getFieldLenght(),
                         character.characterCloth.getCloth().getPotatoesCount()
                 )
         );
 
-        System.out.print("Шагать по " +  groundType + ", беспрерывно путаясь ногами в картофельной ботве, было очень утомительно. ");
+        character.getTiredOfWalk(this.groundType);
 
         StepStatus lastStepStatus = StepStatus.OK;
         while (this.fieldLenght.getFieldLenght() != 0){
@@ -36,15 +35,13 @@ public class FieldMiddle extends Location{
         }
         if (lastStepStatus == StepStatus.NOT_ENOUGH_POTATOES) {
             try {
-
+                character.reclaimPotatoes(this.fieldLenght);
             } catch (IllegalArgumentException e2) { character.goFurther(); }
         }
         else if (lastStepStatus == StepStatus.NOT_ENOUGH_ENERGY) {
             character.becomeTired();
             return null;
         }
-
-
 
         return new FieldEnd(character, this.fieldLenght.getFieldLenght());
     }

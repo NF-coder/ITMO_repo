@@ -6,6 +6,7 @@ import src.Character.Actions.StepsEnums.StepStatus;
 import src.Character.CharacterMethods.CharacterEnergy;
 import src.Character.CharacterMethods.CharacterName;
 import src.IBasicObj;
+import src.Locations.FieldMethods.FieldLenght;
 import src.Locations.LocationsEnums.GroundType;
 import src.Random.RandomWrapper;
 import src.Character.CharacterMethods.CharacterLocation;
@@ -34,7 +35,10 @@ public class BasicCharacter implements IBasicObj {
     private final GoFurther goFurther = new GoFurther();
     private final BecomeTired becomeTired = new BecomeTired();
     private final SleepOnGround sleepOnGround = new SleepOnGround();
-    public final LeaveField leaveField = new LeaveField(characterName);
+    private final LeaveField leaveField = new LeaveField(characterName);
+    private final ReclaimPotatoes reclaimPotatoes = new ReclaimPotatoes(rnd, characterEnergy, characterCloth, goFurther);
+    private final GetTiredOfWalk getTiredOfWalk = new GetTiredOfWalk();
+    private final SavePotatoes savePotatoes = new SavePotatoes(characterCloth, characterName);
 
 
     // init
@@ -63,6 +67,12 @@ public class BasicCharacter implements IBasicObj {
     public void becomeTired(){ this.becomeTired.becomeTired(); }
     public void sleepOnGround(){ this.sleepOnGround.sleepOnGround(); }
     public void leaveField(){ this.leaveField.leaveField(); }
+    public void reclaimPotatoes(FieldLenght fieldLenght){ this.reclaimPotatoes.reclaimPotatoes(fieldLenght); }
+    public void getTiredOfWalk(GroundType groundType){this.getTiredOfWalk.getTiredOfWalk(groundType);}
+    public void saveUnusefulPotatoes(GroundType groundType, int potatoesCnt){ savePotatoes.saveUnusefulPotatoes(groundType, potatoesCnt); }
+    public void saveUsefulPotatoes(GroundType groundType, int potatoesCnt){ savePotatoes.saveUsefulPotatoes(groundType, potatoesCnt); }
+    public void savePotatoesFastly(){ savePotatoes.savePotatoesFastly(); }
+
 
     // IBasicObj Implementation
     public String getName(){ return this.characterName.getName(); }

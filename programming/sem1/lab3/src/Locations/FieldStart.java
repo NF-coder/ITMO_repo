@@ -22,29 +22,15 @@ public class FieldStart extends Location {
                 if (rnd.nextFloat(0,1) < 0.7f){
                     character.throwPotatoes();
                 } else {
-                    System.out.print("Сообразив, однако, что никто не стал бы выращивать совершенно бесполезных плодов, он сунул вытащенные из " +
-                            groundType +
-                            " " +
-                            potatoesCnt +
-                            " картофелин в карман "+
-                            character.characterName.getName() +
-                            ". "
-                    );
+                    character.saveUnusefulPotatoes(groundType, potatoesCnt);
                     character.checkIfClothBroken();
                 }
             } else {
-                System.out.print(", поэтому он сунул вытащенные из " +
-                        groundType +
-                        " " +
-                        potatoesCnt +
-                        " картофелин в карман " +
-                        character.characterCloth.getCloth().getName() +
-                        ". "
-                );
+                character.saveUsefulPotatoes(groundType, potatoesCnt);
                 character.checkIfClothBroken();
             }
         } else {
-            System.out.print("Затем он быстро суёт их в карман " + character.characterCloth.getCloth().getName() + ". ");
+            character.savePotatoesFastly();
             character.checkIfClothBroken();
         }
 
