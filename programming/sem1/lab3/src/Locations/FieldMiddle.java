@@ -39,7 +39,7 @@ public class FieldMiddle extends Location{
             } catch (IllegalArgumentException e2) { character.goFurther.goFurther(); }
         }
         else if (lastStepStatus == StepStatus.NOT_ENOUGH_ENERGY) {
-            character.goFurther.goFurther();
+            character.becomeTired.becomeTired();
 
             character.characterLocation.setLocation(null);
         }
