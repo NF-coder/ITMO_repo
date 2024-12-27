@@ -15,7 +15,7 @@ public class FieldMiddle extends Location{
         this.groundType = groundType;
     }
 
-    public Location execute(){
+    public void execute(){
         BasicCharacter character = this.getCharacter();
         character.characterEnergy.setEnergy(
                 rnd.randomizeEnergy(this.fieldLenght.getFieldLenght(),
@@ -23,7 +23,7 @@ public class FieldMiddle extends Location{
                 )
         );
 
-        character.getTiredOfWalk(this.groundType);
+        character.getTiredOfWalk.getTiredOfWalk(this.groundType);
 
         StepStatus lastStepStatus = StepStatus.OK;
         while (this.fieldLenght.getFieldLenght() != 0){
@@ -35,14 +35,15 @@ public class FieldMiddle extends Location{
         }
         if (lastStepStatus == StepStatus.NOT_ENOUGH_POTATOES) {
             try {
-                character.reclaimPotatoes(this.fieldLenght);
-            } catch (IllegalArgumentException e2) { character.goFurther(); }
+                character.reclaimPotatoes.reclaimPotatoes(this.fieldLenght);
+            } catch (IllegalArgumentException e2) { character.goFurther.goFurther(); }
         }
         else if (lastStepStatus == StepStatus.NOT_ENOUGH_ENERGY) {
-            character.becomeTired();
-            return null;
+            character.goFurther.goFurther();
+
+            character.characterLocation.setLocation(null);
         }
 
-        return new FieldEnd(character, this.fieldLenght.getFieldLenght());
+        character.characterLocation.setLocation(new FieldEnd(character, this.fieldLenght.getFieldLenght()));
     }
 }

@@ -20,7 +20,7 @@ public abstract class Location implements IBasicObj {
     private void setCharacter(BasicCharacter character){this.character = character;}
     protected BasicCharacter getCharacter(){return this.character;}
 
-    abstract public Location execute();
+    abstract public void execute();
 
     public String getName(){return name;}
     public int getId(){return id;}

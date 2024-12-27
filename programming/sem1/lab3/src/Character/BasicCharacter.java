@@ -24,21 +24,21 @@ public class BasicCharacter implements IBasicObj {
     public final CharacterLocation characterLocation = new CharacterLocation();
 
     // actions
-    private final MakeSteps makeSteps = new MakeSteps(characterEnergy, characterName);
-    private final TellBadWords tellBadWords = new TellBadWords(characterName);
-    private final BitePotato bitePotato = new BitePotato(rnd);
-    private final ThrowPotatoes throwPotatoes = new ThrowPotatoes(characterCloth, characterName);
-    private final CheckIfClothBroken checkIfClothBroken = new CheckIfClothBroken(characterCloth);
-    private final ClaimPotatoes claimPotatoes = new ClaimPotatoes(characterCloth, characterName);
-    private final SmellFood smellFood = new SmellFood(rnd);
-    private final EnjoyGrass enjoyGrass = new EnjoyGrass();
-    private final GoFurther goFurther = new GoFurther();
-    private final BecomeTired becomeTired = new BecomeTired();
-    private final SleepOnGround sleepOnGround = new SleepOnGround();
-    private final LeaveField leaveField = new LeaveField(characterName);
-    private final ReclaimPotatoes reclaimPotatoes = new ReclaimPotatoes(rnd, characterEnergy, characterCloth, goFurther);
-    private final GetTiredOfWalk getTiredOfWalk = new GetTiredOfWalk();
-    private final SavePotatoes savePotatoes = new SavePotatoes(characterCloth, characterName);
+    public final MakeSteps makeSteps = new MakeSteps(characterEnergy, characterName);
+    public final TellBadWords tellBadWords = new TellBadWords(characterName);
+    public final BitePotato bitePotato = new BitePotato(rnd);
+    public final ThrowPotatoes throwPotatoes = new ThrowPotatoes(characterCloth, characterName);
+    public final CheckIfClothBroken checkIfClothBroken = new CheckIfClothBroken(characterCloth);
+    public final ClaimPotatoes claimPotatoes = new ClaimPotatoes(characterCloth, characterName);
+    public final SmellFood smellFood = new SmellFood(rnd);
+    public final EnjoyGrass enjoyGrass = new EnjoyGrass();
+    public final GoFurther goFurther = new GoFurther();
+    public final BecomeTired becomeTired = new BecomeTired();
+    public final SleepOnGround sleepOnGround = new SleepOnGround();
+    public final LeaveField leaveField = new LeaveField(characterName);
+    public final ReclaimPotatoes reclaimPotatoes = new ReclaimPotatoes(rnd, characterEnergy, characterCloth, goFurther);
+    public final GetTiredOfWalk getTiredOfWalk = new GetTiredOfWalk();
+    public final SavePotatoes savePotatoes = new SavePotatoes(characterCloth, characterName);
 
 
     // init
@@ -48,30 +48,11 @@ public class BasicCharacter implements IBasicObj {
     }
 
     // Actions methods
-    public void throwPotatoes(){ this.throwPotatoes.throwPotatoes();}
-    public void checkIfClothBroken(){ this.checkIfClothBroken.checkIfClothBroken(); }
-    public void claimPotatoes(int potatoesCnt, GroundType groundType){
-        this.claimPotatoes.claimPotatoes(potatoesCnt, groundType);
-    }
-    public boolean bite(){ return bitePotato.bite(); }
     public StepStatus makeStep(){
         return this.makeSteps.makeStep(
                 characterCloth.getCloth()
         );
     }
-    public StepStatus makeStepAfterReclaim(){ return this.makeSteps.makeStepAfterReclaim(); }
-    public void tellBadWords(){ this.tellBadWords.tellBadWords(); }
-    public void smellFood(){ this.smellFood.smellFood(); }
-    public void enjoyGrass(){ this.enjoyGrass.enjoyGrass(); }
-    public void goFurther(){ this.goFurther.goFurther(); }
-    public void becomeTired(){ this.becomeTired.becomeTired(); }
-    public void sleepOnGround(){ this.sleepOnGround.sleepOnGround(); }
-    public void leaveField(){ this.leaveField.leaveField(); }
-    public void reclaimPotatoes(FieldLenght fieldLenght){ this.reclaimPotatoes.reclaimPotatoes(fieldLenght); }
-    public void getTiredOfWalk(GroundType groundType){this.getTiredOfWalk.getTiredOfWalk(groundType);}
-    public void saveUnusefulPotatoes(GroundType groundType, int potatoesCnt){ savePotatoes.saveUnusefulPotatoes(groundType, potatoesCnt); }
-    public void saveUsefulPotatoes(GroundType groundType, int potatoesCnt){ savePotatoes.saveUsefulPotatoes(groundType, potatoesCnt); }
-    public void savePotatoesFastly(){ savePotatoes.savePotatoesFastly(); }
 
 
     // IBasicObj Implementation

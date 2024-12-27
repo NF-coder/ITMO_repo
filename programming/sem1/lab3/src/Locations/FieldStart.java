@@ -9,31 +9,31 @@ public class FieldStart extends Location {
         super("FieldStart", character);
     }
 
-    public Location execute(){
+    public void execute(){
         final BasicCharacter character = this.getCharacter();
         final int potatoesCnt = rnd.randomizePotatoes();
         final GroundType groundType = rnd.randomizeGroundType();
 
-        character.claimPotatoes(potatoesCnt, rnd.randomizeGroundType());
+        character.claimPotatoes.claimPotatoes(potatoesCnt, rnd.randomizeGroundType());
 
         if (rnd.nextFloat(0,1) < 0.7f){
 
-            if (!character.bite()){
+            if (!character.bitePotato.bite()){
                 if (rnd.nextFloat(0,1) < 0.7f){
-                    character.throwPotatoes();
+                    character.throwPotatoes.throwPotatoes();
                 } else {
-                    character.saveUnusefulPotatoes(groundType, potatoesCnt);
-                    character.checkIfClothBroken();
+                    character.savePotatoes.saveUnusefulPotatoes(groundType, potatoesCnt);
+                    character.checkIfClothBroken.checkIfClothBroken();
                 }
             } else {
-                character.saveUsefulPotatoes(groundType, potatoesCnt);
-                character.checkIfClothBroken();
+                character.savePotatoes.saveUsefulPotatoes(groundType, potatoesCnt);
+                character.checkIfClothBroken.checkIfClothBroken();
             }
         } else {
-            character.savePotatoesFastly();
-            character.checkIfClothBroken();
+            character.savePotatoes.savePotatoesFastly();
+            character.checkIfClothBroken.checkIfClothBroken();
         }
 
-        return new FieldMiddle(character, groundType);
+        character.characterLocation.setLocation(new FieldMiddle(character, groundType));
     }
 }

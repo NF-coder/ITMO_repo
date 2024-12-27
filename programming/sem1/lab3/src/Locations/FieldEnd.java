@@ -12,27 +12,27 @@ public class FieldEnd extends Location{
         this.fieldLenght.setFieldLenght(fieldLenght);
     }
 
-    public Location execute(){
+    public void execute(){
         BasicCharacter character = this.getCharacter();
-        character.tellBadWords();
+        character.tellBadWords.tellBadWords();
 
         StepStatus lastStepStatus = StepStatus.OK;
         while (this.fieldLenght.getFieldLenght() != 0){
-            lastStepStatus = character.makeStepAfterReclaim();
+            lastStepStatus = character.makeSteps.makeStepAfterReclaim();
             if (lastStepStatus == StepStatus.OK){
                 this.fieldLenght.incrementFieldLenght();
             }
-            else{break;}
+            else{ break; }
         }
 
         if (lastStepStatus == StepStatus.LAST_STEP) {
-            character.sleepOnGround();
+            character.sleepOnGround.sleepOnGround();
         } else {
-            character.leaveField();
-            if (rnd.randomizeCanSmell()){ character.smellFood(); }
-            else { character.enjoyGrass(); }
+            character.leaveField.leaveField();
+            if (rnd.randomizeCanSmell()){ character.smellFood.smellFood(); }
+            else { character.enjoyGrass.enjoyGrass(); }
         }
 
-        return null;
+        character.characterLocation.setLocation(null);
     }
 }
