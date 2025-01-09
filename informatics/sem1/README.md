@@ -1,4 +1,4 @@
-# Результаты
+# Результаты ([link](https://docs.google.com/spreadsheets/d/1vIhmkY9Z-30JiWjab2qwmAQbAnjvldObVm6gKwgBNuU/edit?gid=0#gid=0))
 
 | № лабораторной | балл | балл БАРС | потери в БАРСе |
 | :---: | :---: | :---: | :---: |
