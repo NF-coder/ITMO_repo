@@ -1,4 +1,5 @@
 **/__pycache__/
+**/.idea/
+**/out/production/
 **/*.py[cod]
-**/out/production/*
-**/.idea/*
+
