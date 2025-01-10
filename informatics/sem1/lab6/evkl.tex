@@ -26,17 +26,16 @@
 \geometry{top=4em,right=2em,left=2em,bottom=4em}
 
 \newcommand{\myheading}{
-    \begin{flushright}
+    \begin{flushleft}
         \raisebox{0pt}[\headheight][30pt]{
             \vbox{
                 {4\raisebox{0.1em}{0}} \hspace{1cm} КНИГА I ПРЕДЛ. XVI. ТЕОРЕМА
             }   
         }
-    \end{flushright}
+    \end{flushleft}
 }
 
 \begin{document}
-\myheading
 
 \begin{minipage}[t]{0.3\textwidth}
     \hfill \\
@@ -71,6 +70,8 @@
      \end{center}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.57\textwidth}
+    \myheading
+
     \vspace{-0.2cm}
     \begin{wrapfigure}[2]{l}{0.2\linewidth}
         \vspace{-0.6cm}
@@ -79,204 +80,231 @@
     
     \slshape ри продолжении стороны треугольника
     
-    \hspace{0.1cm}\begin{tikzpicture}
+    \hspace{0.1cm}\begin{tikzpicture}[scale=0.9]
         \draw[dashed, orange, ultra thick] (-0.5,-1) --  (0,0);
         \draw[myblue, ultra thick] (0,0) --  (0.25, -0.5);
         \draw[dashed, myblue, ultra thick] (0.25,-0.5) --  (0.5, -1);
         \draw[black, ultra thick] (-0.5,-1) --  (0.5, -1);
-        \node[above] at (0,0) {{\tiny$B$}};
-        \node[left] at (-0.5,-1) {{\tiny$A$}};
-        \node[right] at (0.5, -1) {{\tiny$C$}};
+        \node[above] at (0,0) {\tiny B};
+        \node[left] at (-0.5,-1) {\tiny A};
+        \node[right] at (0.5, -1) {\tiny C};
     \end{tikzpicture}
     \raisebox{2em}{внешний угол}
     \begin{tikzpicture}
         \draw[black, ultra thick,fill=black] (2, -4) -- (1.7, -3.4)  arc(-250: -295: 0.7) -- cycle;
         \draw[black,ultra thick] (2, -4) -- (2.5, -4)  arc(-4:50:0.7) -- cycle;
-        \node[below] at (2, -4) {{\tiny$C$}};
-        \node[left] at (1.7, -3.4) {{\tiny$E$}};
-        \node[right] at (2.5, -4) {{\tiny$F$}};
-    \end{tikzpicture}
-    \raisebox{2em}{будет больше}
-    \raisebox{2em}{любого из противолежащих ему внутренних углов}
-    
-    \begin{tikzpicture}
-        \draw[black,fill=black] (0, 0) -- (0.35, -0.65)  arc(-60:-115:0.7) -- cycle;
-        \node[above] at (0,0) {{\tiny$B$}};
-        \node[below] at (0.35, -0.65) {{\tiny$C$}};
-        \node[below] at (-0.35, -0.65) {{\tiny$A$}};
-    \end{tikzpicture}
-    \raisebox{2em}{или}
-    \begin{tikzpicture}
-        \draw[myblue,fill=myblue] (-2, -4) --  (-1.4,-4) arc(0:55:0.7) -- cycle;
-        \node[above] at (-1.8, -3.5) {{\tiny$B$}};
-        \node[below] at (-2, -4) {{\tiny$A$}};
-        \node[below] at (-1.4,-4) {{\tiny$C$}};
-    \end{tikzpicture}
-    \raisebox{2em}{.}
-
-    \upshape
-    \begin{center}
-    Сделаем
-    \raisebox{0.2\height}{\begin{tikzpicture}
-        \draw[myblue,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny B};
-        \node[above] at (1,0) {\tiny E};
-    \end{tikzpicture}}
-    =
-    \raisebox{0.2\height}{\begin{tikzpicture}[]
-        \draw[dashed, myblue,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny E};
-        \node[above] at (1,0) {\tiny C};
-    \end{tikzpicture} (пр. I.{\tiny I0});} \newline
-    проведем
-    \begin{tikzpicture}
-        \draw[myorange,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny A};
-        \node[above] at (1,0) {\tiny E};
-    \end{tikzpicture}
-    и продлим до
-    \begin{tikzpicture}
-        \draw[dashed, myorange, ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny E};
-        \node[above] at (1,0) {\tiny D};
-    \end{tikzpicture}
-    . =
-    \begin{tikzpicture}
-        \draw[myorange, ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny A};
-        \node[above] at (1,0) {\tiny E};
-    \end{tikzpicture}
-    . 
-    \vspace{0.4cm}
-    проведем
-    \begin{tikzpicture}
-        \draw[myyellow,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny C};
-        \node[above] at (1,0) {\tiny D};
-    \end{tikzpicture}
-    . В 
-    \begin{tikzpicture}
-        \draw[dashed, myyellow, ultra thick] (-0.5,-1) --  (0,0);
-        \draw[myblue, ultra thick] (0,0) --  (0.25, -0.5);
-        \draw[myorange, ultra thick] (-0.5,-1) --  (0.25, -0.5);
-        \node[above] at (0,0) {\tiny B};
-        \node[left] at (-0.5,-1) {\tiny A};
-        \node[right] at (0.25, -0.5) {\tiny E};
-    \end{tikzpicture}
-    \text{ и }
-    \begin{tikzpicture}
-        \draw[dashed, myblue, ultra thick] (0.25,-0.5) --  (0.5, -1);
-        \draw[dashed, myorange, ultra thick] (0.25, -0.5) --  (0.75, 0);
-        \draw[myyellow, ultra thick] (0.75, 0) --  (0.5, -1);
-        \node[below] at (0.5, -1) {\tiny C};
-        \node[left] at (0.25, -0.5) {\tiny E};
-        \node[above] at (0.75, 0) {\tiny D};
-    \end{tikzpicture}
-    ;
-    \begin{tikzpicture}
-        \draw[myblue ,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny B};
-        \node[above] at (1,0) {\tiny E};
-    \end{tikzpicture}
-    =
-    \begin{tikzpicture}
-        \draw[dashed, myblue,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny E};
-        \node[above] at (1,0) {\tiny C};
-    \end{tikzpicture}
-    , 
-    \begin{tikzpicture}
-        \draw[myyellow,fill=myyellow] (1, -2) -- (0.5, -2.3)  arc(-160:-235:0.7) -- cycle;
-        \node[above] at (0.9, -1.6) {\tiny B};
-        \node[below] at (0.4, -2.3) {\tiny A};
-        \node[right] at (1, -2) {\tiny E};
-    \end{tikzpicture}
-    = 
-    \begin{tikzpicture}
-        \draw[myyellow,fill=myyellow] (1, -2) -- (1.3, -2.6)  arc(-50:35:0.7) -- cycle;
-        \node[below] at (1.4, -2.6) {\tiny D};
-        \node[above] at (1.4, -1.7) {\tiny C};
-        \node[left] at (1, -2) {\tiny E};
-    \end{tikzpicture} \\
-    (пр. I.{\tiny5}) и 
-    \begin{tikzpicture}
-        \draw[myorange ,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny A};
-        \node[above] at (1,0) {\tiny E};
-    \end{tikzpicture} =
-    \begin{tikzpicture}
-        \draw[dashed, myorange,ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny E};
-        \node[above] at (1,0) {\tiny D};
-    \end{tikzpicture}  (постр.), 
-
-    $\therefore$
-  
-    \begin{tikzpicture}
-        \draw[black,fill=black] (0, 0) -- (0.35, -0.65)  arc(-60:-115:0.7) -- cycle;
-        \node[above] at (0,0) {\tiny B};
-        \node[below] at (0.35, -0.65) {\tiny C};
-        \node[below] at (-0.35, -0.65) {\tiny A};
-    \end{tikzpicture} = 
-    \begin{tikzpicture}
-        \draw[black, ultra thick,fill=black] (2, -4) -- (1.7, -3.4)  arc(-250: -295: 0.7) -- cycle;
-        \node[above] at (2.3, -3.4) {\tiny E};
-        \node[above] at (1.7, -3.4) {\tiny D};
-        \node[below] at (2, -4) {\tiny C};
-    \end{tikzpicture} (пр. I.{\tiny 4}), \\
-    \begin{tikzpicture}
-        \draw[black, ultra thick,fill=black] (2, -4) -- (1.7, -3.4)  arc(-250: -295: 0.7) -- cycle;
-        \draw[black,ultra thick] (2, -4) -- (2.5, -4)  arc(-4:50:0.7) -- cycle;
         \node[below] at (2, -4) {\tiny C};
         \node[left] at (1.7, -3.4) {\tiny E};
         \node[right] at (2.5, -4) {\tiny F};
-    \end{tikzpicture} >
-    \begin{tikzpicture}
+    \end{tikzpicture}
+    \raisebox{2em}{будет больше}
+    \raisebox{2em}{
+        любого из противолежащих ему внутренних углов
+    }
+    \vfill
+    \vspace{-0.7cm}
+    \raisebox{0.3em}{\begin{tikzpicture}
         \draw[black,fill=black] (0, 0) -- (0.35, -0.65)  arc(-60:-115:0.7) -- cycle;
         \node[above] at (0,0) {\tiny B};
         \node[below] at (0.35, -0.65) {\tiny C};
         \node[below] at (-0.35, -0.65) {\tiny A};
-    \end{tikzpicture}. \\
-    Так же можно показать, что при \\
-    продлении
-    \begin{tikzpicture}
-        \draw[myblue, ultra thick] (0,0) -- (1,0);
-        \node[above] at (0,0) {\tiny B};
-        \node[above] at (1,0) {\tiny C};
-    \end{tikzpicture}, 
-    \begin{tikzpicture}
-        \draw[myorange,fill=myorange] (2, -4) -- (1.4, -4)  arc(185:290:0.7) -- cycle;
-        \node[above] at (2, -4) {\tiny G};
-        \node[below] at (2.3, -4.6) {\tiny A};
-        \node[below] at (1.2,-3.8) {\tiny C};
-    \end{tikzpicture} >
-    \begin{tikzpicture}
-    \draw[myblue,fill=myblue] (-2, -4) --  (-1.4,-4) arc(0:55:0.7) -- cycle;
+    \end{tikzpicture}}
+    \raisebox{2em}{или}
+    \raisebox{0.3em}{\begin{tikzpicture}
+        \draw[myblue,fill=myblue] (-2, -4) --  (-1.4,-4) arc(0:55:0.7) -- cycle;
         \node[above] at (-1.8, -3.5) {\tiny B};
         \node[below] at (-2, -4) {\tiny A};
         \node[below] at (-1.4,-4) {\tiny C};
+    \end{tikzpicture}}
+    \raisebox{2em}{.}
+    \vspace{0cm}
+    \upshape
+    \begin{center}
+    
+    \vfill
+        Сделаем
+        \raisebox{0.2\height}{\begin{tikzpicture}
+            \draw[myblue,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny B};
+            \node[above] at (1,0) {\tiny E};
+        \end{tikzpicture}}
+        =
+        \raisebox{0.2\height}{\begin{tikzpicture}[]
+            \draw[dashed, myblue,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny E};
+            \node[above] at (1,0) {\tiny C};
+        \end{tikzpicture} (пр. I.{\tiny I0});}
+    \vfill
+    \vfill
+        проведем
+        \raisebox{0.2\height}{\begin{tikzpicture}
+            \draw[myorange,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny A};
+            \node[above] at (1,0) {\tiny E};
+        \end{tikzpicture}}
+        и продлим до
+        \raisebox{0.2\height}{\begin{tikzpicture}
+            \draw[dashed, myorange, ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny E};
+            \node[above] at (1,0) {\tiny D};
+        \end{tikzpicture}}
+         =
+        \raisebox{0.2\height}{\begin{tikzpicture}
+            \draw[myorange, ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny A};
+            \node[above] at (1,0) {\tiny E};
+        \end{tikzpicture}}
+    \vfill
+    \vfill
+        \vspace{0cm} % DO NOT REMOVE!!!
+        \raisebox{1.8em}{проведем}
+        \raisebox{1.8em}{\begin{tikzpicture}
+            \draw[myyellow,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny C};
+            \node[above] at (1,0) {\tiny D};
+        \end{tikzpicture}}
+        \raisebox{1.8em}{. В} 
+        \begin{tikzpicture}
+            \draw[dashed, myyellow, ultra thick] (-0.5,-1) --  (0,0);
+            \draw[myblue, ultra thick] (0,0) --  (0.25, -0.5);
+            \draw[myorange, ultra thick] (-0.5,-1) --  (0.25, -0.5);
+            \node[above] at (0,0) {\tiny B};
+            \node[left] at (-0.5,-1) {\tiny A};
+            \node[right] at (0.25, -0.5) {\tiny E};
+        \end{tikzpicture}
+        \raisebox{1.8em}{ и }
+        \begin{tikzpicture}
+            \draw[dashed, myblue, ultra thick] (0.25,-0.5) --  (0.5, -1);
+            \draw[dashed, myorange, ultra thick] (0.25, -0.5) --  (0.75, 0);
+            \draw[myyellow, ultra thick] (0.75, 0) --  (0.5, -1);
+            \node[below] at (0.5, -1) {\tiny C};
+            \node[left] at (0.25, -0.5) {\tiny E};
+            \node[above] at (0.75, 0) {\tiny D};
+        \end{tikzpicture}
+        \raisebox{1.8em}{;}
+    \vfill
+    \vfill
+        \raisebox{1.8em}{\begin{tikzpicture}
+            \draw[myblue ,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny B};
+            \node[above] at (1,0) {\tiny E};
+        \end{tikzpicture}}
+        \raisebox{1.8em}{ = }
+        \raisebox{1.8em}{\begin{tikzpicture}
+            \draw[dashed, myblue,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny E};
+            \node[above] at (1,0) {\tiny C};
+        \end{tikzpicture}} 
+        \raisebox{1.8em}{ , }
+        \begin{tikzpicture}
+            \draw[myyellow,fill=myyellow] (1, -2) -- (0.5, -2.3)  arc(-160:-235:0.7) -- cycle;
+            \node[above] at (0.9, -1.6) {\tiny B};
+            \node[below] at (0.4, -2.3) {\tiny A};
+            \node[right] at (1, -2) {\tiny E};
+        \end{tikzpicture}
+        \raisebox{1.8em}{ = } 
+        \raisebox{-0.4em}{\begin{tikzpicture}
+            \draw[myyellow,fill=myyellow] (1, -2) -- (1.3, -2.6)  arc(-50:35:0.7) -- cycle;
+            \node[below] at (1.4, -2.6) {\tiny C};
+            \node[above] at (1.4, -1.7) {\tiny D};
+            \node[left] at (1, -2) {\tiny E};
+        \end{tikzpicture}}
+    \vfill
+    \vfill
+        (пр. I.{\tiny 15}) и 
+        \begin{tikzpicture}
+            \draw[myorange ,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny A};
+            \node[above] at (1,0) {\tiny E};
+        \end{tikzpicture} =
+        \begin{tikzpicture}
+            \draw[dashed, myorange,ultra thick] (0,0) -- (1,0);
+            \node[above] at (0,0) {\tiny E};
+            \node[above] at (1,0) {\tiny D};
+        \end{tikzpicture}  (постр.), 
+    \vfill
+    
+    \vfill
+        \raisebox{1.8em}{$\therefore$}
+        \begin{tikzpicture}
+            \draw[black,fill=black] (0, 0) -- (0.35, -0.65)  arc(-60:-115:0.7) -- cycle;
+            \node[above] at (0,0) {\tiny B};
+            \node[below] at (0.35, -0.65) {\tiny C};
+            \node[below] at (-0.35, -0.65) {\tiny A};
+        \end{tikzpicture}
+        \raisebox{1.8em}{ = }
+        \begin{tikzpicture}
+            \draw[black, ultra thick,fill=black] (2, -4) -- (1.7, -3.4)  arc(-250: -295: 0.7) -- cycle;
+            \node[above] at (2.3, -3.4) {\tiny D};
+            \node[above] at (1.7, -3.4) {\tiny E};
+            \node[below] at (2, -4) {\tiny C};
+        \end{tikzpicture}
+        \raisebox{1.8em}{(пр. I.{\tiny 4}),}
+    \vfill
+    \vfill
+        \raisebox{1.8em}{$\therefore$}
+        \begin{tikzpicture}
+            \draw[black, ultra thick,fill=black] (2, -4) -- (1.7, -3.4)  arc(-250: -295: 0.7) -- cycle;
+            \draw[black,ultra thick] (2, -4) -- (2.5, -4)  arc(-4:50:0.7) -- cycle;
+            \node[below] at (2, -4) {\tiny C};
+            \node[left] at (1.7, -3.4) {\tiny E};
+            \node[right] at (2.5, -4) {\tiny F};
+        \end{tikzpicture}
+        \raisebox{1.8em}{ > }
+        \begin{tikzpicture}
+            \draw[black,fill=black] (0, 0) -- (0.35, -0.65)  arc(-60:-115:0.7) -- cycle;
+            \node[above] at (0,0) {\tiny B};
+            \node[below] at (0.35, -0.65) {\tiny C};
+            \node[below] at (-0.35, -0.65) {\tiny A};
+        \end{tikzpicture}
+        \raisebox{1.8em}{.}
+    \vfill
+    Так же можно показать, что при \\
+    \raisebox{1.5em}{продлении}
+    \raisebox{1.5em}{\begin{tikzpicture}
+        \draw[myblue, ultra thick] (0,0) --  (0.5, 0);
+        \draw[dashed, myblue, ultra thick] (0.5, 0) --  (1, 0);
+        \node[above] at (0,0) {\tiny B};
+        \node[above] at (1,0) {\tiny C};
+    \end{tikzpicture}}
+    \raisebox{1.5em}{,} 
+    \begin{tikzpicture}
+        \draw[myorange,fill=myorange] (2, -4) -- (1.4, -4)  arc(185:290:0.7) -- cycle;
+        \node[above] at (2, -4) {\tiny C};
+        \node[below] at (2.3, -4.6) {\tiny G};
+        \node[below] at (1.2,-3.8) {\tiny A};
+    \end{tikzpicture}
+    \raisebox{1.5em}{ > }
+    \begin{tikzpicture}
+        \draw[myblue,fill=myblue] (-2, -4) --  (-1.4,-4) arc(0:55:0.7) -- cycle;
+        \node[above] at (-1.6, -3.5) {\tiny B};
+        \node[below] at (-2, -4) {\tiny A};
+        \node[below] at (-1.4,-4) {\tiny C};
     \end{tikzpicture} \\
-    и, следовательно
+    \raisebox{1.5em}{и, следовательно}
     \begin{tikzpicture}
         \draw[black, ultra thick,fill=black] (2, -4) -- (1.7, -3.4)  arc(-250: -295: 0.7) -- cycle;
         \draw[black,ultra thick] (2, -4) -- (2.5, -4)  arc(-4:50:0.7) -- cycle;
         \node[below] at (2, -4) {\tiny C};
-        \node[left] at (1.7, -3.4) {\tiny E};
+        \node[left] at (1.7, -3.3) {\tiny E};
         \node[right] at (2.5, -4) {\tiny F};
-    \end{tikzpicture} который  \\
-    = 
+    \end{tikzpicture}
+    \raisebox{1.5em}{ который } \\
+    \raisebox{1.3em}{ = }
     \begin{tikzpicture}
         \draw[myorange,fill=myorange] (2, -4) -- (1.4, -4)  arc(185:290:0.7) -- cycle;
-        \node[above] at (2, -4) {\tiny G};
-        \node[below] at (2.3, -4.6) {\tiny A};
-        \node[below] at (1.2,-3.8) {\tiny C};
-    \end{tikzpicture} будет >
+        \node[above] at (2, -4) {\tiny C};
+        \node[below] at (2.3, -4.6) {\tiny G};
+        \node[below] at (1.2,-3.8) {\tiny A};
+    \end{tikzpicture}
+    \raisebox{1.3em}{будет > }
     \begin{tikzpicture}
-        \draw[black,fill=black] (0, 0) -- (0.35, -0.65)  arc(-60:-115:0.7) -- cycle;
-        \node[above] at (0,0) {\tiny B};
-        \node[below] at (0.35, -0.65) {\tiny C};
-        \node[below] at (-0.35, -0.65) {\tiny A};
-    \end{tikzpicture}. 
+        \draw[myblue,fill=myblue] (-2, -4) --  (-1.4,-4) arc(0:55:0.7) -- cycle;
+        \node[above] at (-1.6, -3.5) {\tiny B};
+        \node[below] at (-2, -4) {\tiny A};
+        \node[below] at (-1.4,-4) {\tiny C};
+    \end{tikzpicture}
+    \raisebox{1.3em}{.} 
   
     \end{center}
     \begin{flushright}
