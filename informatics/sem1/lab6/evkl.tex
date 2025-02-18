@@ -73,14 +73,18 @@
     \myheading
 
     \vspace{-0.2cm}
-    \begin{wrapfigure}[2]{l}{0.2\linewidth}
-        \vspace{-0.6cm}
-        \includegraphics[width=0.9\linewidth]{capital.png}
+    \begin{wrapfigure}[2]{l}{0.19\linewidth}
+        \begin{flushright}
+            \vspace{-1cm}
+            \includegraphics[width=0.9\linewidth]{capital.png}
+        \end{flushright}
     \end{wrapfigure}
     
-    \slshape ри продолжении стороны треугольника
+    \setlength{\spaceskip}{0.7cm} \hspace{-0.2cm}\slshape ри продолжении стороны треугольника
+    \setlength{\spaceskip}{0.2cm}
     
-    \hspace{0.1cm}\begin{tikzpicture}[scale=0.9]
+    
+    \hspace{-0.2cm}\begin{tikzpicture}[scale=0.9]
         \draw[dashed, orange, ultra thick] (-0.5,-1) --  (0,0);
         \draw[myblue, ultra thick] (0,0) --  (0.25, -0.5);
         \draw[dashed, myblue, ultra thick] (0.25,-0.5) --  (0.5, -1);
@@ -97,10 +101,10 @@
         \node[left] at (1.7, -3.4) {\tiny E};
         \node[right] at (2.5, -4) {\tiny F};
     \end{tikzpicture}
-    \raisebox{2em}{будет больше}
-    \raisebox{2em}{
-        любого из противолежащих ему внутренних углов
-    }
+    \raisebox{2em}{будет боль-}
+    \setlength{\spaceskip}{0.38cm} \raisebox{2em}{\hspace{0.3cm}ше любого из противолежащих ему внутренних углов}
+    \setlength{\spaceskip}{0.2cm}
+    
     \vfill
     \vspace{-0.7cm}
     \raisebox{0.3em}{\begin{tikzpicture}
