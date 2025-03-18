@@ -1,6 +1,6 @@
 package commands;
 
-import workers.Reciver;
+import core.Structure;
 
 import java.util.HashMap;
 
@@ -10,7 +10,7 @@ public class Info extends BasicCommand{
     }
 
     public final void execute(HashMap<String, String> args){
-        Reciver reciver = new Reciver();
-        System.out.println(reciver);
+        Structure structure = new Structure();
+        System.out.println(structure);
     }
 }

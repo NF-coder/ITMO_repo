@@ -1,10 +1,14 @@
 package objects;
 
+import core.Engine;
 import exceptions.UnacceptableValue;
+import objects.converters.Converters;
 import objects.enums.Climate;
 import objects.enums.Government;
 import objects.enums.StandardOfLiving;
+import objects.parsers.InvokersParsers.CityParser;
 import objects.validators.CityValidators;
+import textWorkers.invokers.FileInvoker;
 
 import java.time.LocalDateTime;
 
@@ -21,38 +25,73 @@ public class City {
     private StandardOfLiving standardOfLiving; //Поле может быть null
     private Human governor; //Поле не может быть null
 
-    public City(Long id, String name, Coordinates coordinates,
-                LocalDateTime creationDate, double area, long population,
-                float metersAboveSeaLevel, Climate climate, Government government,
-                StandardOfLiving standardOfLiving, Human governor
-                ) throws UnacceptableValue {
+    public City(Long id, String name,
+                LocalDateTime creationDate,
+                String area, String population,
+                String metersAboveSeaLevel
+    ) throws UnacceptableValue {
         this.id = id;
-        this.name = CityValidators.validateName(name);
-        this.coordinates = coordinates;
+        this.name = CityValidators.validateName(
+                name
+        );
+        this.coordinates = new Coordinates();
         this.creationDate = creationDate;
-        this.area = CityValidators.validateArea(area);
-        this.population = CityValidators.validatePopulation(population);
-        this.metersAboveSeaLevel = metersAboveSeaLevel;
-        this.climate = climate;
-        this.government = government;
-        this.standardOfLiving = standardOfLiving;
-        this.governor = governor;
+        this.area = CityValidators.validateArea(
+                Converters.StringToPrimitiveDouble(
+                        area
+                )
+        );
+        this.population = CityValidators.validatePopulation(
+                Converters.StringToPrimitiveLong(
+                        population
+                )
+        );
+        this.metersAboveSeaLevel = Converters.StringToPrimitiveFloat(
+                metersAboveSeaLevel
+        );
+        this.climate = CityParser.getClimate();
+        this.government = CityParser.getGovernment();
+        this.standardOfLiving = CityParser.getStandardOfLiving();
+        this.governor = new Human();
     }
 
+    public String toCSV() {
+        return this.id.toString() + ", " +
+                this.name + ", " +
+                this.coordinates.toCSV() + ", " +
+                String.valueOf(area) + ", " +
+                String.valueOf(population) + ", " +
+                String.valueOf(metersAboveSeaLevel) + ", " +
+                climate.toString() + ", " +
+                government.toString() + ", " +
+                standardOfLiving.toString() + ", "+
+                governor.toCSV();
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
     public Long getId() {
         return this.id;
     }
 
     public void setCreationDate(LocalDateTime creationDate){
-        // TODO: checker there
         this.creationDate = creationDate;
     }
     public LocalDateTime getCreationDate(){
         return this.creationDate;
     }
 
-    public void setId(Long id){
-        this.id = id;
+    public String getName(){
+        return this.name;
+    }
+
+    public String getStandardOfLiving(){
+        return this.standardOfLiving.toString();
+    }
+
+    public float getSeaLevel(){
+        return this.metersAboveSeaLevel;
     }
 
     @Override

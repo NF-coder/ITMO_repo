@@ -1,54 +1,64 @@
 package textWorkers;
 
-import workers.Engine;
+import core.Engine;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Invoker {
-    private workers.Engine Engine = new Engine();
-
-    public void run(String line){
+    /**
+     * Метод, разбивающий строку на команду и токены
+     * @param line Строка-команда
+     */
+    public void run(String line, Engine engine){
         String[] tokens = line.split(" ");
 
-        String command = tokens[0];
-        String[] argsArr = Arrays.copyOfRange(tokens, 1, tokens.length);
+        String command = tokens[0]; // команда
+        String[] argsArr = Arrays.copyOfRange(tokens, 1, tokens.length); // массив токенов
 
-        this.Engine.runCommand(
+        engine.runCommand(
                 command,
-                this.parseArgs(argsArr)
+                this.parseArgs(argsArr) // расшифровка токенов
         );
     }
 
+    /**
+     * Метод, выделяющий из массива токенов аргументы и их значения
+     * @param tokens Строка-команда
+     * @return HashMap<String, String>
+     */
     private HashMap<String, String> parseArgs(String[] tokens){
         HashMap<String,String> parsedArguments = new HashMap<>();
 
-        String argName = "";
-        String argValue = "";
+        String argName = ""; // имя аргумента
+        String argValue = ""; // строка, аккумулирующая значение аргумента
         for (String token: tokens){
-            if (token.charAt(0) == '-'){
-                if (!argName.equals("")){
+            if (token.charAt(0) == '-'){ // проверка на то, является ли токен именем аргумента
+                if (!argName.isEmpty()){ // если до этого в строке с именем аргумента уже лежал один, то парсинг финализируется
                     parsedArguments.put(argName.substring(1), argValue);
                     argValue = "";
                 }
-                argName = token;
+                argName = token; // установка имени нового аргумента, начало парсинга его значения
             }
-            else{
-                if (!argValue.equals("")){
-                    argValue = argValue + " ";
+            else{ // если строка не является именем аргумента...
+                if (!argValue.isEmpty()){ // избегаем лишнего пробела в начале парсинга значения аргумента
+                    argValue = argValue + " "; // восстановление пробела
                 }
-                argValue = argValue + token;
+                argValue = argValue + token; // добавление токена к значению аргумента
             }
         }
-        if (argName.length() != 0){
+        if (!argName.isEmpty()){ // парсинг последнего аргумента и его значения
             parsedArguments.put(argName.substring(1), argValue);
         }
         return parsedArguments;
     }
 
 
-    // For Debug
+    /**
+     * DEBUG
+     * Этот метод используется для вывода внутреннего состояния парсера
+     * @param tokens Список токенов
+     */
     private void printTokens(String[] tokens){
         int idx = 0;
         for (String token : tokens) {

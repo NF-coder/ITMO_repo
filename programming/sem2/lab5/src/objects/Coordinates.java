@@ -1,15 +1,19 @@
 package objects;
 
-import exceptions.UnacceptableValue;
-import objects.validators.CoordinatesValidators;
+import objects.parsers.InvokersParsers.CoordinatesParser;
 
 public class Coordinates {
     private double x;
     private Float y; //Максимальное значение поля: 447, Поле не может быть null
 
-    public Coordinates(double x, Float y) throws UnacceptableValue {
-        this.x = CoordinatesValidators.validateCoordinate(x);
-        this.y = CoordinatesValidators.validateCoordinate(y);
+    public Coordinates() {
+        this.x = CoordinatesParser.getX();
+        this.y = CoordinatesParser.getY();
+    }
+
+    public String toCSV(){
+        return String.valueOf(x) + ", " +
+                y.toString();
     }
 
     @Override

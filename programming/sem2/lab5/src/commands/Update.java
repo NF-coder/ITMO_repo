@@ -1,18 +1,12 @@
 package commands;
 
-import commands.converters.Converters;
-import commands.parsers.AdditionalParsers;
-import commands.parsers.EnumsParser;
+import objects.converters.Converters;
 import commands.utils.AddUtils;
 import exceptions.ElementNotFound;
 import exceptions.UnacceptableValue;
 import objects.City;
-import objects.enums.Climate;
-import objects.enums.Government;
-import objects.enums.StandardOfLiving;
-import workers.Reciver;
+import core.Structure;
 
-import java.util.ArrayDeque;
 import java.util.HashMap;
 
 public class Update extends BasicCommand{
@@ -23,24 +17,19 @@ public class Update extends BasicCommand{
     }
 
     public final void execute(HashMap<String, String> args){
-        Reciver reciver = new Reciver();
+        Structure structure = new Structure();
 
 
         try {
             City city = new City(
                     Converters.StringToLong(args.get("id")),
                     args.get("name"),
-                    AdditionalParsers.parseCoordinates(),
                     AddUtils.generateLocalDateTime(),
-                    Converters.StringToPrimitiveDouble(args.get("area")),
-                    Converters.StringToPrimitiveLong(args.get("population")),
-                    Converters.StringToPrimitiveFloat(args.get("metersAboveSeaLevel")),
-                    EnumsParser.parse(Climate.class, "тип климата"),
-                    EnumsParser.parse(Government.class, "тип правительства"),
-                    EnumsParser.parse(StandardOfLiving.class, "стандарт качества жизни"),
-                    AdditionalParsers.parseHuman()
+                    args.get("area"),
+                    args.get("population"),
+                    args.get("metersAboveSeaLevel")
             );
-            reciver.updateEntityById(
+            structure.updateEntityById(
                     Converters.StringToLong(args.get("id")), city
             );
         }

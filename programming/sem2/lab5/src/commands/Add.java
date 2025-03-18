@@ -3,16 +3,10 @@ package commands;
 import java.util.ArrayDeque;
 import java.util.HashMap;
 
-import commands.converters.Converters;
-import commands.parsers.AdditionalParsers;
-import commands.parsers.EnumsParser;
 import exceptions.UnacceptableValue;
-import objects.enums.Climate;
-import objects.enums.Government;
-import objects.enums.StandardOfLiving;
 import commands.utils.AddUtils;
 import objects.City;
-import workers.Reciver;
+import core.Structure;
 
 public class Add extends BasicCommand{
     public Add(){
@@ -22,24 +16,18 @@ public class Add extends BasicCommand{
     }
 
     public final void execute(HashMap<String, String> args){
-        Reciver reciver = new Reciver();
-        ArrayDeque<City> allEntitys = reciver.getAllEntities();
-
+        Structure structure = new Structure();
+        ArrayDeque<City> allEntities = structure.getAllEntities();
         try {
             City city = new City(
-                    AddUtils.findFreeId(allEntitys),
+                    AddUtils.findFreeId(allEntities),
                     args.get("name"),
-                    AdditionalParsers.parseCoordinates(),
                     AddUtils.generateLocalDateTime(),
-                    Converters.StringToPrimitiveDouble(args.get("area")),
-                    Converters.StringToPrimitiveLong(args.get("population")),
-                    Converters.StringToPrimitiveFloat(args.get("metersAboveSeaLevel")),
-                    EnumsParser.parse(Climate.class, "тип климата"),
-                    EnumsParser.parse(Government.class, "тип правительства"),
-                    EnumsParser.parse(StandardOfLiving.class, "стандарт качества жизни"),
-                    AdditionalParsers.parseHuman()
+                    args.get("area"),
+                    args.get("population"),
+                    args.get("metersAboveSeaLevel")
             );
-            reciver.addEntity(
+            structure.addEntity(
                     city
             );
         }

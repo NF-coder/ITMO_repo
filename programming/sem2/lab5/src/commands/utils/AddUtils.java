@@ -9,17 +9,12 @@ import java.util.NoSuchElementException;
 public class AddUtils {
     public static Long findFreeId(ArrayDeque<City> cities){
         Long idx = 0L;
-        while (true){
-            try {
-                Long elementIdx = cities.removeFirst().getId();
-                if (elementIdx > idx){
-                    idx = elementIdx + 1;
-                }
-            }
-            catch (NoSuchElementException exc) {
-                return idx;
+        for (City city : cities){
+            if (city.getId() >= idx){
+                idx = city.getId() + 1;
             }
         }
+        return idx;
     }
 
     public static LocalDateTime generateLocalDateTime() {

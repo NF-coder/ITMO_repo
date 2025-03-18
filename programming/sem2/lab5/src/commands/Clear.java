@@ -1,7 +1,6 @@
 package commands;
 
-import workers.Engine;
-import workers.Reciver;
+import core.Structure;
 
 import java.util.HashMap;
 
@@ -11,8 +10,8 @@ public class Clear extends BasicCommand{
     }
 
     public final void execute(HashMap<String, String> args){
-        Reciver reciver = new Reciver();
-        reciver.clearCollection();
+        Structure structure = new Structure();
+        structure.clearCollection();
         System.out.println("Success");
     }
 }

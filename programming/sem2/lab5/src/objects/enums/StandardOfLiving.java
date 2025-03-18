@@ -12,7 +12,7 @@ public enum StandardOfLiving implements EnumInterface{
     @Override
     public String toString() {
         return switch (this) {
-            case VERY_HIGH -> "HIGH";
+            case VERY_HIGH -> "VERY_HIGH";
             case HIGH -> "HIGH";
             case VERY_LOW -> "VERY_LOW";
             case ULTRA_LOW -> "ULTRA_LOW";

@@ -2,10 +2,7 @@ package commands;
 
 import java.util.HashMap;
 
-import commands.BasicCommand;
-
-import commands.Info;
-import workers.Engine;
+import core.Engine;
 
 public class Help extends BasicCommand{
     public Help(){

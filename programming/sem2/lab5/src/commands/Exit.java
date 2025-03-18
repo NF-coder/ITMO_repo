@@ -1,7 +1,5 @@
 package commands;
 
-import workers.Engine;
-
 import java.util.HashMap;
 
 public class Exit extends BasicCommand{

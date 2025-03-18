@@ -1,5 +1,6 @@
-package textWorkers.Invokers;
+package textWorkers.invokers;
 
+import core.Engine;
 import textWorkers.Invoker;
 
 import java.util.Scanner;
@@ -13,10 +14,10 @@ public class CLInvoker implements IInvoker{
         return CLInvoker.input.nextLine();
     }
 
-    public void mainCycle() {
+    public void mainCycle(Engine engine) {
         while (CLInvoker.input.hasNextLine()) {
             String line = CLInvoker.input.nextLine();
-            invoker.run(line);
+            invoker.run(line, engine);
         }
     }
 }

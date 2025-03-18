@@ -1,21 +1,20 @@
-package textWorkers.Invokers;
+package textWorkers.invokers;
 
+import core.Engine;
 import exceptions.FileProcessorException;
 import textWorkers.Invoker;
 
-import javax.imageio.IIOException;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.security.AccessControlException;
-import java.util.Scanner;
 
 public class FileInvoker implements IInvoker{
-    private static Invoker invoker = new Invoker();
+    private static final Invoker invoker = new Invoker();
     static BufferedReader fileReader;
 
-    public void FileInvoker(String filename) throws FileProcessorException {
+    public FileInvoker(String filename) throws FileProcessorException {
         try {
             FileReader fileReader = new FileReader(filename);
             this.fileReader = new BufferedReader(fileReader);
@@ -31,7 +30,9 @@ public class FileInvoker implements IInvoker{
     public String parseFieldInput(String entryText){
         System.out.print(entryText + ": ");
         try {
-            return FileInvoker.fileReader.readLine();
+            String line = FileInvoker.fileReader.readLine();
+            System.out.println(line);
+            return line;
         }
         catch (IOException err){
             //throw new FileProcessorException("Can't read file");
@@ -39,14 +40,18 @@ public class FileInvoker implements IInvoker{
         return "placeholder for compiler";
     }
 
-    public void mainCycle() {
+    public void mainCycle(Engine engine) {
         try{
             while (true) {
                 String line = FileInvoker.fileReader.readLine();
-                invoker.run(line);
+                if (line == null){
+                    return;
+                }
+                invoker.run(line, engine);
             }
         }
         catch (IOException err){}
+        catch (NullPointerException err){}
 
     }
 }

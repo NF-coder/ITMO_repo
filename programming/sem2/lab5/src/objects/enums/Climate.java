@@ -1,7 +1,5 @@
 package objects.enums;
 
-import commands.parsers.EnumsParser;
-
 public enum Climate implements EnumInterface {
     OCEANIC,
     MEDITERRANIAN,
