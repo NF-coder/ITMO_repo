@@ -2,27 +2,29 @@ BEGIN;
 
 CREATE TABLE IF NOT EXISTS ObjectType
 (
-    	TypeName TEXT PRIMARY KEY
+    TypeName TEXT PRIMARY KEY
 );
 CREATE TABLE IF NOT EXISTS Object
 (
 	ObjectId SERIAL PRIMARY KEY,
-    	ObjectName TEXT NOT NULL, 
-    	ObjectType TEXT NOT NULL REFERENCES ObjectType(TypeName)
+    ObjectName TEXT NOT NULL, 
+    ObjectType TEXT NOT NULL REFERENCES ObjectType(TypeName)
 );
 CREATE TABLE IF NOT EXISTS AvilableAction
 (
 	ActionName TEXT PRIMARY KEY,
-	ActionTargetObject INTEGER REFERENCES Object(ObjectId),
-    	ActionTargetType TEXT REFERENCES ObjectType(TypeName),
-    	ActionInitiator INTEGER REFERENCES Object(ObjectId),
-    	CONSTRAINT EeitherTargetOrInitiator CHECK (ActionTargetObject IS NOT NULL OR ActionTargetType IS NOT NULL OR ActionInitiator IS NOT NULL)
 );
-CREATE TABLE IF NOT EXISTS Action
+CREATE TABLE IF NOT EXISTS Event
 (
-	ActionId SERIAL PRIMARY KEY,
-   	Action TEXT NOT NULL REFERENCES AvilableAction(ActionName),
-    	PreviousAction INTEGER REFERENCES Action(ActionId)
+	EventId SERIAL PRIMARY KEY,
+	Action TEXT NOT NULL REFERENCES AvilableAction(ActionName),
+	PreviousEvent INTEGER REFERENCES Action(ActionId),
+
+	ActionTargetObject INTEGER REFERENCES Object(ObjectId),
+    ActionTargetType TEXT REFERENCES ObjectType(TypeName),
+    ActionInitiator INTEGER REFERENCES Object(ObjectId),
+
+	CONSTRAINT EeitherTargetOrInitiator CHECK (ActionTargetObject IS NOT NULL OR ActionTargetType IS NOT NULL OR ActionInitiator IS NOT NULL)
 );
 
 INSERT INTO ObjectType(TypeName) 
@@ -39,20 +41,20 @@ VALUES
 	('Видения', 'Мысли'),
 	('Щупальца', 'Мысли');
 
-INSERT INTO AvilableAction(ActionName, ActionTargetObject, ActionTargetType, ActionInitiator)
+INSERT INTO AvilableAction(ActionName)
 VALUES 
- 	('Оставить в покое', NULL, 'Глупые питекантропы', 2),
-	('Сосредоточить внимание', NULL, 'Способные питекантропы', 2),
-	('Почувствовать', 1, NULL, NULL),
-	('Шариться в закаулках мозга', 1, NULL, 4),
-	('Начаться', 1, NULL, 3);
+ 	('Оставить в покое'),
+	('Сосредоточить внимание'),
+	('Почувствовать'),
+	('Шариться в закаулках мозга'),
+	('Начаться');
 
-INSERT INTO Action(Action, PreviousAction)
+INSERT INTO Action(Action, PreviousEvent, ActionTargetObject, ActionTargetType, ActionInitiator)
 VALUES 
-	('Оставить в покое', NULL), -- Крсталл оставил некоторых питекантропов в покое
-	('Сосредоточить внимание', NULL), -- Кристалл сосредоточил внимание на способных питекантропах
-	('Почувствовать', NULL), -- Смотрящий на Луну почувствовал
-	('Шариться в закаулках мозга', NULL), -- Щупальца шарятся в закаулках мозга Смотрящего на Луну
-	('Начаться', 4); -- Затем у Смотрящего на Луну начались видения
+	('Оставить в покое', NULL, NULL, 'Глупые питекантропы', 2), -- Крсталл оставил некоторых питекантропов в покое
+	('Сосредоточить внимание', NULL, NULL, 'Способные питекантропы', 2), -- Кристалл сосредоточил внимание на способных питекантропах
+	('Почувствовать', NULL, 1, NULL, NULL), -- Смотрящий на Луну почувствовал
+	('Шариться в закаулках мозга', NULL, 1, NULL, 4), -- Щупальца шарятся в закаулках мозга Смотрящего на Луну
+	('Начаться', 4, 1, NULL, 3); -- Затем у Смотрящего на Луну начались видения
 
 END;
