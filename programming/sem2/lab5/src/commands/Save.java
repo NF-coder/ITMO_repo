@@ -1,7 +1,6 @@
 package commands;
 
-import core.Structure;
-import objects.City;
+import storage.Structure;
 
 import java.util.HashMap;
 

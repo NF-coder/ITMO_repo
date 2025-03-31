@@ -5,7 +5,7 @@ import commands.utils.AddUtils;
 import exceptions.ElementNotFound;
 import exceptions.UnacceptableValue;
 import objects.City;
-import core.Structure;
+import storage.Structure;
 
 import java.util.HashMap;
 

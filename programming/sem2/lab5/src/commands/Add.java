@@ -6,7 +6,7 @@ import java.util.HashMap;
 import exceptions.UnacceptableValue;
 import commands.utils.AddUtils;
 import objects.City;
-import core.Structure;
+import storage.Structure;
 
 public class Add extends BasicCommand{
     public Add(){

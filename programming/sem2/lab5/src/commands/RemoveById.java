@@ -1,7 +1,7 @@
 package commands;
 
 import objects.converters.Converters;
-import core.Structure;
+import storage.Structure;
 
 import java.util.HashMap;
 

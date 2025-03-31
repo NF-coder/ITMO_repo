@@ -1,4 +1,4 @@
-package core;
+package storage;
 
 import exceptions.ElementNotFound;
 import objects.City;
