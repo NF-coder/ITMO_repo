@@ -1,10 +1,9 @@
 package commands.utils;
 
-import objects.City;
+import objects.templates.City;
 
 import java.time.LocalDateTime;
 import java.util.ArrayDeque;
-import java.util.NoSuchElementException;
 
 public class AddUtils {
     public static Long findFreeId(ArrayDeque<City> cities){

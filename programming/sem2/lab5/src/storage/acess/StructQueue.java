@@ -1,7 +1,6 @@
-package storage;
+package storage.acess;
 
-import storage.promise.Promise;
-import storage.promise.PromiseStatus;
+import core.promise.Promise;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
@@ -9,24 +8,20 @@ import java.util.HashMap;
 public class StructQueue {
     private final ArrayDeque<Promise> operations = new ArrayDeque<>();
 
-    public Promise call(String operation, HashMap<String,String> args){
+    public Promise add(String operationName, HashMap<String,String> args){
         Promise promise = new Promise(
-                operation,
-                PromiseStatus.CREATED,
-                args,
-                new HashMap<>()
+                operationName,
+                args
         );
         this.operations.addLast(
                 promise
         );
         return promise;
     }
-
+    public Promise get(){
+        return this.operations.pollFirst();
+    }
     public int getQueueSize(){
         return operations.size();
-    }
-
-    public Promise getOperation(){
-        return this.operations.pollFirst();
     }
 }

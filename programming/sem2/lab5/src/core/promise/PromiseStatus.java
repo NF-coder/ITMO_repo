@@ -1,7 +1,8 @@
-package storage.promise;
+package core.promise;
 
 public enum PromiseStatus {
     CREATED,
     EXECUTING,
-    FINISHED
+    FINISHED,
+    ERROR
 }

@@ -1,6 +1,7 @@
 package commands;
 
 import java.util.HashMap;
+import java.util.function.UnaryOperator;
 
 public abstract class BasicCommand {
     private String name;

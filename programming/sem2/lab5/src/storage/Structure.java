@@ -56,6 +56,7 @@ public final class Structure {
         }
         return seaLevelSum/(float) mainCollection.size();
     }
+
     public void updateEntityById(Long id, City newEntity) throws ElementNotFound{
         boolean ELEMENT_UPDATED_FLAG = false;
 

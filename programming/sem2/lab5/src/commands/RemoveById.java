@@ -1,6 +1,6 @@
 package commands;
 
-import objects.converters.Converters;
+import objects.templates.converters.Converters;
 import storage.Structure;
 
 import java.util.HashMap;

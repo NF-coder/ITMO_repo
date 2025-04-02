@@ -1,6 +1,7 @@
 package core;
 
 import commands.*;
+import core.promise.Promise;
 import textWorkers.invokers.IInvoker;
 
 import java.util.HashMap;
@@ -61,7 +62,10 @@ public final class Engine {
         }
 
         try {
-            command.execute(args);
+            Promise promise = new Promise(
+
+                    args
+            );
         }
         catch (Exception err){
             System.out.println("Выполнение команды неожиданно прервалось со следующей ошибкой: "+err);

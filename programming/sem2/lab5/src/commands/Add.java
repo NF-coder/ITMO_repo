@@ -7,6 +7,7 @@ import exceptions.UnacceptableValue;
 import commands.utils.AddUtils;
 import objects.City;
 import storage.Structure;
+import storage.acess.StructQueue;
 
 public class Add extends BasicCommand{
     public Add(){
@@ -19,10 +20,10 @@ public class Add extends BasicCommand{
         Structure structure = new Structure();
         ArrayDeque<City> allEntities = structure.getAllEntities();
         try {
+
             City city = new City(
                     AddUtils.findFreeId(allEntities),
                     args.get("name"),
-                    AddUtils.generateLocalDateTime(),
                     args.get("area"),
                     args.get("population"),
                     args.get("metersAboveSeaLevel")
@@ -30,6 +31,11 @@ public class Add extends BasicCommand{
             structure.addEntity(
                     city
             );
+            StructQueue sq = new StructQueue();
+            sq.add(
+                    "addEntity",
+                    city.toString()
+            )
         }
         catch (UnacceptableValue err){
             System.out.println("Ошибка во время создания объекта: " + err.getMessage());

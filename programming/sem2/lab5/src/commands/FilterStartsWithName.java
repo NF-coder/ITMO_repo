@@ -1,7 +1,7 @@
 package commands;
 
 import storage.Structure;
-import objects.City;
+import objects.templates.City;
 
 import java.util.HashMap;
 

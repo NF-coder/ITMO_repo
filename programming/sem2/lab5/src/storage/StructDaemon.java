@@ -1,9 +1,23 @@
 package storage;
 
+import storage.acess.StructAccess;
+import storage.acess.StructQueue;
+import storage.struct.Struct;
+
 class MyRunnable implements Runnable {
     public void run() {
+        StructQueue sq = new StructQueue();
+        Struct st = new Struct();
+        StructAccess sa = new StructAccess(st, sq);
         while (true){
-            System.out.println("test");
+            if (!sa.hasAnyUnhandledTasks()){
+                try {
+                    Thread.sleep(1000);
+                } catch(InterruptedException ex) {}
+            }
+            else {
+                sa.runTask();
+            }
         }
     }
 }
