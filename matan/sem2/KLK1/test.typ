@@ -1,4 +1,5 @@
 // Global settings
+#import emoji: star
 #show link: underline
 #set text(
   font: "New Computer Modern",
@@ -18,12 +19,15 @@
 Решетников Сергей Р3108 
 #link("https://t.me/ReshNF")[
   \@ReshNF
+]\
+#link("https://github.com/NF-coder/ITMO_repo")[
+  Поставить звёздочку
 ]
 #pad(top: 15pt)[]
 
 // Main pages
 
-#include "O/O0.typ"
+//#include "O/O0.typ"
 #include "O/O1.typ"
 #include "O/O2.typ"
 #include "O/O3.typ"
