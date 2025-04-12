@@ -27,7 +27,8 @@
 
 // Main pages
 
-//#include "O/O0.typ"
+#include "O/O0.typ"
+
 #include "O/O1.typ"
 #include "O/O2.typ"
 #include "O/O3.typ"
@@ -124,3 +125,9 @@
 #include "L/L11.typ"
 #include "T/T35.typ"
 #include "T/T36.typ"
+#include "T/T37.typ"
+#include "T/T38.typ"
+#include "T/T39.typ"
+#include "T/T40.typ"
+#include "T/T41.typ"
+#include "T/T42.typ"
