@@ -6,7 +6,7 @@
 Простейшими дробями (дробями первого и второго типов) называют дроби вида:
 #set align(center)
 #set text(size: 14pt)
-$A/(x-a)^k$ , $(A x + B) /((x_2 + p x + q)^k)$ 
+$A/(x-a)^k$ , $(A x + B) /((x^2 + p x + q)^k)$ 
 #set text(size: 11pt)
 #set align(left)
 где $k in NN$ и $p^2 - 4q lt 0$
