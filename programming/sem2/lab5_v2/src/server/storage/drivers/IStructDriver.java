@@ -1,4 +1,4 @@
 package server.storage.drivers;
 
-public class StructDriver {
+public interface IStructDriver {
 }

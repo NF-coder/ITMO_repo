@@ -5,7 +5,7 @@
 *Понятие гладкого пути.*
 Пусть $gamma : [a, b] -> RR^n$, причем
 $
-  gamma (t) = (x_1(t), dots, x_n(t)), t in [a, b].
+  gamma (t) = (x_1(t), dots, x_n (t)), t in [a, b].
 $
 
 Говорят, что $gamma$ — путь гладкости $m in NN union {+infinity}$, если $x_i ∈ C^m [a, b], i in {1, dots, n}$.
