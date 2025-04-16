@@ -4,7 +4,7 @@
 *О связи модуля интеграла и интеграла от модуля*
 Пусть $f in R[a, b]$, тогда 
 $
-  abs(integral_a^b d space d(x)) lt.eq abs(integral_a^b abs(f) space d(x))
+  abs(integral_a^b f space d(x)) lt.eq abs(integral_a^b abs(f) space d(x))
 $
 *Док-во:*
 Интегрируемость функции $|f|$ известна из теоремы об арифмети-
