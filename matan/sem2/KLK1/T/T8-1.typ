@@ -11,7 +11,7 @@ $
 *Док-во*\
 Пользуясь предыдущим замечанием, имеем
 $
-  0 lt.eq S_tau (f) - lambda_a^b f space d(x) lt.eq
+  0 lt.eq S_tau (f) - integral_a^b f space d(x) lt.eq
   S_tau (f) - s_tau (f),
 
   space space space
