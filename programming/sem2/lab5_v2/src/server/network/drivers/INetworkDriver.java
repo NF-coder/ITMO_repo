@@ -6,5 +6,5 @@ import java.net.SocketException;
 public interface INetworkDriver {
     public void init() throws SocketException, IOException;
     public void send(byte[] data) throws IOException;
-    public byte[] receive(int len) throws IOException;
+    public byte[] receive() throws IOException;
 }

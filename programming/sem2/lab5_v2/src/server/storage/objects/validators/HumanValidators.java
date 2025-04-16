@@ -1,4 +1,4 @@
-package server.storage.structures.validators;
+package server.storage.objects.validators;
 
 import exceptions.UnacceptableValue;
 

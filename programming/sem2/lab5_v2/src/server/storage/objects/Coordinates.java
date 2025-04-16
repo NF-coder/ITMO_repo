@@ -1,4 +1,4 @@
-package server.storage.structures;
+package server.storage.objects;
 
 import objects.parsers.InvokersParsers.CoordinatesParser;
 

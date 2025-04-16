@@ -1,45 +1,35 @@
 BEGIN;
 
-CREATE TABLE ObjectType
-(
-    TypeName TEXT PRIMARY KEY
-);
 CREATE TABLE Object
 (
 	ObjectId SERIAL PRIMARY KEY,
-    ObjectName TEXT NOT NULL, 
-    ObjectType TEXT NOT NULL REFERENCES ObjectType(TypeName)
+    ObjectName TEXT NOT NULL
 );
 CREATE TABLE AvilableAction
 (
-	ActionName TEXT PRIMARY KEY,
+	ActionName TEXT PRIMARY KEY
 );
 CREATE TABLE Event
 (
 	EventId SERIAL PRIMARY KEY,
 	Action TEXT NOT NULL REFERENCES AvilableAction(ActionName),
-	PreviousEvent INTEGER REFERENCES Action(ActionId),
+	PreviousEvent INTEGER REFERENCES Event(EventId),
 
-	ActionTargetObject INTEGER REFERENCES Object(ObjectId),
-    ActionTargetType TEXT REFERENCES ObjectType(TypeName),
-    ActionInitiator INTEGER REFERENCES Object(ObjectId),
+	Target INTEGER REFERENCES Object(ObjectId),
+    Initiator INTEGER REFERENCES Object(ObjectId),
 
-	CONSTRAINT EeitherTargetOrInitiator CHECK (ActionTargetObject IS NOT NULL OR ActionTargetType IS NOT NULL OR ActionInitiator IS NOT NULL)
+	CONSTRAINT EeitherTargetOrInitiator CHECK (Target IS NOT NULL OR Initiator IS NOT NULL)
 );
 
-INSERT INTO ObjectType(TypeName) 
+INSERT INTO Object(ObjectName) 
 VALUES 
 	('Глупые питекантропы'),
 	('Способные питекантропы'),
 	('Мысли'),
-	('Природные объекты');
-
-INSERT INTO Object(ObjectName, ObjectType) 
-VALUES 
-	('Смотрящий на Луну', 'Способные питекантропы'),
-	('Кристалл', 'Природные объекты'),
-	('Видения', 'Мысли'),
-	('Щупальца', 'Мысли');
+	('Смотрящий на Луну'),
+	('Кристалл'),
+	('Видения'),
+	('Щупальца');
 
 INSERT INTO AvilableAction(ActionName)
 VALUES 
@@ -49,12 +39,12 @@ VALUES
 	('Шариться в закаулках мозга'),
 	('Начаться');
 
-INSERT INTO Event(Action, PreviousEvent, ActionTargetObject, ActionTargetType, ActionInitiator)
+INSERT INTO Event(Action, Target, Initiator, PreviousEvent)
 VALUES 
-	('Оставить в покое', NULL, NULL, 'Глупые питекантропы', 2), -- Крсталл оставил некоторых питекантропов в покое
-	('Сосредоточить внимание', NULL, NULL, 'Способные питекантропы', 2), -- Кристалл сосредоточил внимание на способных питекантропах
-	('Почувствовать', NULL, 1, NULL, NULL), -- Смотрящий на Луну почувствовал
-	('Шариться в закаулках мозга', NULL, 1, NULL, 4), -- Щупальца шарятся в закаулках мозга Смотрящего на Луну
-	('Начаться', 4, 1, NULL, 3); -- Затем у Смотрящего на Луну начались видения
+	('Оставить в покое', 'Глупые питекантропы', 'Кристалл'), -- Крсталл оставил некоторых питекантропов в покое
+	('Сосредоточить внимание', 'Способные питекантропы', 'Кристалл', 1), -- Кристалл сосредоточил внимание на способных питекантропах
+	('Почувствовать', 'Смотрящий на Луну'), -- Смотрящий на Луну почувствовал
+	('Шариться в закаулках мозга', 'Смотрящий на Луну', 'Щупальца', 3), -- Щупальца шарятся в закаулках мозга Смотрящего на Луну
+	('Начаться', 'Смотрящий на Луну', NULL, 4); -- Затем у Смотрящего на Луну начались видения
 
 END;

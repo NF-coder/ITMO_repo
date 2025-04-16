@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayDeque;
 import java.util.stream.Collectors;
 
-public class StructDriver {
+public class DequeDriver implements IStructDriver{
     private ArrayDeque<City> mainCollection = new ArrayDeque<>();
     private final static LocalDateTime createdDateTime = LocalDateTime.now();
 
@@ -16,7 +16,7 @@ public class StructDriver {
      * Этот метод реализует добавление новой сущности в коллекцию
      * @param entity Новая сущность
      */
-    public void addEntity(City entity){
+    public void add(City entity){
         mainCollection.addLast(entity);
     }
 
@@ -24,7 +24,7 @@ public class StructDriver {
      * Этот метод реализует получение копии двусторонней очереди
      * @return ArrayDeque<City> Копия структуры
      */
-    public ArrayDeque<City> getAllEntities(){
+    public ArrayDeque<City> getCollectionCopy(){
         return new ArrayDeque<>(this.mainCollection);
     }
     public void removeById(Long id){
@@ -38,7 +38,13 @@ public class StructDriver {
     public void clearCollection(){
         this.mainCollection.clear();
     }
-    public void removeAllByStandardOfLiving(String standardOfLiving) {
+    public Long generateId(){
+        return 1 + mainCollection.stream()
+                .mapToLong(elem -> elem.id)
+                .max()
+                .orElse(0);
+    }
+    public void removeByStandardOfLiving(String standardOfLiving) {
         this.mainCollection = mainCollection.stream()
                 .filter(item -> !item.standardOfLiving.equals(
                         StandardOfLiving.valueOf(standardOfLiving)
@@ -51,16 +57,15 @@ public class StructDriver {
                 .average()
                 .orElse(Double.NaN);
     }
-
     public City getById(Long id) throws ElementNotFound {
-        boolean ELEMENT_UPDATED_FLAG = false;
         for (City element: this.mainCollection){
             if (element.id.equals(id)){
                 return element;
             }
         }
-        if (!ELEMENT_UPDATED_FLAG){
-            throw new ElementNotFound("No such element in collection!");
-        }
+        throw new ElementNotFound("No such element in collection!");
+    }
+    public LocalDateTime generateDateTime(){
+        return LocalDateTime.now();
     }
 }

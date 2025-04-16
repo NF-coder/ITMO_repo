@@ -9,31 +9,36 @@ public class NetworkManager {
     INetworkDriver driver;
     public NetworkManager(INetworkDriver driver) {
         this.driver = driver;
-    }
-
-    private static byte[] serializer(Object obj)  {
-        try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(bos);
-            oos.writeObject(obj);
-            oos.close();
-            return bos.toByteArray();
+        try{
+            this.driver.init();
+        }
+        catch (Exception e){
 
         }
-        catch (IOException e) {return null;}
     }
-    private static Container deserialize(byte[] bytes) {
-        if (bytes == null) return null;
+
+    public void send(Object obj) throws IOException{
+        this.driver.send(
+                this.serialize(obj)
+        );
+    }
+    public NetworkDTO recive() throws IOException, ClassNotFoundException{
+        return this.deserialize(
+                this.driver.receive()
+        );
+    }
+
+    private byte[] serialize(Object obj) throws IOException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(obj);
+        oos.close();
+        return bos.toByteArray();
+    }
+    private NetworkDTO deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
+        //if (bytes == null) return null;
         InputStream is = new ByteArrayInputStream(bytes);
-        try (ObjectInputStream ois = new ObjectInputStream(is)) {
-            logger.info("Команда успешно десериализована!");
-            return (Container) ois.readObject();
-        } catch (IOException e) {
-            logger.error("Не удалось десереализовать объект");
-            return null;
-        } catch (ClassNotFoundException e) {
-            logger.error("Не удалось десереализовать объект");
-            return null;
-        }
+        ObjectInputStream ois = new ObjectInputStream(is);
+        return (NetworkDTO) ois.readObject();
     }
 }

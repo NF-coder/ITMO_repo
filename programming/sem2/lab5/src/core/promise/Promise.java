@@ -48,7 +48,7 @@ public class Promise{
     @Override
     public String toString(){
         return "Promise{" +
-                "\n\t opName=" + this.getOperation().getName() +
+                "\n\t opName=" + this.getOperationName() +
                 "\n\t status=" + this.status;
     }
 }

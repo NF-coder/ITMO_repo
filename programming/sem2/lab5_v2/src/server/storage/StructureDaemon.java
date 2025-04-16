@@ -9,6 +9,7 @@ public class StructureDaemon {
         this.controller = controller;
     }
 
+
     public void mainCycle(){
         while (true) {
             if (this.controller.hasNext()){

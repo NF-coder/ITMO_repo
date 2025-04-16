@@ -1,32 +1,35 @@
-package server.storage.structures;
+package server.storage.objects;
 
-import exceptions.UnacceptableValue;
-import objects.converters.Converters;
-import objects.enums.Climate;
-import objects.enums.Government;
-import objects.enums.StandardOfLiving;
-import objects.parsers.InvokersParsers.CityParser;
-import objects.validators.CityValidators;
+import server.storage.objects.exceptions.UnacceptableValue;
+import server.storage.objects.enums.Climate;
+import server.storage.objects.enums.Government;
+import server.storage.objects.enums.StandardOfLiving;
+import server.storage.objects.validators.CityValidators;
 
 import java.time.LocalDateTime;
 
 public class City {
-    private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private final String name; //Поле не может быть null, Строка не может быть пустой
-    private final Coordinates coordinates; //Поле не может быть null
-    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private final double area; //Значение поля должно быть больше 0
-    private final long population; //Значение поля должно быть больше 0
-    private final float metersAboveSeaLevel;
-    private final Climate climate; //Поле не может быть null
-    private final Government government; //Поле не может быть null
-    private final StandardOfLiving standardOfLiving; //Поле может быть null
-    private final Human governor; //Поле не может быть null
+    public final Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    public final String name; //Поле не может быть null, Строка не может быть пустой
+    public final Coordinates coordinates; //Поле не может быть null
+    public final LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    public final double area; //Значение поля должно быть больше 0
+    public final long population; //Значение поля должно быть больше 0
+    public final float metersAboveSeaLevel;
+    public final Climate climate; //Поле не может быть null
+    public final Government government; //Поле не может быть null
+    public final StandardOfLiving standardOfLiving; //Поле может быть null
+    public final Human governor; //Поле не может быть null
 
-    public City(Long id, String name,
+    public City(Long id,
+                String name,
                 LocalDateTime creationDate,
-                String area, String population,
-                String metersAboveSeaLevel
+                String area,
+                String population,
+                String metersAboveSeaLevel,
+                String climate,
+                String government,
+                String standardOfLiving
     ) throws UnacceptableValue {
         this.id = id;
         this.name = CityValidators.validateName(
@@ -35,63 +38,19 @@ public class City {
         this.coordinates = new Coordinates();
         this.creationDate = creationDate;
         this.area = CityValidators.validateArea(
-                Converters.StringToPrimitiveDouble(
-                        area
-                )
+                Double.parseDouble(area)
         );
         this.population = CityValidators.validatePopulation(
-                Converters.StringToPrimitiveLong(
-                        population
-                )
+                Long.parseLong(population)
         );
-        this.metersAboveSeaLevel = Converters.StringToPrimitiveFloat(
+        this.metersAboveSeaLevel = Float.parseFloat(
                 metersAboveSeaLevel
         );
-        this.climate = CityParser.getClimate();
-        this.government = CityParser.getGovernment();
-        this.standardOfLiving = CityParser.getStandardOfLiving();
+        this.climate = Climate.valueOf(climate);
+        this.government = Government.valueOf(government);
+        this.standardOfLiving = StandardOfLiving.valueOf(standardOfLiving);
         this.governor = new Human();
     }
-
-    public String toCSV() {
-        return this.id.toString() + ", " +
-                this.name + ", " +
-                this.coordinates.toCSV() + ", " +
-                String.valueOf(area) + ", " +
-                String.valueOf(population) + ", " +
-                String.valueOf(metersAboveSeaLevel) + ", " +
-                climate.toString() + ", " +
-                government.toString() + ", " +
-                standardOfLiving.toString() + ", "+
-                governor.toCSV();
-    }
-
-    public void setId(Long id){
-        this.id = id;
-    }
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate){
-        this.creationDate = creationDate;
-    }
-    public LocalDateTime getCreationDate(){
-        return this.creationDate;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public String getStandardOfLiving(){
-        return this.standardOfLiving.toString();
-    }
-
-    public float getSeaLevel(){
-        return this.metersAboveSeaLevel;
-    }
-    
     @Override
     public String toString() {
         return "City{" +
