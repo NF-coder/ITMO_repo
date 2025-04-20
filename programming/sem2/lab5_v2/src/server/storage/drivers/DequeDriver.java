@@ -24,8 +24,9 @@ public class DequeDriver implements IStructDriver{
      * Этот метод реализует получение копии двусторонней очереди
      * @return ArrayDeque<City> Копия структуры
      */
-    public ArrayDeque<City> getCollectionCopy(){
-        return new ArrayDeque<>(this.mainCollection);
+    public ArrayDeque<City> getCollection(){
+        //return new ArrayDeque<>(this.mainCollection);
+        return this.mainCollection;
     }
     public void removeById(Long id){
         this.mainCollection = mainCollection.stream()
@@ -44,19 +45,7 @@ public class DequeDriver implements IStructDriver{
                 .max()
                 .orElse(0);
     }
-    public void removeByStandardOfLiving(String standardOfLiving) {
-        this.mainCollection = mainCollection.stream()
-                .filter(item -> !item.standardOfLiving.equals(
-                        StandardOfLiving.valueOf(standardOfLiving)
-                ))
-                .collect(Collectors.toCollection(ArrayDeque<City>::new));
-    }
-    public float averageOfMetersAboveSeaLevel(){
-        return (float) mainCollection.stream()
-                .mapToDouble(elem -> elem.metersAboveSeaLevel)
-                .average()
-                .orElse(Double.NaN);
-    }
+
     public City getById(Long id) throws ElementNotFound {
         for (City element: this.mainCollection){
             if (element.id.equals(id)){

@@ -10,11 +10,11 @@ public interface IStructDriver {
     public void add(City entity);
     public City getById(Long id) throws ElementNotFound;
     public void removeById(Long id) ;
-    public ArrayDeque<City> getCollectionCopy();
+    public ArrayDeque<City> getCollection();
     public void removeFirst();
     public void clearCollection();
-    public void removeByStandardOfLiving(String standardOfLiving);
-    public float averageOfMetersAboveSeaLevel();
+    // public void removeByStandardOfLiving(String standardOfLiving);
+    // public float averageOfMetersAboveSeaLevel();
     public Long generateId();
     public LocalDateTime generateDateTime();
 }

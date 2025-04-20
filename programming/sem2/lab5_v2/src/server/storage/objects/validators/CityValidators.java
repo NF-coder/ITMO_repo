@@ -1,6 +1,6 @@
 package server.storage.objects.validators;
 
-import exceptions.UnacceptableValue;
+import server.storage.objects.exceptions.UnacceptableValue;
 
 public class CityValidators {
     public static String validateName(String value) throws UnacceptableValue {

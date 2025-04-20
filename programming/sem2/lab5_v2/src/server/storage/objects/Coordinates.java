@@ -1,14 +1,13 @@
 package server.storage.objects;
 
-import objects.parsers.InvokersParsers.CoordinatesParser;
 
 public class Coordinates {
-    private double x;
-    private Float y; //Максимальное значение поля: 447, Поле не может быть null
+    private final double x;
+    private final Float y; //Максимальное значение поля: 447, Поле не может быть null
 
-    public Coordinates() {
-        this.x = CoordinatesParser.getX();
-        this.y = CoordinatesParser.getY();
+    public Coordinates(String x, String y) {
+        this.x = Double.parseDouble(x);
+        this.y = Float.parseFloat(y);
     }
 
     public String toCSV(){

@@ -8,10 +8,12 @@ public class Promise{
     private final HashMap<String,String> args;
     private HashMap<String,String> result = new HashMap<>();
     private String errorDescription;
+    private final FinalizedPromises finalizedPromises;
 
-    public Promise(String opName, HashMap<String,String> args){
+    public Promise(String opName, HashMap<String,String> args, FinalizedPromises finalizedPromises){
         this.opName = opName;
         this.args = args;
+        this.finalizedPromises = finalizedPromises;
     }
 
     public String getOperationName(){
@@ -29,6 +31,7 @@ public class Promise{
     public void setResult(HashMap<String,String> result){
         this.result = result;
         this.status = PromiseStatus.FINISHED;
+        this.finalizedPromises.add(this);
     }
 
     public String getError(){
@@ -37,6 +40,7 @@ public class Promise{
     public void setError(String descr){
         this.errorDescription = descr;
         this.status = PromiseStatus.ERROR;
+        this.finalizedPromises.add(this);
     }
 
     public Enum<PromiseStatus> getStatus(){

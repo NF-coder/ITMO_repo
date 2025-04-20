@@ -29,13 +29,16 @@ public class City {
                 String metersAboveSeaLevel,
                 String climate,
                 String government,
-                String standardOfLiving
+                String standardOfLiving,
+                Coordinates coordinates,
+                Human human
+
     ) throws UnacceptableValue {
         this.id = id;
         this.name = CityValidators.validateName(
                 name
         );
-        this.coordinates = new Coordinates();
+        this.coordinates = coordinates;
         this.creationDate = creationDate;
         this.area = CityValidators.validateArea(
                 Double.parseDouble(area)
@@ -49,7 +52,7 @@ public class City {
         this.climate = Climate.valueOf(climate);
         this.government = Government.valueOf(government);
         this.standardOfLiving = StandardOfLiving.valueOf(standardOfLiving);
-        this.governor = new Human();
+        this.governor = human;
     }
     @Override
     public String toString() {
