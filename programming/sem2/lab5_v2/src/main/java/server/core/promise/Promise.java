@@ -1,48 +1,38 @@
 package server.core.promise;
 
+import netscape.javascript.JSObject;
+
 import java.util.HashMap;
 
-public class Promise{
+public class Promise implements Runnable{
     private final String opName;
-    private Enum<PromiseStatus> status = PromiseStatus.CREATED;
-    private final HashMap<String,String> args;
-    private HashMap<String,String> result = new HashMap<>();
-    private String errorDescription;
-    private final FinalizedPromises finalizedPromises;
+    private final JSObject args;
 
-    public Promise(String opName, HashMap<String,String> args, FinalizedPromises finalizedPromises){
+    private Enum<PromiseStatus> status;
+    private HashMap<String,String> result = new HashMap<>();
+
+    public Promise(String opName, JSObject args, Commands){
         this.opName = opName;
         this.args = args;
-        this.finalizedPromises = finalizedPromises;
+        this.status =  PromiseStatus.CREATED;
     }
 
-    public String getOperationName(){
-        return this.opName;
+    public void run(){
+        this.status =  PromiseStatus.EXECUTING;
+        this.opName =
     }
 
-    public HashMap<String,String> getArguments(){
-        this.status = PromiseStatus.EXECUTING;
-        return this.args;
-    }
-
-    public HashMap<String, String> getResult(){
-        return this.result;
-    }
     public void setResult(HashMap<String,String> result){
         this.result = result;
         this.status = PromiseStatus.FINISHED;
-        this.finalizedPromises.add(this);
     }
-
-    public String getError(){
-        return this.errorDescription;
-    }
-    public void setError(String descr){
-        this.errorDescription = descr;
+    public void setError(String error){
+        this.result.put("error", error);
         this.status = PromiseStatus.ERROR;
-        this.finalizedPromises.add(this);
     }
-
+    public HashMap<String, String> getResult(){
+        return this.result;
+    }
     public Enum<PromiseStatus> getStatus(){
         return this.status;
     }
@@ -50,7 +40,7 @@ public class Promise{
     @Override
     public String toString(){
         return "Promise{" +
-                "\n\t opName=" + this.getOperationName() +
+                "\n\t opName=" + this.opName +
                 "\n\t status=" + this.status +
                 "\n}";
     }

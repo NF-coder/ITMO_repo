@@ -20,7 +20,7 @@ public class Engine {
     public Engine(){
         Thread networkThread = new Thread(
                 new NetworkCycle(
-                    new UDPDriver(4055),
+                    new UDPDriver(4056),
                     this.networkReceived,
                     this.networkToSend
             )

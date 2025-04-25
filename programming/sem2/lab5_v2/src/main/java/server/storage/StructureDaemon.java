@@ -1,5 +1,6 @@
 package server.storage;
 
+import server.commands.CommandsManager;
 import server.core.promise.Promise;
 import server.storage.control.IStorageController;
 
@@ -9,9 +10,9 @@ import java.util.HashMap;
 public class StructureDaemon {
     IStorageController controller;
     HashMap<String, Method> opTable = new HashMap<>();
-    StructureManager manager;
+    CommandsManager manager;
 
-    public StructureDaemon(IStorageController controller, StructureManager manager){
+    public StructureDaemon(IStorageController controller, CommandsManager manager){
         this.controller = controller;
         this.manager = manager;
         this.initOpTable();
@@ -28,6 +29,7 @@ public class StructureDaemon {
         while (true) {
             if (this.controller.hasNext()){
                 Promise op = this.controller.get();
+                System.out.println(op);
                 try{
                     this.opTable.get(
                             op.getOperationName()

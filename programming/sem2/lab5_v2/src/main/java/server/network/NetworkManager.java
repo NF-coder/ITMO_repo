@@ -1,5 +1,6 @@
 package server.network;
 
+import org.json.JSONObject;
 import server.network.drivers.INetworkDriver;
 import server.network.objects.NetworkDTO;
 
@@ -16,7 +17,7 @@ public class NetworkManager {
             this.driver.init();
         }
         catch (Exception e){
-
+            System.out.println(e);
         }
     }
 
@@ -34,8 +35,11 @@ public class NetworkManager {
                         this.driver.receive()
                 )
             );
+            Thread.sleep(1000);
         }
-        catch (IOException err){
+        catch (Exception e){
+        }
+        /*catch (IOException err){
             //System.out.println("can't open connection");
         }
         catch (NullPointerException err){
@@ -43,7 +47,7 @@ public class NetworkManager {
         }
         catch (ClassNotFoundException err){
             //System.out.println("can't deserialize object");
-        }
+        }*/
     }
 
     private byte[] serialize(Object obj) throws IOException {
@@ -51,11 +55,15 @@ public class NetworkManager {
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(obj);
         oos.close();
+        try {
+            JSONObject jo = new JSONObject(obj);
+            System.out.println(jo.toString());
+        }
+        catch (Exception e){
+        }
         return bos.toByteArray();
     }
     private NetworkDTO deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
-        try{Thread.sleep(1000);}
-        catch (Exception e){}
         //if (bytes == null) return null;
         InputStream is = new ByteArrayInputStream(bytes);
         ObjectInputStream ois = new ObjectInputStream(is);

@@ -21,9 +21,7 @@ public class NetworkCycle implements Runnable{
                 this.nm.receive(inpQueue);
                 this.nm.send(outQueue);
             }
-            catch (Exception e){
-
-            }
+            catch (Exception e){}
         }
     }
 }

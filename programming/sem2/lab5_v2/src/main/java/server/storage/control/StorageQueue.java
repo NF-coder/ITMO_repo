@@ -33,10 +33,6 @@ public class StorageQueue implements IStorageController{
     }
 
     public boolean hasNext(){
-        try{
-            Thread.sleep(1000);
-        }catch (Exception e) {}
-        //System.out.println("NXT: " + operations.size());
         return !this.operations.isEmpty();
     }
 }

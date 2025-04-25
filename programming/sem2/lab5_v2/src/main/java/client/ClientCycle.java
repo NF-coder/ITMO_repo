@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class ClientCycle implements Runnable{
     public void run(){
-        UDPDriver driver = new UDPDriver(4055);
+        UDPDriver driver = new UDPDriver(4056);
         NetworkManager networkManager = new NetworkManager(driver);
 
         HashMap<String,String> hamp = new HashMap<>();
@@ -21,6 +21,7 @@ public class ClientCycle implements Runnable{
                             hamp
                     )
             );
+            System.out.println("sended");
             Thread.sleep(1000);
             NetworkDTO nmr = networkManager.recive();
             System.out.println(nmr);
