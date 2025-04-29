@@ -10,9 +10,12 @@ public class Coordinates {
         this.y = Float.parseFloat(y);
     }
 
+    // For auto json parsing
+    public double getX() {return x;}
+    public Float getY() {return y;}
+
     public String toCSV(){
-        return String.valueOf(x) + ", " +
-                y.toString();
+        return x + ", " + y.toString();
     }
 
     @Override

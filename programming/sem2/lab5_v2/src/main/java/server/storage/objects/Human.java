@@ -20,6 +20,12 @@ public class Human {
         this.birthday = this.DateStringToLocalDateTime(birthday);
     }
 
+    // For auto json parsing
+    public String getName() {return name;}
+    public long getAge() {return age;}
+    public double getHeight() {return height;}
+    public java.time.LocalDateTime getBirthday() {return birthday;}
+
     private LocalDateTime DateStringToLocalDateTime(String value) throws UnacceptableValue {
         DateTimeFormatter DTF = new DateTimeFormatterBuilder()
                 .appendPattern("dd.MM.uuuu")

@@ -1,21 +1,25 @@
 package server.core;
 
-import server.core.promise.FinalizedPromises;
 import server.network.NetworkCycle;
-import server.storage.StorageCycle;
 import server.network.objects.NetworkDTO;
-import server.network.drivers.UDPDriver;
-import server.storage.control.IStorageController;
-import server.storage.control.StorageQueue;
+import server.network.drivers.implementations.UDPDriver;
+import server.storage.collection.drivers.IStructDriver;
+import server.storage.collection.drivers.implementations.DequeDriver;
+import server.storage.commands.CommandsManager;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Engine {
-    private final IStorageController SAC;
-    private final FinalizedPromises finalizedPromises;
     private final Queue<NetworkDTO> networkReceived = new ArrayDeque<>();
-    private final Queue<Object> networkToSend = new ArrayDeque<>();
+    private final Queue<String> networkToSend = new ArrayDeque<>();
+
+    private final ExecutorService executor = Executors.newFixedThreadPool(10);
+    private final IStructDriver sd = new DequeDriver();
+    private final CommandsManager cm = new CommandsManager(sd);
 
     public Engine(){
         Thread networkThread = new Thread(
@@ -26,22 +30,20 @@ public class Engine {
             )
         );
         networkThread.start();
-
-        this.finalizedPromises = new FinalizedPromises();
-        this.SAC = new StorageQueue(this.finalizedPromises);
-
-        Thread storageThread = new Thread(
-                new StorageCycle(this.SAC)
-        );
-        storageThread.start();
     }
 
     public void mainCycle(){
         try{
             if (!networkReceived.isEmpty()){
                 System.out.println("Received from get");
-                NetworkDTO in = this.networkReceived.remove();
-                SAC.add(in.opName(), in.args());
+                NetworkDTO networkDTO = networkReceived.remove();
+
+                Future<Object> future = cm.run(
+                        networkDTO.opName(),
+                        networkDTO.args(),
+                        this.executor
+                );
+                networkToSend.add(future);
             }
             if (!this.finalizedPromises.isEmpty()){
                 System.out.println("Received from fin");

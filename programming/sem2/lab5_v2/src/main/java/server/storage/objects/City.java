@@ -9,58 +9,49 @@ import server.storage.objects.validators.CityValidators;
 import java.time.LocalDateTime;
 
 public class City {
-    public final Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    public final String name; //Поле не может быть null, Строка не может быть пустой
-    public final Coordinates coordinates; //Поле не может быть null
-    public final LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    public final double area; //Значение поля должно быть больше 0
-    public final long population; //Значение поля должно быть больше 0
-    public final float metersAboveSeaLevel;
-    public final Climate climate; //Поле не может быть null
-    public final Government government; //Поле не может быть null
-    public final StandardOfLiving standardOfLiving; //Поле может быть null
-    public final Human governor; //Поле не может быть null
+    public double getMetersAboveSeaLevel; // To JavaBean
+    private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private String name; //Поле не может быть null, Строка не может быть пустой
+    private Coordinates coordinates; //Поле не может быть null
+    private double area; //Значение поля должно быть больше 0
+    private long population; //Значение поля должно быть больше 0
+    private float metersAboveSeaLevel;
+    private Climate climate; //Поле не может быть null
+    private Government government; //Поле не может быть null
+    private StandardOfLiving standardOfLiving; //Поле может быть null
+    private Human governor; //Поле не может быть null
 
-    public City(Long id,
-                String name,
-                LocalDateTime creationDate,
-                String area,
-                String population,
-                String metersAboveSeaLevel,
-                String climate,
-                String government,
-                String standardOfLiving,
-                Coordinates coordinates,
-                Human human
+    public void setId(Long id) {this.id = id;}
+    public void setCreationDate(LocalDateTime creationDate) {this.creationDate = creationDate;}
+    public void setName(String name) throws UnacceptableValue {this.name = CityValidators.validateName(name);}
+    public void setCoordinates(Coordinates coordinates) throws UnacceptableValue {this.coordinates = coordinates;}
+    public void setArea(String area) throws UnacceptableValue {this.area = CityValidators.validateArea(Double.parseDouble(area));}
+    public void setPopulation(String population) throws UnacceptableValue {this.population = CityValidators.validatePopulation(Long.parseLong(population));}
+    public void setMetersAboveSeaLevel(String metersAboveSeaLevel) throws UnacceptableValue {this.metersAboveSeaLevel = Float.parseFloat(metersAboveSeaLevel);}
+    public void setClimate(String climate) throws UnacceptableValue {this.climate = Climate.valueOf(climate);}
+    public void setGovernment(String government) throws UnacceptableValue {this.government = Government.valueOf(government);}
+    public void setStandardOfLiving(String standardOfLiving) throws UnacceptableValue {this.standardOfLiving = StandardOfLiving.valueOf(standardOfLiving);}
+    public void setGovernor(Human human) throws UnacceptableValue {this.governor = human;}
 
-    ) throws UnacceptableValue {
-        this.id = id;
-        this.name = CityValidators.validateName(
-                name
-        );
-        this.coordinates = coordinates;
-        this.creationDate = creationDate;
-        this.area = CityValidators.validateArea(
-                Double.parseDouble(area)
-        );
-        this.population = CityValidators.validatePopulation(
-                Long.parseLong(population)
-        );
-        this.metersAboveSeaLevel = Float.parseFloat(
-                metersAboveSeaLevel
-        );
-        this.climate = Climate.valueOf(climate);
-        this.government = Government.valueOf(government);
-        this.standardOfLiving = StandardOfLiving.valueOf(standardOfLiving);
-        this.governor = human;
-    }
+    public Long getId() {return id;}
+    public LocalDateTime getCreationDate() {return creationDate;}
+    public String getName() {return name;}
+    public Coordinates getCoordinates() {return coordinates;}
+    public double getArea() {return area;}
+    public long getPopulation() {return population;}
+    public float getMetersAboveSeaLevel() {return metersAboveSeaLevel;}
+    public Climate getClimate() {return climate;}
+    public Government getGovernment() {return government;}
+    public StandardOfLiving getStandardOfLiving() {return standardOfLiving;}
+    public Human getGovernor() {return governor;}
+
     @Override
     public String toString() {
         return "City{" +
-                "\n\tid=" + this.id + ", " +
+                "\n\tid=" + id +
                 "\n\tname=" + this.name + ", " +
                 "\n\tcoordinates=" + this.coordinates + ", " +
-                "\n\tcreationDate=" + this.creationDate + ", " +
                 "\n\tarea=" + this.area + ", " +
                 "\n\tpopulation=" + this.population + ", " +
                 "\n\tmetersAboveSeaLevel=" + this.metersAboveSeaLevel + ", " +
@@ -68,6 +59,7 @@ public class City {
                 "\n\tgovernment=" + this.government + ", " +
                 "\n\tstandardOfLiving=" + this.standardOfLiving + ", " +
                 "\n\tgovernor=" + this.governor + ", " +
+                "\n\tcreationDate=" + this.creationDate + ", " +
                 "\n}";
     }
 }
