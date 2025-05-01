@@ -3,17 +3,19 @@ package server.storage.commands.commands.implementations;
 import server.storage.commands.commands.Command;
 import server.storage.objects.enums.StandardOfLiving;
 
-public class RemoveAllByStandardOfLiving extends Command<Void> {
+import java.util.HashMap;
+
+public class RemoveAllByStandardOfLiving extends Command {
     public RemoveAllByStandardOfLiving() {
         super("remove_all_by_standard_of_living");
     }
-    public Void call(){
+    public String call(){
         driver.getCollection().stream()
-                .filter(item -> item.standardOfLiving.equals(
+                .filter(item -> item.getStandardOfLiving().equals(
                         StandardOfLiving.valueOf(args.get("standard_of_living"))
                 ))
                 .forEach(
-                        elem -> driver.removeById(elem.id)
+                        elem -> driver.removeById(elem.getId())
                 );
         return null;
     }

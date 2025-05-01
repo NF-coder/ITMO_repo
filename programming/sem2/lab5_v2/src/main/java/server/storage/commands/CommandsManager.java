@@ -5,6 +5,7 @@ import server.storage.commands.commands.implementations.*;
 import server.storage.collection.drivers.IStructDriver;
 
 import java.util.HashMap;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
@@ -14,7 +15,7 @@ public class CommandsManager {
     private final Command[] opArr = {
             new Add(), new Update(), new Clear(), new FilterStartsWithName(),
             new Op1(), new RemoveAllByStandardOfLiving(), new RemoveById(),
-            new RemoveFirst()
+            new RemoveFirst(), new Show(), new Info(), new Save()
     };
 
     public CommandsManager(IStructDriver driver){
@@ -28,9 +29,12 @@ public class CommandsManager {
         }
     }
 
-    public Future<Object> run(String command, HashMap<String,String> args, ExecutorService exec) throws Exception {
+    public CompletableFuture<HashMap<String,String>> run(String command, HashMap<String,String> args, ExecutorService exec) throws Exception {
         Command cmd = opTable.get(command);
         cmd.setData(args, driver);
-        return exec.submit(cmd);
+        return CompletableFuture.supplyAsync(
+                cmd,
+                exec
+        );
     }
 }

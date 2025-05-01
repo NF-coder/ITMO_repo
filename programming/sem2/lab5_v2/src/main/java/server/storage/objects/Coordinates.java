@@ -18,6 +18,9 @@ public class Coordinates {
         return x + ", " + y.toString();
     }
 
+    public String toCSVString() {
+        return x + "," + y;
+    }
     @Override
     public String toString() {
         return "Coordinates{" +

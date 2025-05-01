@@ -43,6 +43,10 @@ public class Human {
         }
     }
 
+    public String toCSVString() {
+        return name + "," + age + "," + height + "," + birthday.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+    }
+
     @Override
     public String toString() {
         return "Human{" +

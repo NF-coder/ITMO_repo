@@ -32,9 +32,16 @@ public class UDPDriver implements INetworkDriver {
 
     public byte[] receive() throws IOException{
         ByteBuffer buf = ByteBuffer.allocate(DATA_SIZE);
+
+        System.out.println("receiving...");
+        System.out.println(buf);
+
         addr = channel.receive(buf);
+
+        System.out.println("received: " + addr);
+
         if (addr != null) {
-            System.out.println("rec buff cli");
+            System.out.println("receive buffer dump");
             return buf.array();
         }
         return null;

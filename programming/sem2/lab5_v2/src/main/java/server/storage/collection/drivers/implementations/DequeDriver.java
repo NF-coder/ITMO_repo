@@ -59,7 +59,6 @@ public class DequeDriver implements IStructDriver {
         this.mainCollection.clear();
     }
 
-
     public synchronized City getById(Long id) throws ElementNotFound {
         for (City element: this.mainCollection){
             if (element.getId().equals(id)){
@@ -67,5 +66,13 @@ public class DequeDriver implements IStructDriver {
             }
         }
         throw new ElementNotFound("No such element in collection!");
+    }
+
+    @Override
+    public String toString() {
+        return "Collection{" +
+                "\n\tsize=" + this.mainCollection.size() +
+                "\n\tcreated_time=" + this.createdDateTime +
+                "}";
     }
 }

@@ -7,11 +7,13 @@ import server.storage.objects.Human;
 import server.storage.objects.exceptions.ElementNotFound;
 import server.storage.objects.exceptions.UnacceptableValue;
 
-public class Update extends Command<Void> {
+import java.util.HashMap;
+
+public class Update extends Command {
     public Update(){
         super("update");
     }
-    public Void call() throws UnacceptableValue, ElementNotFound {
+    public String call() throws UnacceptableValue, ElementNotFound {
         City obj = this.driver.getById(
                 Long.parseLong(
                         this.args.get("id")
@@ -22,7 +24,7 @@ public class Update extends Command<Void> {
         newCity.setName(args.get("name"));
         newCity.setArea(args.get("area"));
         newCity.setPopulation(args.get("population"));
-        newCity.setMetersAboveSeaLevel(args.get("matersAboveSeaLevel"));
+        newCity.setMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
         newCity.setClimate(args.get("climate"));
         newCity.setGovernment(args.get("government"));
         newCity.setStandardOfLiving(args.get("standardOfLiving"));
@@ -34,7 +36,7 @@ public class Update extends Command<Void> {
         );
         newCity.setGovernor(
                 new Human(
-                        args.get("name"),
+                        args.get("govName"),
                         args.get("age"),
                         args.get("height"),
                         args.get("birthday")
@@ -43,6 +45,7 @@ public class Update extends Command<Void> {
         this.driver.add(
                 newCity
         );
+
         return null;
     }
 }

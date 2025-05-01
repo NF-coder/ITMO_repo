@@ -1,7 +1,7 @@
 package client.network;
 
 import client.network.drivers.INetworkDriver;
-import server.network.objects.NetworkDTO;
+import shared.objects.NetworkResponseDTO;
 
 import java.io.*;
 
@@ -22,7 +22,7 @@ public class NetworkManager {
                 this.serialize(obj)
         );
     }
-    public NetworkDTO recive() throws IOException, ClassNotFoundException{
+    public NetworkResponseDTO receive() throws IOException, ClassNotFoundException{
         return this.deserialize(
                 this.driver.receive()
         );
@@ -35,8 +35,8 @@ public class NetworkManager {
         oos.close();
         return bos.toByteArray();
     }
-    private NetworkDTO deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
-        if (bytes == null) return null;
+    private NetworkResponseDTO deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
+        //if (bytes == null) return null;
         System.out.println(bytes);
         for (byte b: bytes){
             System.out.print(b + " ");
@@ -44,7 +44,7 @@ public class NetworkManager {
         InputStream is = new ByteArrayInputStream(bytes);
         ObjectInputStream ois = new ObjectInputStream(is);
 
-        NetworkDTO cached = (NetworkDTO) ois.readObject();
+        NetworkResponseDTO cached = (NetworkResponseDTO) ois.readObject();
         System.out.println(cached);
         return cached;
     }

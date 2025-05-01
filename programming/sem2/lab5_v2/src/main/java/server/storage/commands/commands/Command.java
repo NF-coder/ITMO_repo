@@ -3,9 +3,10 @@ package server.storage.commands.commands;
 import server.storage.collection.drivers.IStructDriver;
 
 import java.util.HashMap;
-import java.util.concurrent.Callable;
 
-public abstract class Command<T> implements Callable<T> {
+import java.util.function.Supplier;
+
+public abstract class Command implements Supplier<HashMap<String,String>> {
     public String NAME;
     protected IStructDriver driver;
     protected HashMap<String,String> args;
@@ -21,5 +22,28 @@ public abstract class Command<T> implements Callable<T> {
         return this.NAME;
     }
 
-    public abstract T call() throws Exception;
+    public abstract String call() throws Exception;
+    public HashMap<String,String> get(){
+        try {
+            String result = this.call();
+            HashMap<String, String> h = new HashMap<>();
+
+            h.put("status", String.valueOf(Status.OK));
+            if (result != null){
+                h.put("result", result);
+            }
+            else {
+                h.put("result", "successfully completed");
+            }
+
+            return h;
+        }
+        catch (Exception e) {
+            HashMap<String,String> h = new HashMap<>();
+
+            h.put("status", String.valueOf(Status.ERROR));
+            h.put("description", e.getMessage());
+            return h;
+        }
+    }
 }

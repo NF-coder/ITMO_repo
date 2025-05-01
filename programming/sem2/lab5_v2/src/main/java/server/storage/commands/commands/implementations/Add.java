@@ -5,18 +5,18 @@ import server.storage.objects.City;
 import server.storage.objects.Coordinates;
 import server.storage.objects.Human;
 
-public class Add extends Command<Void> {
+public class Add extends Command {
     public Add() {
         super("add");
     }
 
-    public Void call() throws Exception {
+    public String call() throws Exception{
         City newCity = new City();
 
         newCity.setName(args.get("name"));
         newCity.setArea(args.get("area"));
         newCity.setPopulation(args.get("population"));
-        newCity.setMetersAboveSeaLevel(args.get("matersAboveSeaLevel"));
+        newCity.setMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
         newCity.setClimate(args.get("climate"));
         newCity.setGovernment(args.get("government"));
         newCity.setStandardOfLiving(args.get("standardOfLiving"));
@@ -28,13 +28,12 @@ public class Add extends Command<Void> {
         );
         newCity.setGovernor(
                 new Human(
-                         args.get("name"),
+                         args.get("govName"),
                          args.get("age"),
                          args.get("height"),
                          args.get("birthday")
                 )
         );
-
         this.driver.add(
                 newCity
         );
