@@ -1,2 +1,9 @@
+client/commands/objects/enums/Government$1.class
+server/storage/commands/commands/Status$1.class
+client/commands/objects/enums/StandardOfLiving$1.class
 client/commands/implementations/Save.class
 server/storage/commands/commands/implementations/Save.class
+server/storage/objects/enums/Government$1.class
+server/storage/objects/enums/Climate$1.class
+server/storage/objects/enums/StandardOfLiving$1.class
+client/commands/objects/enums/Climate$1.class

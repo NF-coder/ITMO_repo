@@ -13,7 +13,7 @@ public class NetworkManager {
             this.driver.init();
         }
         catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
     }
 

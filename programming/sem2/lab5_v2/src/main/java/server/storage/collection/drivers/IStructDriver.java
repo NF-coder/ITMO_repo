@@ -6,7 +6,7 @@ import server.storage.objects.exceptions.ElementNotFound;
 import java.util.ArrayDeque;
 
 public interface IStructDriver {
-    public  void add(City entity);
+    public void add(City entity);
     public City getById(Long id) throws ElementNotFound;
     public void removeById(Long id) ;
     public ArrayDeque<City> getCollection();

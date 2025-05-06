@@ -16,6 +16,7 @@
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/implementations/Update.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/implementations/parsers/AdditionalParsers.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/implementations/parsers/EnumsParser.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/implementations/parsers/LoopedParse.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/objects/enums/Climate.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/objects/enums/EnumInterface.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/commands/objects/enums/Government.java
@@ -34,6 +35,7 @@
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/client/textWorkers/Invokers/IInvoker.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/server/ServerCycle.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/server/core/Engine.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/server/network/NetworkContainer.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/server/network/NetworkCycle.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/server/network/NetworkManager.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/server/network/drivers/INetworkDriver.java

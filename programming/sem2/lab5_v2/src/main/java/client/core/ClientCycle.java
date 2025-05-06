@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class ClientCycle implements Runnable{
     public void run(){
-        UDPDriver driver = new UDPDriver(4056);
+        UDPDriver driver = new UDPDriver(4059,4056);
         NetworkManager networkManager = new NetworkManager(driver);
 
         HashMap<String,String> hamp = new HashMap<>();

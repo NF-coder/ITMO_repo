@@ -25,23 +25,31 @@ public class NetworkManager {
         }
     }
 
-    public void send(Queue<NetworkResponseDTO> outQueue) throws IOException{
-        NetworkResponseDTO r1 = outQueue.poll();
+    public void send(Queue<NetworkContainer<NetworkResponseDTO>> outQueue) throws IOException{
+        NetworkContainer<NetworkResponseDTO> r1 = outQueue.poll();
         if(r1 == null){return;}
         System.out.println(r1);
+
         this.driver.send(
-                this.serializer.serialize(
-                        outQueue.poll()
+                new NetworkContainer<> (
+                        r1.socketAddress(),
+                        this.serializer.serialize(
+                                r1.data()
+                        )
                 )
         );
         System.out.println(r1);
     }
-    public void receive(Queue<NetworkRequestDTO> inpQueue) throws IOException, ClassNotFoundException{
+    public void receive(Queue<NetworkContainer<NetworkRequestDTO>> inpQueue) throws IOException, ClassNotFoundException{
         try {
+            NetworkContainer<byte[]> nc = this.driver.receive();
             inpQueue.add(
-                    this.serializer.deserialize(
-                        this.driver.receive()
-                )
+                    new NetworkContainer<>(
+                            nc.socketAddress(),
+                            this.serializer.deserialize(
+                                    nc.data()
+                            )
+                    )
             );
         }
         catch (Exception e){}

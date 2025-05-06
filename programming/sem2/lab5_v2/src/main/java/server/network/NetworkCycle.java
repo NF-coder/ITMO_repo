@@ -9,14 +9,14 @@ import java.util.Queue;
 
 public class NetworkCycle implements Runnable{
     private final NetworkManager nm;
-    public final Queue<NetworkRequestDTO> inpQueue;
-    public final Queue<NetworkResponseDTO> outQueue;
+    public final Queue<NetworkContainer<NetworkRequestDTO>> inpQueue;
+    public final Queue<NetworkContainer<NetworkResponseDTO>> outQueue;
 
     public NetworkCycle(
             INetworkDriver nd,
             INetworkSerializers serializer,
-            Queue<NetworkRequestDTO> inpQueue,
-            Queue<NetworkResponseDTO> outQueue
+            Queue<NetworkContainer<NetworkRequestDTO>> inpQueue,
+            Queue<NetworkContainer<NetworkResponseDTO>> outQueue
     ){
         this.nm = new NetworkManager(
                 nd,

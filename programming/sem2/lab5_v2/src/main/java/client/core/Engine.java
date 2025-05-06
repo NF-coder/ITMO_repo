@@ -7,7 +7,7 @@ import client.network.NetworkManager;
 import client.network.drivers.UDPDriver;
 
 public final class Engine {
-    UDPDriver driver = new UDPDriver(4056);
+    UDPDriver driver = new UDPDriver(4059, 4056);
     NetworkManager networkManager = new NetworkManager(driver);
 
     private static final BasicCommand[] commands = {new Help(), new Add(), new Info(),

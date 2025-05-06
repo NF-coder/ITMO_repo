@@ -1,13 +1,22 @@
 package server.storage.commands;
 
-import server.storage.commands.commands.Command;
-import server.storage.commands.commands.implementations.*;
-import server.storage.collection.drivers.IStructDriver;
-
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
+
+import server.storage.collection.drivers.IStructDriver;
+import server.storage.commands.commands.Command;
+import server.storage.commands.commands.implementations.Add;
+import server.storage.commands.commands.implementations.Clear;
+import server.storage.commands.commands.implementations.FilterStartsWithName;
+import server.storage.commands.commands.implementations.Info;
+import server.storage.commands.commands.implementations.Op1;
+import server.storage.commands.commands.implementations.RemoveAllByStandardOfLiving;
+import server.storage.commands.commands.implementations.RemoveById;
+import server.storage.commands.commands.implementations.RemoveFirst;
+import server.storage.commands.commands.implementations.Save;
+import server.storage.commands.commands.implementations.Show;
+import server.storage.commands.commands.implementations.Update;
 
 public class CommandsManager {
     private final IStructDriver driver;
