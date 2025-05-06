@@ -3,7 +3,6 @@ package server.network.managers;
 import server.network.container.NetworkContainer;
 import server.network.drivers.INetworkDriver;
 import server.network.serializers.INetworkSerializers;
-import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;
 
 import java.io.IOException;
@@ -17,17 +16,14 @@ public class SendManager {
     INetworkSerializers serializer;
     ExecutorService executor;
 
-    public SendManager(INetworkDriver driver, INetworkSerializers serializer) {
+    public SendManager(INetworkDriver driver, INetworkSerializers serializer, ExecutorService executor) {
         this.driver = driver;
         this.serializer = serializer;
-        this.executor = Executors.newFixedThreadPool(1);
+        this.executor = executor;
     }
 
-    public void call(Queue<NetworkContainer<NetworkResponseDTO>> outQueue) throws Exception{
-        NetworkContainer<NetworkResponseDTO> elem = outQueue.poll();
-        if(elem == null){return;}
-
-        CompletableFuture.supplyAsync(
+    public CompletableFuture<Void> call(NetworkContainer<NetworkResponseDTO> elem){
+        return CompletableFuture.supplyAsync(
                 () -> {
                     try {
                         return this.serializer.serialize(

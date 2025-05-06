@@ -6,7 +6,9 @@ import server.network.serializers.INetworkSerializers;
 import shared.objects.NetworkRequestDTO;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Queue;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -15,24 +17,34 @@ public class ReceiveManager {
     INetworkSerializers serializer;
     ExecutorService executor;
 
-    public ReceiveManager(INetworkDriver driver, INetworkSerializers serializer) {
+    public ReceiveManager(INetworkDriver driver, INetworkSerializers serializer, ExecutorService executor) {
         this.driver = driver;
         this.serializer = serializer;
-        this.executor = Executors.newFixedThreadPool(1);
+        this.executor = executor;
     }
 
-    public void call(Queue<NetworkContainer<NetworkRequestDTO>> inpQueue) throws IOException, ClassNotFoundException{
-        try {
-            NetworkContainer<byte[]> nc = this.driver.receive();
-            inpQueue.add(
-                    new NetworkContainer<>(
-                            nc.socketAddress(),
-                            this.serializer.deserialize(
-                                    nc.data()
-                            )
-                    )
-            );
-        }
-        catch (Exception e){}
+    public CompletableFuture<NetworkContainer<NetworkRequestDTO>> call() throws IOException, ClassNotFoundException{
+        return  CompletableFuture.supplyAsync(() -> {
+            try {
+                return this.driver.receive();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).thenApply(
+                res -> {
+                    try {
+                        return new NetworkContainer<>(
+                                res.socketAddress(),
+                                this.serializer.deserialize(
+                                        res.data()
+                                )
+                        );
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+        );
     }
 }

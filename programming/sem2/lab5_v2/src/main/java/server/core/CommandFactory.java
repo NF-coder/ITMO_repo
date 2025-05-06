@@ -1,9 +1,12 @@
 package server.core;
 
+import java.net.SocketAddress;
 import java.util.HashMap;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.function.Function;
 
+import server.network.container.NetworkContainer;
 import server.storage.collection.drivers.IStructDriver;
 import server.storage.commands.CommandsManager;
 
@@ -18,17 +21,17 @@ public class CommandFactory {
         this.executor = executor;
     }
 
-    public <T> void runCommand(
+    public CompletableFuture<NetworkContainer<HashMap<String,String>>> runCommand(
             String opName,
             HashMap<String, String> args,
-            Function<HashMap<String,String>, T> nextStage
+            SocketAddress socketAddress
     ) {
-        commandsManager.run(
+        return commandsManager.run(
                 opName,
                 args,
                 this.executor
         ).thenApply(
-                nextStage
+                res -> new NetworkContainer<>(socketAddress, res)
         );
     }
 }

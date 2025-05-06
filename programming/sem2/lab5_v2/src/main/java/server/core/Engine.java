@@ -1,62 +1,67 @@
 package server.core;
 
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
 import server.network.container.NetworkContainer;
-import server.network.NetworkCycle;
-import server.network.drivers.implementations.UDPDriver;
-import server.network.serializers.implementations.BinarySerializer;
-import server.storage.collection.drivers.implementations.DequeDriver;
-import shared.objects.NetworkRequestDTO;
+import server.network.drivers.INetworkDriver;
+import server.network.managers.ReceiveManager;
+import server.network.managers.SendManager;
+import server.network.serializers.INetworkSerializers;
+import server.storage.collection.drivers.IStructDriver;
 import shared.objects.NetworkResponseDTO;
 
 public class Engine {
-    private final Queue<NetworkContainer<NetworkRequestDTO>> networkReceived = new ConcurrentLinkedQueue<>();
-    private final Queue<NetworkContainer<NetworkResponseDTO>> networkToSend = new ConcurrentLinkedQueue<>();
+    private final ReceiveManager receiveManager;
+    public final SendManager sendManager;
+    private final CommandFactory commandFactory;
 
-    private final CommandFactory commandFactory = new CommandFactory(
-            Executors.newFixedThreadPool(10),
-            new DequeDriver()
-    );
+    public Engine(
+            INetworkDriver networkDriver,
+            ExecutorService receiveExecutor,
+            ExecutorService sendExecutor,
+            ExecutorService commandExecutor,
+            INetworkSerializers networkSerializer,
+            IStructDriver structDriver
+    ) {
+        try {
+            networkDriver.init();
+        } catch (Exception e) {}
 
-    public Engine(){
-        Thread networkThread = new Thread(
-                new NetworkCycle(
-                    new UDPDriver(4056),
-                    new BinarySerializer(),
-                    this.networkReceived,
-                    this.networkToSend
-            )
+        this.receiveManager = new ReceiveManager(
+                networkDriver,
+                networkSerializer,
+                receiveExecutor
         );
-        networkThread.start();
+        this.sendManager = new SendManager(
+                networkDriver,
+                networkSerializer,
+                sendExecutor
+        );
+        this.commandFactory = new CommandFactory(
+                commandExecutor,
+                structDriver
+        );
     }
 
-    public void mainCycle(){
-        try{
-            if (!networkReceived.isEmpty()){
-                System.out.println("Received from get");
-                NetworkContainer<NetworkRequestDTO> networkRequestDTO = networkReceived.remove();
-                System.out.println(networkRequestDTO);
-
-                commandFactory.runCommand(
-                        networkRequestDTO.data().opName(),
-                        networkRequestDTO.data().args(),
-                        res->{
-                            System.out.println("fapl: " + res.toString());
-                            return networkToSend.add(
+    public void mainCycle() {
+        try {
+            receiveManager.call()
+                    .thenCompose(
+                            networkRequestDTO -> commandFactory.runCommand(
+                                    networkRequestDTO.data().opName(),
+                                    networkRequestDTO.data().args(),
+                                    networkRequestDTO.socketAddress()
+                            )
+                    )
+                    .thenCompose(
+                            result -> sendManager.call(
                                     new NetworkContainer<>(
-                                            networkRequestDTO.socketAddress(),
-                                            new NetworkResponseDTO(res)
+                                            result.socketAddress(),
+                                            new NetworkResponseDTO(result.data())
                                     )
-                            );
-                        }
-                );
-
-            }
-        }
-        catch (Exception e){
+                            )
+                    );
+        } catch (Exception e) {
             System.out.println("eng " + e.getMessage());
         }
     }
