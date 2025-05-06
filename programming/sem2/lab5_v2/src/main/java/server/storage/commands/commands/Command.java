@@ -23,6 +23,7 @@ public abstract class Command implements Supplier<HashMap<String,String>> {
     }
 
     public abstract String call() throws Exception;
+
     public HashMap<String,String> get(){
         try {
             String result = this.call();

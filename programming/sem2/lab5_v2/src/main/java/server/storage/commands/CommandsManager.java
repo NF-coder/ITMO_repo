@@ -38,7 +38,7 @@ public class CommandsManager {
         }
     }
 
-    public CompletableFuture<HashMap<String,String>> run(String command, HashMap<String,String> args, ExecutorService exec) throws Exception {
+    public CompletableFuture<HashMap<String,String>> run(String command, HashMap<String,String> args, ExecutorService exec) {
         Command cmd = opTable.get(command);
         cmd.setData(args, driver);
         return CompletableFuture.supplyAsync(
