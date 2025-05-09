@@ -17,8 +17,6 @@ public class ServerCycle implements Runnable {
                 new BinarySerializer(),
                 new DequeDriver()
         );
-        while (true){
-            engine.mainCycle();
-        }
+        engine.mainCycle();
     }
 }

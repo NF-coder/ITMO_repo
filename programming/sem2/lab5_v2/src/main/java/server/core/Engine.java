@@ -25,7 +25,7 @@ public class Engine {
     ) {
         try {
             networkDriver.init();
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
 
         this.receiveManager = new ReceiveManager(
                 networkDriver,

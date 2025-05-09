@@ -6,11 +6,8 @@ import server.network.serializers.INetworkSerializers;
 import shared.objects.NetworkRequestDTO;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Queue;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class ReceiveManager {
     INetworkDriver driver;
@@ -23,14 +20,18 @@ public class ReceiveManager {
         this.executor = executor;
     }
 
-    public CompletableFuture<NetworkContainer<NetworkRequestDTO>> call() throws IOException, ClassNotFoundException{
-        return  CompletableFuture.supplyAsync(() -> {
-            try {
-                return this.driver.receive();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }).thenApply(
+    public CompletableFuture<NetworkContainer<NetworkRequestDTO>> call() throws IOException, ClassNotFoundException {
+        return CompletableFuture.supplyAsync(
+                () -> {
+                    while (true){
+                        try {
+                            NetworkContainer<byte[]> tmp = this.driver.receive();
+                            if (tmp != null){return tmp;}
+                        } catch (IOException ignored) {}
+                    }
+                },
+                executor
+        ).thenApply(
                 res -> {
                     try {
                         return new NetworkContainer<>(
@@ -39,9 +40,7 @@ public class ReceiveManager {
                                         res.data()
                                 )
                         );
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (ClassNotFoundException e) {
+                    } catch (IOException | ClassNotFoundException e) {
                         throw new RuntimeException(e);
                     }
                 }
