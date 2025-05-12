@@ -6,6 +6,7 @@ import client.network.NetworkManager;
 import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Show extends BasicCommand {

@@ -3,10 +3,12 @@ package server.core.factories;
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 
+import org.json.JSONObject;
 import server.network.container.NetworkContainer;
 import server.storage.collection.drivers.IStructDriver;
 import server.storage.commands.CommandsManager;
 import shared.objects.NetworkRequestDTO;
+import shared.objects.NetworkResponseDTO;
 
 public class CommandFactory {
     private final CommandsManager commandsManager;
@@ -17,7 +19,7 @@ public class CommandFactory {
         );
     }
 
-    public CompletableFuture<NetworkContainer<HashMap<String,String>>> run(
+    public CompletableFuture<NetworkContainer<JSONObject>> run(
             NetworkContainer<NetworkRequestDTO> data
     ) {
         return commandsManager.run(

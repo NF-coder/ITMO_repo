@@ -2,22 +2,25 @@ package server.network.managers;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Function;
 
 import server.network.container.NetworkContainer;
 import server.network.drivers.INetworkDriver;
+import server.network.serializers.INetworkDeserialize;
+import server.network.serializers.INetworkSerialize;
 import server.network.serializers.INetworkSerializers;
 import shared.objects.NetworkRequestDTO;
 
-public class ReceiveManager {
+public class ReceiveManager<T>{
     private final INetworkDriver driver;
-    private final INetworkSerializers serializer;
+    private final INetworkDeserialize<T> serializer;
 
-    public ReceiveManager(INetworkDriver driver, INetworkSerializers serializer) {
+    public ReceiveManager(INetworkDriver driver, INetworkDeserialize<T> serializer) {
         this.driver = driver;
         this.serializer = serializer;
     }
 
-    public CompletableFuture<NetworkContainer<NetworkRequestDTO>> call() throws IOException, ClassNotFoundException {
+    public CompletableFuture<NetworkContainer<T>> call() throws IOException, ClassNotFoundException {
         return CompletableFuture.supplyAsync(
                 () -> {
                     try {
@@ -32,7 +35,7 @@ public class ReceiveManager {
                     try {
                         return new NetworkContainer<>(
                                 res.socketAddress(),
-                                this.serializer.deserialize(
+                                this.serializer.apply(
                                         res.data()
                                 ));
                     } catch (IOException | ClassNotFoundException e) {

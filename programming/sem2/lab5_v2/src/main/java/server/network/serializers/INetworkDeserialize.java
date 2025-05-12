@@ -1,4 +1,8 @@
 package server.network.serializers;
 
-public class INetworkDeserialize {
+import java.io.IOException;
+
+@FunctionalInterface
+public interface INetworkDeserialize<T> {
+    public T apply(byte[] data) throws IOException,ClassNotFoundException;
 }

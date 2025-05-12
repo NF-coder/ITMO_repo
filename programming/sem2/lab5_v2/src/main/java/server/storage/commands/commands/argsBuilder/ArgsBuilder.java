@@ -1,8 +1,8 @@
-package server.storage.commands.commands.reqArgs;
+package server.storage.commands.commands.argsBuilder;
 
 import org.json.JSONObject;
-import server.storage.commands.commands.reqArgs.primitive.ArgTypesEnum;
-import server.storage.commands.commands.reqArgs.primitive.PrimitiveArgsBuilder;
+import server.storage.commands.commands.argsBuilder.primitive.ArgTypesEnum;
+import server.storage.commands.commands.argsBuilder.primitive.PrimitiveArgsBuilder;
 import server.storage.objects.enums.EnumInterface;
 
 import java.util.Arrays;

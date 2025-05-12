@@ -14,7 +14,7 @@ public class UDPDriver implements INetworkDriver {
     DatagramChannel channel;
     int port;
     SocketAddress addr;
-    private final int PACKET_SIZE = 1024;
+    private final int PACKET_SIZE = 4096;
     private final int DATA_SIZE = PACKET_SIZE - 1;
 
     public UDPDriver(int port) {

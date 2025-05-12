@@ -12,11 +12,11 @@ import server.network.serializers.INetworkSerializers;
 import server.storage.collection.drivers.IStructDriver;
 import shared.objects.NetworkRequestDTO;
 
-public class Engine {
+public class Engine <S,D> {
 
     private final CommandFactory commandFactory;
-    private final ResponseFactory responseFactory;
-    private final RequestFactory requestFactory;
+    private final ResponseFactory<S> responseFactory;
+    private final RequestFactory<D> requestFactory;
 
     private final ExecutorService commandExecutor;
     private final ExecutorService sendExecutor;
@@ -26,7 +26,7 @@ public class Engine {
             ExecutorService receiveExecutor,
             ExecutorService sendExecutor,
             ExecutorService commandExecutor,
-            INetworkSerializers networkSerializer,
+            INetworkSerializers<S,D> networkSerializer,
             IStructDriver structDriver
     ) {
         try {
@@ -37,8 +37,8 @@ public class Engine {
         this.sendExecutor = sendExecutor;
 
         this.commandFactory = new CommandFactory(structDriver);
-        this.responseFactory = new ResponseFactory(networkDriver, networkSerializer);
-        this.requestFactory = new RequestFactory(networkDriver, networkSerializer, receiveExecutor, this);
+        this.responseFactory = new ResponseFactory<>(networkDriver, networkSerializer::serialize);
+        this.requestFactory = new RequestFactory<>(networkDriver, networkSerializer::deserialize, receiveExecutor, this);
     }
     public void start(){
         this.requestFactory.run();

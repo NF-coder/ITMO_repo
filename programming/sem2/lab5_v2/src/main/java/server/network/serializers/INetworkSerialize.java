@@ -1,4 +1,8 @@
 package server.network.serializers;
 
-public interface INetworkSerialize {
+import java.io.IOException;
+
+@FunctionalInterface
+public interface INetworkSerialize<T> {
+    public byte[] apply(T data) throws IOException;
 }

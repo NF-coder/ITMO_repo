@@ -21,6 +21,6 @@ public class Info extends BasicCommand {
                 )
         );
         NetworkResponseDTO nmr = engine.networkManager.receive();
-        System.out.println(nmr);
+        System.out.println(nmr.result());
     }
 }

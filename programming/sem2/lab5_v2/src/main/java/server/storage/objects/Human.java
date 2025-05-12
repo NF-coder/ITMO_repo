@@ -1,13 +1,14 @@
 package server.storage.objects;
 import server.storage.objects.exceptions.UnacceptableValue;
 
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
-public class Human {
+public class Human implements Serializable {
     private final String name; //Поле не может быть null, Строка не может быть пустой
     private final long age; //Значение поля должно быть больше 0
     private final double height; //Значение поля должно быть больше 0

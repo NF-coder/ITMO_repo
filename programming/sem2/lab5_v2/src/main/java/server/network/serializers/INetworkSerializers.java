@@ -4,8 +4,9 @@ import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 public interface INetworkSerializers {
-    public byte[] serialize(NetworkResponseDTO data) throws IOException;
-    public NetworkRequestDTO deserialize(byte[] data) throws IOException, ClassNotFoundException;
+    public <S> byte[] serialize(S data) throws IOException;
+    public <D> D deserialize(byte[] data) throws IOException, ClassNotFoundException;
 }

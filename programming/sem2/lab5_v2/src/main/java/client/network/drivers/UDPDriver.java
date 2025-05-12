@@ -15,7 +15,7 @@ public class UDPDriver implements INetworkDriver {
     DatagramChannel channel;
     SocketAddress myAddr;
     SocketAddress targetAddr;
-    private final int PACKET_SIZE = 1024;
+    private final int PACKET_SIZE = 4096;
     private final int DATA_SIZE = PACKET_SIZE - 1;
 
     public UDPDriver(int myPort, int targetPort) {
@@ -40,15 +40,15 @@ public class UDPDriver implements INetworkDriver {
     public byte[] receive() throws IOException{
         ByteBuffer buf = ByteBuffer.allocate(DATA_SIZE);
 
-        System.out.println("receiving...");
-        System.out.println(buf);
+        //System.out.println("receiving...");
+        //System.out.println(buf);
 
         SocketAddress addr = channel.receive(buf);
 
-        System.out.println("received: " + addr);
+        //System.out.println("received: " + addr);
 
         if (addr != null) {
-            System.out.println("receive buffer dump");
+            //System.out.println("receive buffer dump");
             return buf.array();
         }
         return null;

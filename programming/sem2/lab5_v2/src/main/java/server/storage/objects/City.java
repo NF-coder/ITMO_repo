@@ -6,9 +6,10 @@ import server.storage.objects.enums.Government;
 import server.storage.objects.enums.StandardOfLiving;
 import server.storage.objects.validators.CityValidators;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class City { // To JavaBean
+public class City implements Serializable { // To JavaBean
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой

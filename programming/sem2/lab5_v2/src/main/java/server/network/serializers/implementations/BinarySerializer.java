@@ -6,8 +6,8 @@ import shared.objects.NetworkResponseDTO;
 
 import java.io.*;
 
-public class BinarySerializer implements INetworkSerializers{
-    public byte[] serialize(NetworkResponseDTO data) throws IOException {
+public class BinarySerializer implements INetworkSerializers<NetworkResponseDTO<Serializable>, NetworkRequestDTO> {
+    public byte[] serialize(NetworkResponseDTO<Serializable> data) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(data);

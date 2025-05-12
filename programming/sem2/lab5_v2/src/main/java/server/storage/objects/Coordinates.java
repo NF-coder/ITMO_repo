@@ -1,7 +1,9 @@
 package server.storage.objects;
 
 
-public class Coordinates {
+import java.io.Serializable;
+
+public class Coordinates implements Serializable {
     private final double x;
     private final Float y; //Максимальное значение поля: 447, Поле не может быть null
 

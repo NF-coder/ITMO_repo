@@ -1,9 +1,13 @@
 package server.storage.commands.commands.implementations;
 
 import server.storage.commands.commands.Command;
+import server.storage.commands.commands.argsBuilder.ArgsBuilder;
 import server.storage.objects.City;
 import server.storage.objects.Coordinates;
 import server.storage.objects.Human;
+import server.storage.objects.enums.Climate;
+import server.storage.objects.enums.Government;
+import server.storage.objects.enums.StandardOfLiving;
 import server.storage.objects.exceptions.ElementNotFound;
 import server.storage.objects.exceptions.UnacceptableValue;
 
@@ -11,7 +15,24 @@ import java.util.HashMap;
 
 public class Update extends Command {
     public Update(){
-        super("update");
+        super(
+                "update",
+                new ArgsBuilder()
+                        .addInteger("id", 0L, null)
+                        .addString("name")
+                        .addInteger("population", 0L, null)
+                        .addInteger("area", 0L, null)
+                        .addInteger("metersAboveSeaLevel")
+                        .addEnum("climate", Climate.class)
+                        .addEnum("government", Government.class)
+                        .addEnum("standardOfLiving", StandardOfLiving.class)
+                        .addReal("x")
+                        .addReal("y")
+                        .addString("govName")
+                        .addInteger("age")
+                        .addInteger("height")
+                        .addDate("birthday")
+        );
     }
     public String call() throws UnacceptableValue, ElementNotFound {
         City obj = this.driver.getById(
