@@ -1,10 +1,11 @@
 package server.storage.commands.commands.reqArgs;
 
 import org.json.JSONObject;
+import server.storage.commands.commands.reqArgs.primitive.ArgTypesEnum;
+import server.storage.commands.commands.reqArgs.primitive.PrimitiveArgsBuilder;
 import server.storage.objects.enums.EnumInterface;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class ArgsBuilder {
     private final JSONObject args = new JSONObject();
@@ -12,14 +13,14 @@ public class ArgsBuilder {
     public ArgsBuilder addInteger(String name) {
         args.put(
                 name,
-                new ArgB2()
+                new PrimitiveArgsBuilder()
                         .setType(ArgTypesEnum.INTEGER)
                         .get()
         );
         return this;
     }
     public ArgsBuilder addInteger(String name, Long min, Long max) {
-        ArgB2 AB2 = new ArgB2();
+        PrimitiveArgsBuilder AB2 = new PrimitiveArgsBuilder();
         if (min != null) AB2.setMin(min);
         if (max != null) AB2.setMax(max);
         args.put(name, AB2.get());
@@ -29,24 +30,24 @@ public class ArgsBuilder {
     public ArgsBuilder addReal(String name) {
         args.put(
                 name,
-                new ArgB2()
+                new PrimitiveArgsBuilder()
                         .setType(ArgTypesEnum.REAL)
                         .get()
         );
         return this;
     }
     public ArgsBuilder addReal(String name, Double min, Double max) {
-        ArgB2 AB2 = new ArgB2();
+        PrimitiveArgsBuilder AB2 = new PrimitiveArgsBuilder();
         if (min != null) AB2.setMin(min);
         if (max != null) AB2.setMax(max);
-        args.put(name, new ArgB2().get());
+        args.put(name, new PrimitiveArgsBuilder().get());
         return this;
     }
 
     public ArgsBuilder addEnum(String name, Class<? extends EnumInterface> e) {
         args.put(
                 name,
-                new ArgB2()
+                new PrimitiveArgsBuilder()
                         .setType(ArgTypesEnum.ENUM)
                         .addOptions(
                                 Arrays.stream(e.getEnumConstants())
@@ -59,7 +60,7 @@ public class ArgsBuilder {
     public ArgsBuilder addString(String name) {
         args.put(
                 name,
-                new ArgB2()
+                new PrimitiveArgsBuilder()
                         .setType(ArgTypesEnum.STRING)
                         .get()
         );
@@ -68,7 +69,7 @@ public class ArgsBuilder {
     public ArgsBuilder addDate(String name) {
         args.put(
                 name,
-                new ArgB2()
+                new PrimitiveArgsBuilder()
                         .setType(ArgTypesEnum.DATE)
                         .get()
         );
