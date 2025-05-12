@@ -1,4 +1,4 @@
-package server.storage.commands.commands.reqArgs.primitive;
+package server.storage.commands.commands.reqArgs;
 
 public enum ArgTypesEnum {
     INTEGER,

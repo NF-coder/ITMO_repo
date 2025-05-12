@@ -1,23 +1,25 @@
-package server.storage.commands.commands.reqArgs.primitive;
+package server.storage.commands.commands.reqArgs;
 
 import org.json.JSONObject;
 
-public class PrimitiveArgsBuilder {
+import java.util.HashMap;
+
+public class ArgB2 {
     private final JSONObject jo = new JSONObject();
 
-    public PrimitiveArgsBuilder setType(ArgTypesEnum type) {
+    public ArgB2 setType(ArgTypesEnum type) {
         jo.put("type", type.toString());
         return this;
     }
-    public <T> PrimitiveArgsBuilder setMin(T value) {
+    public <T> ArgB2 setMin(T value) {
         jo.put("min", value);
         return this;
     }
-    public <T> PrimitiveArgsBuilder setMax(T value) {
+    public <T> ArgB2 setMax(T value) {
         jo.put("max", value);
         return this;
     }
-    public <T> PrimitiveArgsBuilder addOptions(T[] options) {
+    public <T> ArgB2 addOptions(T[] options) {
         jo.put("options", options);
         return this;
     }
