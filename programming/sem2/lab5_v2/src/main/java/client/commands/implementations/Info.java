@@ -1,6 +1,7 @@
 package client.commands.implementations;
 
 import client.commands.BasicCommand;
+import client.core.Engine;
 import client.network.NetworkManager;
 import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;
@@ -12,14 +13,14 @@ public class Info extends BasicCommand {
         super("info", "Returns information about Collection.");
     }
 
-    public final void execute(HashMap<String, String> args, NetworkManager networkManager) throws Exception {
-        networkManager.send(
+    public final void execute(HashMap<String, String> args, Engine engine) throws Exception {
+        engine.networkManager.send(
                 new NetworkRequestDTO(
                         "info",
                         new HashMap<>()
                 )
         );
-        NetworkResponseDTO nmr = networkManager.receive();
+        NetworkResponseDTO nmr = engine.networkManager.receive();
         System.out.println(nmr);
     }
 }

@@ -1,6 +1,7 @@
 package client.commands.objects.validators;
 
 import client.commands.exceptions.UnacceptableValue;
+import client.commands.objects.validators.np.BasicParser;
 
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
@@ -15,13 +16,13 @@ public class HumanValidators {
         }
     }
     public static void validateAge(String value) throws UnacceptableValue{
-        long num = Long.parseLong(value);
+        long num = BasicParser.convert(value, Long::parseLong);
         if (num <= 0 ){
             throw new UnacceptableValue("Возраст мэра должен быть строго больше 0!");
         }
     }
     public static void validateHeight(String value) throws UnacceptableValue{
-        double num = Double.parseDouble(value);
+        double num = BasicParser.convert(value, Double::parseDouble);
         if (num <= 0 ){
             throw new UnacceptableValue("Рост мэра должен быть строго больше 0!");
         }

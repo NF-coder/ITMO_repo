@@ -1,6 +1,7 @@
 package client.commands.objects.validators;
 
 import client.commands.exceptions.UnacceptableValue;
+import client.commands.objects.validators.np.BasicParser;
 
 public class CityValidators {
     public static void validateName(String value) throws UnacceptableValue {
@@ -9,18 +10,18 @@ public class CityValidators {
         }
     }
     public static void validateArea(String value) throws UnacceptableValue{
-        double num = Double.parseDouble(value);
+        double num = BasicParser.convert(value, Double::parseDouble);
         if (num <= 0 ){
             throw new UnacceptableValue("Площадь города должна быть строго больше 0!");
         }
     }
     public static void validatePopulation(String value) throws UnacceptableValue{
-        long num = Long.parseLong(value);
+        long num = BasicParser.convert(value, Long::parseLong);
         if (num <= 0 ){
             throw new UnacceptableValue("Население города должно быть строго больше 0!");
         }
     }
     public static void validateMetersAboveSeaLevel(String value) throws UnacceptableValue{
-        float num = Float.parseFloat(value);
+        float num = BasicParser.convert(value, Float::parseFloat);
     }
 }

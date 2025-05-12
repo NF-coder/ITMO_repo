@@ -1,5 +1,6 @@
 package client.commands;
 
+import client.core.Engine;
 import client.network.NetworkManager;
 
 import java.util.HashMap;
@@ -18,5 +19,5 @@ public abstract class BasicCommand {
         this.setInfo(info);
     }
 
-    abstract public void execute(HashMap<String, String> args, NetworkManager networkManager) throws Exception;
+    abstract public void execute(HashMap<String, String> args, Engine engine) throws Exception;
 }

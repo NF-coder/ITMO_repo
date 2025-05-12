@@ -5,15 +5,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class Invoker {
-    Engine engine = new Engine();
 
-    public void run(String line){
+    public void run(String line, Engine engine) {
         String[] tokens = line.split(" ");
 
         String command = tokens[0];
         String[] argsArr = Arrays.copyOfRange(tokens, 1, tokens.length);
 
-        this.engine.runCommand(
+        engine.runCommand(
                 command,
                 this.parseArgs(argsArr)
         );
@@ -23,24 +22,24 @@ public class Invoker {
         HashMap<String,String> parsedArguments = new HashMap<>();
 
         String argName = "";
-        String argValue = "";
+        StringBuilder argValue = new StringBuilder();
         for (String token: tokens){
             if (token.charAt(0) == '-'){
                 if (!argName.isEmpty()){
-                    parsedArguments.put(argName.substring(1), argValue);
-                    argValue = "";
+                    parsedArguments.put(argName.substring(1), argValue.toString());
+                    argValue = new StringBuilder();
                 }
                 argName = token;
             }
             else{
                 if (!argValue.isEmpty()){
-                    argValue = argValue + " ";
+                    argValue.append(" ");
                 }
-                argValue = argValue + token;
+                argValue.append(token);
             }
         }
         if (!argName.isEmpty()){
-            parsedArguments.put(argName.substring(1), argValue);
+            parsedArguments.put(argName.substring(1), argValue.toString());
         }
         return parsedArguments;
     }

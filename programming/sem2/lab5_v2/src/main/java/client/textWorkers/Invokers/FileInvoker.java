@@ -2,6 +2,7 @@ package client.textWorkers.Invokers;
 
 
 import client.commands.exceptions.FileProcessorException;
+import client.core.Engine;
 import client.textWorkers.Invoker;
 
 import java.io.BufferedReader;
@@ -11,13 +12,13 @@ import java.io.IOException;
 import java.security.AccessControlException;
 
 public class FileInvoker implements IInvoker{
-    private static Invoker invoker = new Invoker();
+    private static final Invoker invoker = new Invoker();
     static BufferedReader fileReader;
 
-    public void FileInvoker(String filename) throws FileProcessorException {
+    public FileInvoker(String filename) throws FileProcessorException {
         try {
             FileReader fileReader = new FileReader(filename);
-            this.fileReader = new BufferedReader(fileReader);
+            FileInvoker.fileReader = new BufferedReader(fileReader);
         }
         catch (FileNotFoundException err){
             throw new FileProcessorException("Файл " + filename + " не найден!");
@@ -29,23 +30,31 @@ public class FileInvoker implements IInvoker{
 
     public String parseFieldInput(String entryText){
         System.out.print(entryText + ": ");
+
         try {
-            return FileInvoker.fileReader.readLine();
+            String input = FileInvoker.fileReader.readLine();
+            try {
+                System.out.println(input);
+                Thread.sleep(1000);
+
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            return input;
         }
-        catch (IOException err){
-            //throw new FileProcessorException("Can't read file");
-        }
+        catch (IOException ignored){}
+
         return "placeholder for compiler";
     }
 
-    public void mainCycle() {
+    public void mainCycle(Engine engine) {
         try{
             while (true) {
                 String line = FileInvoker.fileReader.readLine();
-                invoker.run(line);
+                System.out.println(line);
+                invoker.run(line, engine);
             }
         }
-        catch (IOException err){}
-
+        catch (IOException ignored){}
     }
 }

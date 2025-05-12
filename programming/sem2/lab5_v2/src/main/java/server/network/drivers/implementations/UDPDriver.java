@@ -25,7 +25,7 @@ public class UDPDriver implements INetworkDriver {
         addr = new InetSocketAddress(port);
         channel = DatagramChannel.open();
         channel.bind(addr);
-        channel.configureBlocking(false);
+        channel.configureBlocking(true);
     }
 
     public void send(NetworkContainer<byte[]> data) throws IOException {

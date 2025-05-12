@@ -11,7 +11,7 @@ public class Help extends BasicCommand {
         super("help", "Returns information about all commands.");
     }
 
-    public final void execute(HashMap<String, String> args, NetworkManager networkManager) {
+    public final void execute(HashMap<String, String> args, Engine engine) {
         for (BasicCommand command : Engine.getCommands()) {
             System.out.println(command.getName() + " - " + command.getInfo());
         }

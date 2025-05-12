@@ -1,6 +1,7 @@
 package server.storage.commands.commands;
 
 import server.storage.collection.drivers.IStructDriver;
+import server.storage.commands.commands.reqArgs.ArgsBuilder;
 
 import java.util.HashMap;
 
@@ -10,9 +11,11 @@ public abstract class Command implements Supplier<HashMap<String,String>> {
     public String NAME;
     protected IStructDriver driver;
     protected HashMap<String,String> args;
+    //public ArgsBuilder reqArgs;
 
-    protected Command(String name) {
+    protected Command(String name/*, ArgsBuilder argsBuilder*/) {
         this.NAME = name;
+        //this.reqArgs = argsBuilder;
     }
     public void setData(HashMap<String, String> args,  IStructDriver driver) {
         this.args = args;

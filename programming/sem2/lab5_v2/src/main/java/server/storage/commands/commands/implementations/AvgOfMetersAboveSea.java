@@ -8,10 +8,10 @@ public class AvgOfMetersAboveSea extends Command {
         super("average_of_meters_above_sea_level");
     }
     public String call(){
-        Float result = (float) driver.getCollection().stream()
+        float result = (float) driver.getCollection().stream()
                 .mapToDouble(City::getMetersAboveSeaLevel)
                 .average()
                 .orElse(Double.NaN);
-        return result.toString();
+        return Float.toString(result);
     }
 }
