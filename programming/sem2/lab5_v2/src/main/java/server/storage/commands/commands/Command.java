@@ -1,7 +1,6 @@
 package server.storage.commands.commands;
 
 import server.storage.collection.drivers.IStructDriver;
-import server.storage.commands.commands.reqArgs.ArgsBuilder;
 
 import java.util.HashMap;
 
@@ -17,16 +16,35 @@ public abstract class Command implements Supplier<HashMap<String,String>> {
         this.NAME = name;
         //this.reqArgs = argsBuilder;
     }
+    /**
+     * Передача аргументов и драйвера доступа к структуре
+     * @param args аргументы
+     * @param driver драйвер коллекции
+     */
     public void setData(HashMap<String, String> args,  IStructDriver driver) {
         this.args = args;
         this.driver = driver;
     }
+
+    /**
+     * Получение имени команды
+     */
     public String getName() {
         return this.NAME;
     }
 
+    /**
+     * @hidden
+     * Вызов команды (НЕ ВЫЗЫВАТЬ НАПРЯМУЮ!)
+     * @return Результат работы команды
+     * @throws Exception любое необработанное исключение, полученное в результате исполнения
+     */
     public abstract String call() throws Exception;
 
+    /**
+     * Вызов команды
+     * @return Результат работы команды
+     */
     public HashMap<String,String> get(){
         try {
             String result = this.call();

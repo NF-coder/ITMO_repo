@@ -1,6 +1,7 @@
 package client.commands.implementations;
 
 import java.util.HashMap;
+import java.util.function.Consumer;
 
 import client.commands.exceptions.UnacceptableValue;
 import client.commands.objects.validators.CityValidators;
@@ -13,14 +14,17 @@ import client.commands.BasicCommand;
 import client.core.Engine;
 import client.network.NetworkManager;
 import shared.objects.NetworkRequestDTO;
+import shared.objects.NetworkResponseDTO;
 
 public class Add extends BasicCommand {
-    public Add() {
+    public Add(Consumer<HashMap<String,String>> outHandler) {
         super("add", "Adds new City to collection." +
-                "\n\t Example: add -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]"
+                "\n\t Example: add -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
+                outHandler
         );
     }
 
+    @Override
     public final void execute(HashMap<String, String> args, Engine engine) throws Exception {
         try {
             CityValidators.validateName(args.get("name"));
@@ -41,7 +45,9 @@ public class Add extends BasicCommand {
                             args2
                     )
             );
-            engine.networkManager.receive();
+            this.getOutHandler().accept(
+                    engine.networkManager.receive().result()
+            );
         } catch (UnacceptableValue err) {
             System.out.println("Ошибка во время создания объекта: " + err.getMessage());
         }

@@ -10,9 +10,12 @@ import java.util.stream.Collectors;
 
 public class DequeDriver implements IStructDriver {
     private ArrayDeque<City> mainCollection = new ArrayDeque<>();
-    private final static LocalDateTime createdDateTime = LocalDateTime.now();
+    private final LocalDateTime createdDateTime = LocalDateTime.now();
 
 
+    /**
+     * Генерация нового уникального идентификатора
+     */
     private Long generateId(){
         return 1 + mainCollection.stream()
                 .mapToLong(City::getId)
@@ -20,10 +23,6 @@ public class DequeDriver implements IStructDriver {
                 .orElse(0);
     }
 
-    /**
-     * Этот метод реализует добавление новой сущности в коллекцию
-     * @param entity Новая сущность
-     */
     public synchronized void add(City entity){
         if (entity.getId() == null) {
             entity.setId(
@@ -39,10 +38,6 @@ public class DequeDriver implements IStructDriver {
         mainCollection.addLast(entity);
     }
 
-    /**
-     * Этот метод реализует получение копии двусторонней очереди
-     * @return ArrayDeque<City> Копия структуры
-     */
     public synchronized ArrayDeque<City> getCollection(){
         //return new ArrayDeque<>(this.mainCollection);
         return this.mainCollection;
@@ -72,7 +67,7 @@ public class DequeDriver implements IStructDriver {
     public String toString() {
         return "Collection{" +
                 "\n\tsize=" + this.mainCollection.size() +
-                "\n\tcreated_time=" + this.createdDateTime +
+                "\n\tcreated_time=" + createdDateTime +
                 "}";
     }
 }

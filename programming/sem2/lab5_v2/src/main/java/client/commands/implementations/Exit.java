@@ -11,6 +11,7 @@ public class Exit extends BasicCommand {
         super("exit", "Finishes CLI without saving collection to file");
     }
 
+    @Override
     public final void execute(HashMap<String, String> args, Engine engine) {
         System.exit(0);
     }

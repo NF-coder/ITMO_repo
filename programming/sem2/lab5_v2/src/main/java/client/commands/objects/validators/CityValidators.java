@@ -1,9 +1,13 @@
 package client.commands.objects.validators;
 
 import client.commands.exceptions.UnacceptableValue;
-import client.commands.objects.validators.np.BasicParser;
+import client.commands.objects.validators.numberParser.BasicParser;
 
+/**
+ * Валидаторы для элементарных полей в enum-е
+ */
 public class CityValidators {
+
     public static void validateName(String value) throws UnacceptableValue {
         if (value == null || value.isEmpty()){
             throw new UnacceptableValue("Имя города должно быть указано!");

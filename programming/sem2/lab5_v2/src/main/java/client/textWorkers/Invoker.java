@@ -4,8 +4,15 @@ import client.core.Engine;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * Класс, отвечающий за токенизацию входной информации
+ */
 public class Invoker {
-
+    /**
+     * Разделение строки на команду и аргументы
+     * @param line строка
+     * @param engine движок клиента
+     */
     public void run(String line, Engine engine) {
         String[] tokens = line.split(" ");
 
@@ -18,6 +25,11 @@ public class Invoker {
         );
     }
 
+    /**
+     * Парсинг аргументов
+     * @param tokens массив токенов (аргументы и их значения)
+     * @return Результат парсинга
+     */
     private HashMap<String, String> parseArgs(String[] tokens){
         HashMap<String,String> parsedArguments = new HashMap<>();
 

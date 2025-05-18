@@ -14,14 +14,17 @@ import client.commands.BasicCommand;
 import shared.objects.NetworkRequestDTO;
 
 import java.util.HashMap;
+import java.util.function.Consumer;
 
 public class Update extends BasicCommand {
-    public Update(){
+    public Update(Consumer<HashMap<String,String>> outHandler){
         super("update", "Updates City with specified id" +
-                "\n\t Example: update -id [Long] -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]"
+                "\n\t Example: update -id [Long] -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
+                outHandler
         );
     }
 
+    @Override
     public final void execute(HashMap<String, String> args, Engine engine) throws Exception{
         try {
             CityValidators.validateName(args.get("name"));
@@ -42,7 +45,9 @@ public class Update extends BasicCommand {
                             args2
                     )
             );
-            engine.networkManager.receive();
+            this.getOutHandler().accept(
+                    engine.networkManager.receive().result()
+            );
         }
         catch (UnacceptableValue err){
             System.out.println("Ошибка во время создания новой версии объекта: " + err.getMessage());

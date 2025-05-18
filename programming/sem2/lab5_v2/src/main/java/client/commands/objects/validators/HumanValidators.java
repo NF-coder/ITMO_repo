@@ -1,7 +1,7 @@
 package client.commands.objects.validators;
 
 import client.commands.exceptions.UnacceptableValue;
-import client.commands.objects.validators.np.BasicParser;
+import client.commands.objects.validators.numberParser.BasicParser;
 
 import java.time.DateTimeException;
 import java.time.LocalDateTime;

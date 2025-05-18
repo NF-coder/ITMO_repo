@@ -1,7 +1,7 @@
 package server.storage.commands.commands.implementations;
 
 import server.storage.commands.commands.Command;
-import server.storage.commands.commands.reqArgs.ArgsBuilder;
+import server.storage.commands.commands.argsBuilder.ArgsBuilder;
 import server.storage.objects.City;
 import server.storage.objects.Coordinates;
 import server.storage.objects.Human;
@@ -9,10 +9,8 @@ import server.storage.objects.enums.Climate;
 import server.storage.objects.enums.Government;
 import server.storage.objects.enums.StandardOfLiving;
 
-import java.util.HashMap;
-
 public class Add extends Command {
-    private ArgsBuilder a2 = new ArgsBuilder()
+    private final ArgsBuilder futureArgs = new ArgsBuilder()
                         .addString("name")
                         .addInteger("area", 0L, null)
                         .addInteger("population", 0L, null)
@@ -28,37 +26,12 @@ public class Add extends Command {
                         .addDate("birthday");
 
     public Add() {
-        super(
-                "add"
-                );
+        super("add");
     }
 
     public String call() throws Exception{
-        City newCity = new City();
-
-        newCity.setName(args.get("name"));
-        newCity.setArea(args.get("area"));
-        newCity.setPopulation(args.get("population"));
-        newCity.setMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
-        newCity.setClimate(args.get("climate"));
-        newCity.setGovernment(args.get("government"));
-        newCity.setStandardOfLiving(args.get("standardOfLiving"));
-        newCity.setCoordinates(
-                new Coordinates(
-                        args.get("x"),
-                        args.get("y")
-                )
-        );
-        newCity.setGovernor(
-                new Human(
-                         args.get("govName"),
-                         args.get("age"),
-                         args.get("height"),
-                         args.get("birthday")
-                )
-        );
         this.driver.add(
-                newCity
+                new City(args)
         );
         return null;
     }

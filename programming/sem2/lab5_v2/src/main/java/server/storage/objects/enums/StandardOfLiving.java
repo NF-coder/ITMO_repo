@@ -19,4 +19,14 @@ public enum StandardOfLiving implements EnumInterface{
             case NIGHTMARE -> "NIGHTMARE";
         };
     }
+
+    public int getCost() {
+        return switch (this) {
+            case VERY_HIGH -> 2;
+            case HIGH -> 1;
+            case VERY_LOW -> -3;
+            case ULTRA_LOW -> -4;
+            case NIGHTMARE -> -5;
+        };
+    }
 }

@@ -1,7 +1,8 @@
 package server.storage.objects.enums;
 
+/**
+ * Интерфейс, позволяющий высчитывать значимость признака в enum-е
+ */
 public interface EnumInterface{
-    /* public static String getName(){
-        return EnumInterface;
-    };*/
+    int getCost();
 }

@@ -10,7 +10,7 @@ import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
-public class UDPDriver implements INetworkDriver {
+public class UDPDriver implements INetworkDriver<SocketAddress> {
     DatagramChannel channel;
     int port;
     SocketAddress addr;
@@ -21,19 +21,22 @@ public class UDPDriver implements INetworkDriver {
         this.port = port;
     }
 
-    public void init() throws SocketException, IOException{
+    @Override
+    public void init() throws IOException{
         addr = new InetSocketAddress(port);
         channel = DatagramChannel.open();
         channel.bind(addr);
         channel.configureBlocking(true);
     }
 
-    public void send(NetworkContainer<byte[]> data) throws IOException {
+    @Override
+    public void send(NetworkContainer<byte[], SocketAddress> data) throws IOException {
         ByteBuffer buf = ByteBuffer.wrap(data.data());
-        channel.send(buf, data.socketAddress());
+        channel.send(buf, data.connInfo());
     }
 
-    public NetworkContainer<byte[]> receive() throws IOException{
+    @Override
+    public NetworkContainer<byte[], SocketAddress> receive() throws IOException{
         ByteBuffer buf = ByteBuffer.allocate(DATA_SIZE);
         addr = channel.receive(buf);
         if (addr != null) {

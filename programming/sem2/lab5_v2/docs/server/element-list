@@ -1,0 +1,17 @@
+unnamed package
+client
+client.commands
+client.commands.exceptions
+client.commands.implementations
+client.commands.implementations.components.output
+client.commands.implementations.parsers
+client.commands.objects.enums
+client.commands.objects.validators
+client.commands.objects.validators.numberParser
+client.core
+client.network
+client.network.drivers
+client.network.drivers.implementations
+client.textWorkers
+client.textWorkers.Invokers
+shared.objects

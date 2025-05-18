@@ -4,20 +4,28 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 import server.network.container.NetworkContainer;
-import server.network.drivers.INetworkDriver;
-import server.network.serializers.INetworkSerializers;
+import server.network.drivers.NetDriverReceive;
+import server.network.serializers.INetworkDeserializer;
 import shared.objects.NetworkRequestDTO;
 
-public class ReceiveManager {
-    private final INetworkDriver driver;
-    private final INetworkSerializers serializer;
+/**
+ * Менеджер, управляющий получением данных
+ * @param <T> тип получаемых данных
+ */
+public class ReceiveManager <T>{
+    private final NetDriverReceive<T> driver;
+    private final INetworkDeserializer serializer;
 
-    public ReceiveManager(INetworkDriver driver, INetworkSerializers serializer) {
+    public ReceiveManager(NetDriverReceive<T> driver, INetworkDeserializer serializer) {
         this.driver = driver;
         this.serializer = serializer;
     }
 
-    public CompletableFuture<NetworkContainer<NetworkRequestDTO>> call() throws IOException, ClassNotFoundException {
+    /**
+     * Пайплайн получения данных
+     * @return полученные данные
+     */
+    public CompletableFuture<NetworkContainer<NetworkRequestDTO, T>> call() {
         return CompletableFuture.supplyAsync(
                 () -> {
                     try {
@@ -25,14 +33,13 @@ public class ReceiveManager {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-
                 }
         ).thenApply(
                 res -> {
                     try {
                         return new NetworkContainer<>(
-                                res.socketAddress(),
-                                this.serializer.deserialize(
+                                res.connInfo(),
+                                this.serializer.apply(
                                         res.data()
                                 ));
                     } catch (IOException | ClassNotFoundException e) {

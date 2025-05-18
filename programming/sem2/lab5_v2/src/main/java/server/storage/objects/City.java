@@ -4,11 +4,14 @@ import server.storage.objects.exceptions.UnacceptableValue;
 import server.storage.objects.enums.Climate;
 import server.storage.objects.enums.Government;
 import server.storage.objects.enums.StandardOfLiving;
+import server.storage.objects.interfaces.CSVSerializable;
 import server.storage.objects.validators.CityValidators;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 
-public class City { // To JavaBean
+public class City implements CSVSerializable { // To JavaBean
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -21,9 +24,53 @@ public class City { // To JavaBean
     private StandardOfLiving standardOfLiving; //Поле может быть null
     private Human governor; //Поле не может быть null
 
+    public City() {}
+    public City(HashMap<String,String> args) throws UnacceptableValue  {
+        this.setName(args.get("name"));
+        this.setArea(args.get("area"));
+        this.setPopulation(args.get("population"));
+        this.setMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
+        this.setClimate(args.get("climate"));
+        this.setGovernment(args.get("government"));
+        this.setStandardOfLiving(args.get("standardOfLiving"));
+        this.setCoordinates(
+                new Coordinates(
+                        args.get("x"),
+                        args.get("y")
+                )
+        );
+        this.setGovernor(
+                new Human(
+                        args.get("govName"),
+                        args.get("age"),
+                        args.get("height"),
+                        args.get("birthday")
+                )
+        );
+    }
+
+    /**
+     * Установка идентификатора города
+     * @param id идентификатор города
+     */
     public void setId(Long id) {this.id = id;}
+
+    /**
+     * Установка даты добавления объекта
+     * @param creationDate дата добавления города
+     */
     public void setCreationDate(LocalDateTime creationDate) {this.creationDate = creationDate;}
+    /**
+     * Установка имени города
+     * @param name новое имя города
+     */
     public void setName(String name) throws UnacceptableValue {this.name = CityValidators.validateName(name);}
+
+    /**
+     * Установка координат города
+     * @param coordinates
+     * @throws UnacceptableValue
+     */
     public void setCoordinates(Coordinates coordinates) throws UnacceptableValue {this.coordinates = coordinates;}
     public void setArea(String area) throws UnacceptableValue {this.area = CityValidators.validateArea(Double.parseDouble(area));}
     public void setPopulation(String population) throws UnacceptableValue {this.population = CityValidators.validatePopulation(Long.parseLong(population));}
@@ -57,6 +104,28 @@ public class City { // To JavaBean
                 standardOfLiving + "," +
                 governor.toCSVString() + "," +
                 creationDate;
+    }
+    public void fromCSVString(String csvString) throws UnacceptableValue {
+        String[] csvArray = csvString.split(",");
+
+        this.setId(Long.parseLong(csvArray[0]));
+        this.setName(csvArray[1]);
+        this.setCoordinates(new Coordinates(
+                csvArray[2], csvArray[3]
+        ));
+        this.setArea(csvArray[4]);
+        this.setPopulation(csvArray[5]);
+        this.setMetersAboveSeaLevel(csvArray[6]);
+        this.setClimate(csvArray[7]);
+        this.setGovernment(csvArray[8]);
+        this.setStandardOfLiving(csvArray[9]);
+        this.setGovernor(new Human(
+                csvArray[10],
+                csvArray[11],
+                csvArray[12],
+                csvArray[13]
+        ));
+        this.setCreationDate(LocalDateTime.parse(csvArray[14], DateTimeFormatter.ISO_DATE_TIME));
     }
     @Override
     public String toString() {

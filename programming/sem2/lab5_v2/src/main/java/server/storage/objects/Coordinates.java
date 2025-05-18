@@ -1,7 +1,9 @@
 package server.storage.objects;
 
 
-public class Coordinates {
+import server.storage.objects.interfaces.CSVSerializable;
+
+public class Coordinates implements CSVSerializable {
     private final double x;
     private final Float y; //Максимальное значение поля: 447, Поле не может быть null
 
@@ -13,10 +15,6 @@ public class Coordinates {
     // For auto json parsing
     public double getX() {return x;}
     public Float getY() {return y;}
-
-    public String toCSV(){
-        return x + ", " + y.toString();
-    }
 
     public String toCSVString() {
         return x + "," + y;

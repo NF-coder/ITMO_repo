@@ -1,19 +1,30 @@
 package server.storage.commands.commands.implementations;
 
+import server.storage.collection.vault.Vault;
 import server.storage.commands.commands.Command;
 import server.storage.objects.City;
 
+import java.io.*;
 import java.util.stream.Collectors;
 
 public class Save extends Command {
-    public Save() {
+    Vault vault;
+    public Save(Vault vault) {
         super("save");
+        this.vault = vault;
     }
     public String call(){
-        String javaHome = System.getenv("COLLECTION_HOME");
+        try {
+            vault.save(
+                    this.driver.getCollection().stream()
+                            .map(City::toCSVString)
+                            .collect(Collectors.joining("\n"))
+            );
+        }
+        catch (IOException ignored) {
+            return "an error occurred while writing to the file";
+        }
 
-        return this.driver.getCollection().stream()
-                .map(City::toCSVString)
-                .collect(Collectors.joining("\n"));
+        return null;
     }
 }

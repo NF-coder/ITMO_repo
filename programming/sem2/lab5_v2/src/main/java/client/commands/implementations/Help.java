@@ -1,18 +1,20 @@
 package client.commands.implementations;
 
 import java.util.HashMap;
+import java.util.function.Consumer;
 
 import client.commands.BasicCommand;
 import client.core.Engine;
 import client.network.NetworkManager;
 
 public class Help extends BasicCommand {
-    public Help(){
-        super("help", "Returns information about all commands.");
+    public Help(Consumer<HashMap<String,String>> outHandler){
+        super("help", "Returns information about all commands.", outHandler);
     }
 
+    @Override
     public final void execute(HashMap<String, String> args, Engine engine) {
-        for (BasicCommand command : Engine.getCommands()) {
+        for (BasicCommand command : engine.getCommands()) {
             System.out.println(command.getName() + " - " + command.getInfo());
         }
     }

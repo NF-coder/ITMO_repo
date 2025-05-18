@@ -1,5 +1,8 @@
 package client.commands.objects.enums;
 
+/**
+ * Допустимые значения типа правительства в городе
+ */
 public enum Government implements EnumInterface{
     DEMARCHY,
     DICTATORSHIP,

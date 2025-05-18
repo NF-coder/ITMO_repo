@@ -1,7 +1,7 @@
 package client.commands.objects.validators;
 
 import client.commands.exceptions.UnacceptableValue;
-import client.commands.objects.validators.np.BasicParser;
+import client.commands.objects.validators.numberParser.BasicParser;
 
 public class CoordinatesValidators {
     public static void validateCoordinateX(String value) throws UnacceptableValue{

@@ -1,5 +1,6 @@
 package server.storage.objects;
 import server.storage.objects.exceptions.UnacceptableValue;
+import server.storage.objects.interfaces.CSVSerializable;
 
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
@@ -7,12 +8,28 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 
-public class Human {
+public class Human implements CSVSerializable {
     private final String name; //Поле не может быть null, Строка не может быть пустой
     private final long age; //Значение поля должно быть больше 0
     private final double height; //Значение поля должно быть больше 0
     private final java.time.LocalDateTime birthday;
+    private final DateTimeFormatter DTF = new DateTimeFormatterBuilder()
+            .appendPattern("dd.MM.uuuu")
+            //.optionalStart()
+            //.appendPattern(" HH:mm")
+            //.optionalEnd()
+            .parseDefaulting(ChronoField.HOUR_OF_DAY, 0)
+            .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0)
+            .toFormatter();
 
+    /**
+     * Задание информации о человеке
+     * @param name Имя человека
+     * @param age Возраст человека
+     * @param height Рост человека
+     * @param birthday День рождения в формате ДД.ММ.ГГГГ
+     * @throws UnacceptableValue Если какие-либо данные не прошли валидацию
+     */
     public Human(String name, String age, String height, String birthday) throws UnacceptableValue{
         this.name = name;
         this.age = Long.parseLong(age);
@@ -21,20 +38,37 @@ public class Human {
     }
 
     // For auto json parsing
-    public String getName() {return name;}
-    public long getAge() {return age;}
-    public double getHeight() {return height;}
-    public java.time.LocalDateTime getBirthday() {return birthday;}
 
+    /**
+     * Имя человека
+     * @return имя
+     */
+    public String getName() {return name;}
+
+    /**
+     * Возраст человека
+     * @return возраст
+     */
+    public long getAge() {return age;}
+
+    /**
+     * Рост человека
+     * @return рост
+     */
+    public double getHeight() {return height;}
+
+    /**
+     * День рождения человека
+     * @return день рождения
+     */
+    public LocalDateTime getBirthday() {return birthday;}
+
+    /**
+     * Преобразование строки в дату рождения
+     * @return Дата рождения в виде строки
+     */
     private LocalDateTime DateStringToLocalDateTime(String value) throws UnacceptableValue {
-        DateTimeFormatter DTF = new DateTimeFormatterBuilder()
-                .appendPattern("dd.MM.uuuu")
-                //.optionalStart()
-                //.appendPattern(" HH:mm")
-                //.optionalEnd()
-                .parseDefaulting(ChronoField.HOUR_OF_DAY, 0)
-                .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0)
-                .toFormatter();
+
         try {
             return LocalDateTime.parse(value, DTF);
         }
@@ -43,8 +77,12 @@ public class Human {
         }
     }
 
+    /**
+     * Преобразование в CSV формат
+     * @return csv-строка
+     */
     public String toCSVString() {
-        return name + "," + age + "," + height + "," + birthday.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        return name + "," + age + "," + height + "," + birthday.format(DTF);
     }
 
     @Override

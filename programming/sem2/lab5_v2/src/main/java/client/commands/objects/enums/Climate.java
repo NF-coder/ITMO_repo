@@ -1,5 +1,8 @@
 package client.commands.objects.enums;
 
+/**
+ * Допустимые значения климата города
+ */
 public enum Climate implements EnumInterface {
     OCEANIC,
     MEDITERRANIAN,

@@ -1,7 +1,16 @@
 package server.storage.commands.commands;
 
+/**
+ * Статус выполнения команды
+ */
 public enum Status {
+    /**
+     * Успешно выполнена
+     */
     OK,
+    /**
+     * Прервана с ошибкой
+     */
     ERROR;
 
     @Override

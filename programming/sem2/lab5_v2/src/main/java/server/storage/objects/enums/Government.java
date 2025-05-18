@@ -17,4 +17,12 @@ public enum Government implements EnumInterface{
             case JUNTA -> "JUNTA";
         };
     }
+
+    public int getCost() {
+        return switch (this) {
+            case DEMARCHY -> 0;
+            case DICTATORSHIP, COMMUNISM -> 1;
+            case JUNTA -> -3;
+        };
+    }
 }

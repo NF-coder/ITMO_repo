@@ -1,0 +1,93 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+@argfile
+-classpath
+'/home/nf/.m2/repository/org/json/json/20250107/json-20250107.jar:/home/nf/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/home/nf/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'lab5_v2 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'lab5_v2 1.0-SNAPSHOT API'
+server.core
+server.core.components
+server.network.drivers
+server.network.drivers.implementations
+server.network.serializers.implementations
+server.network.serializers
+server.network.managers
+server.network.container
+server
+server.storage.objects.validators
+server.storage.objects.exceptions
+server.storage.objects.enums
+server.storage.objects
+server.storage.objects.interfaces
+server.storage.commands.commands.implementations
+server.storage.commands.commands
+server.storage.commands.commands.argsBuilder
+server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder
+server.storage.commands
+server.storage.collection.drivers.implementations
+server.storage.collection.drivers
+server.storage.collection.vault
+shared.objects
+client
+client.textWorkers
+client.textWorkers.Invokers
+client.core
+client.network.drivers
+client.network.drivers.implementations
+client.network
+client.commands
+client.commands.implementations
+client.commands.implementations.parsers
+client.commands.implementations.components.output
+client.commands.objects.enums
+client.commands.objects.validators
+client.commands.objects.validators.numberParser
+client.commands.exceptions
+'/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/Main.java'
+/home/nf/.m2/repository/org/json/json/20250107/json-20250107.jar = 1736286210000
+/home/nf/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar = 1640647820000
+/home/nf/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar = 1640647854000
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/Main.java = 1744896758804
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java = 1747555120016
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/Main.html = 1747556134323
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/element-list = 1747556134557
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-summary.html = 1747556134562
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-tree.html = 1747556134564
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/constant-values.html = 1747556134649
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/serialized-form.html = 1747556134658
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-use.html = 1747556134762
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/overview-tree.html = 1747556134791
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/index.html = 1747556134793
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/allclasses-index.html = 1747556134814
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/allpackages-index.html = 1747556134816
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/module-search-index.js = 1747556134816
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-search-index.js = 1747556134816
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/type-search-index.js = 1747556134816
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/member-search-index.js = 1747556134817
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/tag-search-index.js = 1747556134817
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/index-all.html = 1747556134850
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/search.html = 1747556134852
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/overview-summary.html = 1747556134853
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/help-doc.html = 1747556134855

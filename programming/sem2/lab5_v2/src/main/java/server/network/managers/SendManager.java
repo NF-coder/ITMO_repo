@@ -1,27 +1,36 @@
 package server.network.managers;
 
 import server.network.container.NetworkContainer;
-import server.network.drivers.INetworkDriver;
-import server.network.serializers.INetworkSerializers;
+import server.network.drivers.NetDriverSend;
+import server.network.serializers.INetworkSerializer;
 import shared.objects.NetworkResponseDTO;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
-public class SendManager {
-    INetworkDriver driver;
-    INetworkSerializers serializer;
+/**
+ * Менеджер, управляющий отправкой данных
+ * @param <T> тип отправляемых данных
+ */
+public class SendManager<T> {
+    NetDriverSend<T> driver;
+    INetworkSerializer serializer;
 
-    public SendManager(INetworkDriver driver, INetworkSerializers serializer) {
+    public SendManager(NetDriverSend<T> driver, INetworkSerializer serializer) {
         this.driver = driver;
         this.serializer = serializer;
     }
 
-    public CompletableFuture<Void> call(NetworkContainer<NetworkResponseDTO> elem){
+    /**
+     * Пайплайн отправки данных
+     * @param elem Конейнер с отправляемыми данными
+     * @return ЦЕНОК
+     */
+    public CompletableFuture<Void> call(NetworkContainer<NetworkResponseDTO, T> elem){
         return CompletableFuture.supplyAsync(
                 () -> {
                     try {
-                        return this.serializer.serialize(
+                        return this.serializer.apply(
                                 elem.data()
                         );
                     } catch (IOException e) {
@@ -34,7 +43,7 @@ public class SendManager {
                     try {
                         this.driver.send(
                                 new NetworkContainer<> (
-                                        elem.socketAddress(),
+                                        elem.connInfo(),
                                         res
                                 )
                         );

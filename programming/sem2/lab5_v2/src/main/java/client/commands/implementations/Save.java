@@ -2,17 +2,18 @@ package client.commands.implementations;
 
 import client.commands.BasicCommand;
 import client.core.Engine;
-import client.network.NetworkManager;
 import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;
 
 import java.util.HashMap;
+import java.util.function.Consumer;
 
 public class Save extends BasicCommand {
-    public Save(){
-        super("save", "saves collection to CSV file.");
+    public Save(Consumer<HashMap<String,String>> outHandler){
+        super("save", "saves collection to CSV file.", outHandler);
     }
 
+    @Override
     public final void execute(HashMap<String, String> args, Engine engine) throws Exception{
         engine.networkManager.send(
                 new NetworkRequestDTO(
@@ -20,7 +21,8 @@ public class Save extends BasicCommand {
                         new HashMap<>()
                 )
         );
-        NetworkResponseDTO nmr = engine.networkManager.receive();
-        System.out.println(nmr);
+        this.getOutHandler().accept(
+                engine.networkManager.receive().result()
+        );
     }
 }

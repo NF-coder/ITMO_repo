@@ -19,33 +19,11 @@ public class Update extends Command {
                         this.args.get("id")
                 )
         );
-        City newCity = new City();
+        City newCity = new City(args);
+        newCity.setId(obj.getId());
+        newCity.setCreationDate(obj.getCreationDate());
 
-        newCity.setName(args.get("name"));
-        newCity.setArea(args.get("area"));
-        newCity.setPopulation(args.get("population"));
-        newCity.setMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
-        newCity.setClimate(args.get("climate"));
-        newCity.setGovernment(args.get("government"));
-        newCity.setStandardOfLiving(args.get("standardOfLiving"));
-        newCity.setCoordinates(
-                new Coordinates(
-                        args.get("x"),
-                        args.get("y")
-                )
-        );
-        newCity.setGovernor(
-                new Human(
-                        args.get("govName"),
-                        args.get("age"),
-                        args.get("height"),
-                        args.get("birthday")
-                )
-        );
-        this.driver.add(
-                newCity
-        );
-
+        this.driver.add(newCity);
         return null;
     }
 }

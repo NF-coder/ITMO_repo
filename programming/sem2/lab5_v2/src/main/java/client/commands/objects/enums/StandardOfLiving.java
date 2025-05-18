@@ -1,5 +1,8 @@
 package client.commands.objects.enums;
 
+/**
+ * Допустимые значения качества жизни
+ */
 public enum StandardOfLiving implements EnumInterface{
     VERY_HIGH,
     HIGH,
