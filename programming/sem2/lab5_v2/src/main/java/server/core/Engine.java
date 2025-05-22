@@ -10,6 +10,9 @@ import server.network.drivers.INetworkDriver;
 import server.network.serializers.INetworkSerializers;
 import server.storage.collection.drivers.IStructDriver;
 
+/**
+ * Движок сервера
+ */
 public class Engine{
     public <T> Engine(
             INetworkDriver<T> networkDriver,

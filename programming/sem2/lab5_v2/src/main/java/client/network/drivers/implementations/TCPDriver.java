@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
@@ -30,18 +31,22 @@ public final class TCPDriver implements INetworkDriver {
     public void init() {}
 
     private void socketInit() throws IOException {
-        // Initialize the socket and connect to the target address
-        socket = new Socket();
-        socket.connect(new InetSocketAddress("localhost", targetPort));
-        outputStream = socket.getOutputStream();
-        inputStream = socket.getInputStream();
-        logger.debug("Connected to server on port {}", targetPort);
+        try{
+            socket = new Socket();
+            socket.connect(new InetSocketAddress("localhost", targetPort));
+            outputStream = socket.getOutputStream();
+            inputStream = socket.getInputStream();
+            logger.debug("Connected to server on port {}", targetPort);
+        }
+        catch(ConnectException e){
+            logger.warn("Failed to connect to server on port {}", targetPort);
+            throw new IOException("Failed to connect to server on port " + targetPort);
+        }
     }
 
     @Override
     public void send(byte[] data) throws IOException {
-        if (socket == null || socket.isClosed()) socketInit();
-
+        if (socket == null || socket.isClosed() || !socket.isConnected()) socketInit();
         outputStream.write(data);
         outputStream.flush(); // Ensure all data is sent
         logger.debug("Data sent: {}", new String(data));

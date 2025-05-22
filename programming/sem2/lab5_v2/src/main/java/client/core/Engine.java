@@ -16,18 +16,19 @@ import org.apache.logging.log4j.Logger;
 
 public final class Engine {
     INetworkDriver driver = new TCPDriver(4059, 4056);
+
     public NetworkManager networkManager = new NetworkManager(driver);
 
     private final Logger logger = LogManager.getLogger();
 
-    public Consumer<HashMap<String,String>> primitivePrinter = CommandOutput::primitivePrinter;
+    public Consumer<HashMap<String,String>> printer = CommandOutput::logger;
 
     private final BasicCommand[] commands = {
-            new Help(primitivePrinter), new Add(primitivePrinter), new Info(primitivePrinter),
-            new Clear(primitivePrinter), new Exit(), new Show(primitivePrinter),
-            new Update(primitivePrinter), new Execute(primitivePrinter), new Save(primitivePrinter),
-            new AvgOfMetersAboveSea(primitivePrinter), new FilterStartsWithName(primitivePrinter),
-            new AddIfMax(primitivePrinter), new RemoveGreater(primitivePrinter), new Load(primitivePrinter)
+            new Help(printer), new Add(printer), new Info(printer),
+            new Clear(printer), new Exit(), new Show(printer),
+            new Update(printer), new Execute(printer), new Save(printer),
+            new AvgOfMetersAboveSea(printer), new FilterStartsWithName(printer),
+            new AddIfMax(printer), new RemoveGreater(printer), new Load(printer)
     };
 
     private final HashMap<String, BasicCommand> commandsHashMap = new HashMap<>();
@@ -85,7 +86,7 @@ public final class Engine {
         try {
             command.execute(args, this);
         } catch (Exception err) {
-            logger.warn("Error while executing command {}", commandName, err);
+            logger.debug("Error while executing command {}", commandName, err);
         }
     }
 }

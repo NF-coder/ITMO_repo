@@ -1,4 +1,4 @@
-package server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder;
+package server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.implementations;
 
 public enum ArgTypesEnum {
     INTEGER,

@@ -1,6 +1,7 @@
 package client.network.drivers;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.SocketException;
 
 /**

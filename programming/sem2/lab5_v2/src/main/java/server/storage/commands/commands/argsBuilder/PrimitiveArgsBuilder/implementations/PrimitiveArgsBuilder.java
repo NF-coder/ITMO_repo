@@ -1,9 +1,15 @@
-package server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder;
+package server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.implementations;
 
 import org.json.JSONObject;
+import server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.IPrimitiveArgsBuilder;
 
-public class PrimitiveArgsBuilder {
-    private final JSONObject jo = new JSONObject();
+public class PrimitiveArgsBuilder implements IPrimitiveArgsBuilder<JSONObject> {
+    private JSONObject jo;
+
+    public PrimitiveArgsBuilder start() {
+        jo = new JSONObject();
+        return this;
+    }
 
     public PrimitiveArgsBuilder setType(ArgTypesEnum type) {
         jo.put("type", type.toString());

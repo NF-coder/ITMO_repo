@@ -3,6 +3,7 @@ package client.network.drivers.implementations;
 import client.network.drivers.INetworkDriver;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.net.SocketException;
@@ -35,7 +36,7 @@ public final class UDPDriver implements INetworkDriver {
     }
 
     @Override
-    public void send(byte[] data) throws IOException {
+    public void send(byte[] data) throws IOException, ConnectException {
         ByteBuffer buf = ByteBuffer.wrap(data);
         channel.send(buf, targetAddr);
     }

@@ -6,6 +6,8 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import server.network.container.NetworkContainer;
 import server.network.drivers.INetworkDriver;
 
@@ -13,6 +15,7 @@ public class TCPDriver implements INetworkDriver<SocketChannel> {
     private final int port;
     private ServerSocketChannel serverChannel;
     private final int PACKET_SIZE = 1024;
+    private final Logger logger = LogManager.getLogger();
 
     public TCPDriver(int port) {
         this.port = port;
@@ -33,15 +36,15 @@ public class TCPDriver implements INetworkDriver<SocketChannel> {
         try {
             ByteBuffer buffer = ByteBuffer.wrap(data.data());
             while (buffer.hasRemaining()) {
-                data.connInfo().write(buffer); // Ensure all data is written
+                data.connInfo().write(buffer);
             }
-            System.out.println("Data sent to " + data.connInfo());
+            logger.debug("Data sent to {}", data.connInfo());
         } catch (IOException e) {
-            System.err.println("Error while sending data: " + e);
+            logger.debug("Error while sending data: {}", String.valueOf(e));
             throw e;
         }
         catch (Exception e) {
-            System.out.println(e);
+            logger.warn("Unhandled exception: {}", e.getMessage(), e);
             throw e;
         }
     }
@@ -51,23 +54,20 @@ public class TCPDriver implements INetworkDriver<SocketChannel> {
 
         try{
             SocketChannel clientChannel = serverChannel.accept();
-            System.out.println("Client connected: " + clientChannel.getRemoteAddress());
+            logger.debug("Client connected: {}", clientChannel.getRemoteAddress());
 
             ByteBuffer buffer = ByteBuffer.allocate(PACKET_SIZE);
+
             int bytesRead = clientChannel.read(buffer);
 
             if (bytesRead == -1) {
                 throw new IOException("Client closed the connection.");
             }
 
-            buffer.flip(); // Prepare buffer for reading
-            byte[] receivedData = new byte[buffer.remaining()];
-            buffer.get(receivedData);
-
-            System.out.println("Data received from client: " + new String(receivedData));
-            return new NetworkContainer<>(clientChannel, receivedData);
+            logger.debug("Data received from client: {}", new String(buffer.array()));
+            return new NetworkContainer<>(clientChannel, buffer.array());
         } catch (IOException e) {
-            System.err.println("Error while receiving data: " + e.getMessage());
+            logger.debug("Error while receiving data: {}", e.getMessage());
             throw e;
         }
     }

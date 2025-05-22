@@ -1,53 +1,59 @@
 package server.storage.commands.commands.argsBuilder;
 
-import org.json.JSONObject;
-import server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.PrimitiveArgsBuilder;
-import server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.ArgTypesEnum;
+import server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.IPrimitiveArgsBuilder;
+import server.storage.commands.commands.argsBuilder.PrimitiveArgsBuilder.implementations.ArgTypesEnum;
 import server.storage.objects.enums.EnumInterface;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
-public class ArgsBuilder {
-    private final JSONObject args = new JSONObject();
+public class ArgsBuilder<T> {
+    private final HashMap<String,T> args = new HashMap<>();
+    IPrimitiveArgsBuilder<T> primitiveArgsBuilder;
 
-    public ArgsBuilder addInteger(String name) {
+    public ArgsBuilder (IPrimitiveArgsBuilder<T> primitiveArgsBuilder) {
+        this.primitiveArgsBuilder = primitiveArgsBuilder;
+    }
+
+    public ArgsBuilder<T> addInteger(String name) {
         args.put(
                 name,
-                new PrimitiveArgsBuilder()
+                primitiveArgsBuilder.start()
                         .setType(ArgTypesEnum.INTEGER)
                         .get()
         );
         return this;
     }
-    public ArgsBuilder addInteger(String name, Long min, Long max) {
-        PrimitiveArgsBuilder AB2 = new PrimitiveArgsBuilder();
+
+    public ArgsBuilder<T> addInteger(String name, Long min, Long max) {
+        IPrimitiveArgsBuilder<T> AB2 = primitiveArgsBuilder.start().setType(ArgTypesEnum.INTEGER);
         if (min != null) AB2.setMin(min);
         if (max != null) AB2.setMax(max);
         args.put(name, AB2.get());
         return this;
     }
 
-    public ArgsBuilder addReal(String name) {
+    public ArgsBuilder<T> addReal(String name) {
         args.put(
                 name,
-                new PrimitiveArgsBuilder()
+                primitiveArgsBuilder.start()
                         .setType(ArgTypesEnum.REAL)
                         .get()
         );
         return this;
     }
-    public ArgsBuilder addReal(String name, Double min, Double max) {
-        PrimitiveArgsBuilder AB2 = new PrimitiveArgsBuilder();
+    public ArgsBuilder<T> addReal(String name, Double min, Double max) {
+        IPrimitiveArgsBuilder<T> AB2 = primitiveArgsBuilder.start().setType(ArgTypesEnum.REAL);
         if (min != null) AB2.setMin(min);
         if (max != null) AB2.setMax(max);
-        args.put(name, new PrimitiveArgsBuilder().get());
+        args.put(name, AB2.get());
         return this;
     }
 
-    public ArgsBuilder addEnum(String name, Class<? extends EnumInterface> e) {
+    public ArgsBuilder<T> addEnum(String name, Class<? extends EnumInterface> e) {
         args.put(
                 name,
-                new PrimitiveArgsBuilder()
+                primitiveArgsBuilder.start()
                         .setType(ArgTypesEnum.ENUM)
                         .addOptions(
                                 Arrays.stream(e.getEnumConstants())
@@ -57,26 +63,26 @@ public class ArgsBuilder {
         );
         return this;
     }
-    public ArgsBuilder addString(String name) {
+    public ArgsBuilder<T> addString(String name) {
         args.put(
                 name,
-                new PrimitiveArgsBuilder()
+                primitiveArgsBuilder.start()
                         .setType(ArgTypesEnum.STRING)
                         .get()
         );
         return this;
     }
-    public ArgsBuilder addDate(String name) {
+    public ArgsBuilder<T> addDate(String name) {
         args.put(
                 name,
-                new PrimitiveArgsBuilder()
+                primitiveArgsBuilder.start()
                         .setType(ArgTypesEnum.DATE)
                         .get()
         );
         return this;
     }
 
-    public JSONObject get() {
+    public HashMap<String,T> get() {
         return args;
     }
 }

@@ -22,11 +22,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'lab5_v2 1.0-SNAPSHOT API'
+'lab5_v2 1.0 API'
 -use
 -version
 -windowtitle
-'lab5_v2 1.0-SNAPSHOT API'
+'lab5_v2 1.0 API'
 server.core
 server.core.components
 server.network.drivers
@@ -71,23 +71,23 @@ client.commands.exceptions
 /home/nf/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar = 1640647854000
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java/Main.java = 1744896758804
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/src/main/java = 1747555120016
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/Main.html = 1747556134323
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/element-list = 1747556134557
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-summary.html = 1747556134562
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-tree.html = 1747556134564
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/constant-values.html = 1747556134649
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/serialized-form.html = 1747556134658
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-use.html = 1747556134762
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/overview-tree.html = 1747556134791
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/index.html = 1747556134793
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/allclasses-index.html = 1747556134814
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/allpackages-index.html = 1747556134816
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/module-search-index.js = 1747556134816
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-search-index.js = 1747556134816
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/type-search-index.js = 1747556134816
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/member-search-index.js = 1747556134817
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/tag-search-index.js = 1747556134817
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/index-all.html = 1747556134850
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/search.html = 1747556134852
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/overview-summary.html = 1747556134853
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/help-doc.html = 1747556134855
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/Main.html = 1747570178770
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/element-list = 1747570178959
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-summary.html = 1747570178963
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-tree.html = 1747570178966
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/constant-values.html = 1747570179070
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/serialized-form.html = 1747570179079
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-use.html = 1747570179189
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/overview-tree.html = 1747570179218
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/index.html = 1747570179220
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/allclasses-index.html = 1747570179243
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/allpackages-index.html = 1747570179244
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/module-search-index.js = 1747570179245
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/package-search-index.js = 1747570179245
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/type-search-index.js = 1747570179245
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/member-search-index.js = 1747570179248
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/tag-search-index.js = 1747570179249
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/index-all.html = 1747570179275
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/search.html = 1747570179277
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/overview-summary.html = 1747570179278
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/target/reports/apidocs/help-doc.html = 1747570179280

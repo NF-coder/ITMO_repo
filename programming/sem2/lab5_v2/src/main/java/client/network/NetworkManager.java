@@ -4,7 +4,6 @@ import client.network.drivers.INetworkDriver;
 import shared.objects.NetworkResponseDTO;
 
 import java.io.*;
-import java.util.Arrays;
 
 /**
  * Управление получением и отправкой данных на клиенте
