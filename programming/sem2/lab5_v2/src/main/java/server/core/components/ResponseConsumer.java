@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 
 import server.network.container.NetworkContainer;
 import server.network.drivers.NetDriverSend;
-import server.network.managers.SendManager;
+import server.network.SendManager;
 import server.network.serializers.INetworkSerializer;
 import shared.objects.NetworkResponseDTO;
 

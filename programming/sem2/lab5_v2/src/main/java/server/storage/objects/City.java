@@ -1,17 +1,33 @@
 package server.storage.objects;
 
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 import server.storage.objects.exceptions.UnacceptableValue;
 import server.storage.objects.enums.Climate;
 import server.storage.objects.enums.Government;
 import server.storage.objects.enums.StandardOfLiving;
 import server.storage.objects.interfaces.CSVSerializable;
-import server.storage.objects.validators.CityValidators;
+import server.storage.objects.validators.old.CityValidators;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class City implements CSVSerializable { // To JavaBean
+public class City implements CSVSerializable {
+    ArgsBuilderV2 argsBuilder = new ArgsBuilderV2().putString("name")
+            .putInteger("area", 0L, null)
+            .putInteger("population", 0L, null)
+            .putInteger("population", 0L, null)
+            .putEnum("climate", Climate.class)
+            .putEnum("government", Government.class)
+            .putEnum("standardOfLiving", StandardOfLiving.class)
+            .putReal("x")
+            .putReal("y")
+            .putString("govName")
+            .putInteger("age")
+            .putInteger("height")
+            .putInteger("metersAboveSeaLevel")
+            .putDate("birthday");
+
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -66,11 +82,6 @@ public class City implements CSVSerializable { // To JavaBean
      */
     public void setName(String name) throws UnacceptableValue {this.name = CityValidators.validateName(name);}
 
-    /**
-     * Установка координат города
-     * @param coordinates
-     * @throws UnacceptableValue
-     */
     public void setCoordinates(Coordinates coordinates) throws UnacceptableValue {this.coordinates = coordinates;}
     public void setArea(String area) throws UnacceptableValue {this.area = CityValidators.validateArea(Double.parseDouble(area));}
     public void setPopulation(String population) throws UnacceptableValue {this.population = CityValidators.validatePopulation(Long.parseLong(population));}

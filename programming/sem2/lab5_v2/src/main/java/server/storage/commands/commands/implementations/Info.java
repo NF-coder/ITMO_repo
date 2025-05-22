@@ -1,13 +1,14 @@
 package server.storage.commands.commands.implementations;
 
 import server.storage.commands.commands.Command;
-import server.storage.objects.City;
-import server.storage.objects.Coordinates;
-import server.storage.objects.Human;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 
 public class Info extends Command {
     public Info() {
-        super("info");
+        super(
+                "info",
+                new ArgsBuilderV2()
+        );
     }
 
     public String call() throws Exception{

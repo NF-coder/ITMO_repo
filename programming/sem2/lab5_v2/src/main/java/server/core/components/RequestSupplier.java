@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 import server.network.container.NetworkContainer;
 import server.network.drivers.NetDriverReceive;
-import server.network.managers.ReceiveManager;
+import server.network.ReceiveManager;
 import server.network.serializers.INetworkDeserializer;
 import shared.objects.NetworkRequestDTO;
 

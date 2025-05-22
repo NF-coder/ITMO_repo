@@ -2,15 +2,18 @@ package server.storage.commands.commands.implementations;
 
 import server.storage.collection.vault.Vault;
 import server.storage.commands.commands.Command;
-import server.storage.objects.exceptions.UnacceptableValue;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 
 import java.io.IOException;
-import java.util.stream.Collectors;
 
 public class Load extends Command {
     Vault vault;
+
     public Load(Vault vault) {
-        super("load");
+        super(
+                "load",
+                new ArgsBuilderV2()
+        );
         this.vault = vault;
     }
     public String call(){

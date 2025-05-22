@@ -2,6 +2,7 @@ package server.storage.commands.commands.implementations;
 
 import server.storage.collection.vault.Vault;
 import server.storage.commands.commands.Command;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 import server.storage.objects.City;
 
 import java.io.*;
@@ -10,7 +11,10 @@ import java.util.stream.Collectors;
 public class Save extends Command {
     Vault vault;
     public Save(Vault vault) {
-        super("save");
+        super(
+                "save",
+                new ArgsBuilderV2()
+        );
         this.vault = vault;
     }
     public String call(){

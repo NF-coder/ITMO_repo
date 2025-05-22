@@ -1,17 +1,19 @@
 package server.storage.commands.commands.implementations;
 
 import server.storage.commands.commands.Command;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 import server.storage.objects.City;
-import server.storage.objects.Coordinates;
-import server.storage.objects.Human;
 import server.storage.objects.exceptions.ElementNotFound;
 import server.storage.objects.exceptions.UnacceptableValue;
-
-import java.util.HashMap;
+import server.storage.objects.validators.BuildSupplier;
 
 public class Update extends Command {
     public Update(){
-        super("update");
+        super(
+                "update",
+                BuildSupplier.CityBuild(new ArgsBuilderV2())
+                        .putInteger("id", 0L, null)
+        );
     }
     public String call() throws UnacceptableValue, ElementNotFound {
         City obj = this.driver.getById(

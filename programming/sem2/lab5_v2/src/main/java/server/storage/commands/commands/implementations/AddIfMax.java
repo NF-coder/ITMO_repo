@@ -1,9 +1,9 @@
 package server.storage.commands.commands.implementations;
 
 import server.storage.commands.commands.Command;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 import server.storage.objects.City;
-import server.storage.objects.Coordinates;
-import server.storage.objects.Human;
+import server.storage.objects.validators.BuildSupplier;
 
 import java.util.Comparator;
 import java.util.function.Function;
@@ -13,8 +13,12 @@ public class AddIfMax extends Command {
             elem.getArea()*0.03 +
             elem.getClimate().getCost()*0.2 +
             elem.getPopulation()*0.0003;
+
     public AddIfMax() {
-        super("add_if_max");
+        super(
+                "add_if_max",
+                BuildSupplier.CityBuild(new ArgsBuilderV2())
+        );
     }
     public String call() throws Exception{
         Double value =  driver.getCollection().stream()

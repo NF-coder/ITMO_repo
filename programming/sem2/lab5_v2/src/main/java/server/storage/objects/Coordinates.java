@@ -16,9 +16,11 @@ public class Coordinates implements CSVSerializable {
     public double getX() {return x;}
     public Float getY() {return y;}
 
+    @Override
     public String toCSVString() {
         return x + "," + y;
     }
+
     @Override
     public String toString() {
         return "Coordinates{" +

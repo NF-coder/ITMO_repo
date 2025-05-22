@@ -1,13 +1,12 @@
 package server.storage.commands.commands.implementations;
 
 import server.storage.commands.commands.Command;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 import server.storage.objects.City;
-import server.storage.objects.Coordinates;
-import server.storage.objects.Human;
+import server.storage.objects.validators.BuildSupplier;
 
 import java.util.Comparator;
 import java.util.function.Function;
-import java.util.function.Predicate;
 
 public class RemoveGreater extends Command {
     private final Function<City, Double> fn = (elem) -> elem.getStandardOfLiving().getCost() * 0.3 +
@@ -17,7 +16,10 @@ public class RemoveGreater extends Command {
     private final Comparator<City> comp = (elem1, elem2) -> fn.apply(elem1).compareTo(fn.apply(elem2));
 
     public RemoveGreater() {
-        super("remove_greater");
+        super(
+                "remove_greater",
+                BuildSupplier.CityBuild(new ArgsBuilderV2())
+        );
     }
     public String call() throws Exception{
         City newCity = new City(args);

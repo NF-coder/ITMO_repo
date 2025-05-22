@@ -1,4 +1,4 @@
-package server.network.managers;
+package server.network;
 
 import server.network.container.NetworkContainer;
 import server.network.drivers.NetDriverSend;

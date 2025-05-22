@@ -1,4 +1,4 @@
-package server.network.managers;
+package server.network;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;

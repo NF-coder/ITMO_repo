@@ -1,20 +1,22 @@
 package server.storage.commands.commands;
 
 import server.storage.collection.drivers.IStructDriver;
+import server.storage.commands.commands.argsBuilder.ArgsBuilderV2;
 
 import java.util.HashMap;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public abstract class Command implements Supplier<HashMap<String,String>> {
     public String NAME;
     protected IStructDriver driver;
     protected HashMap<String,String> args;
-    //public ArgsBuilder reqArgs;
+    public ArgsBuilderV2 reqArgs;
 
-    protected Command(String name/*, ArgsBuilder argsBuilder*/) {
+    protected Command(String name, ArgsBuilderV2 argsBuilder) {
         this.NAME = name;
-        //this.reqArgs = argsBuilder;
+        this.reqArgs = argsBuilder;
     }
     /**
      * Передача аргументов и драйвера доступа к структуре
@@ -51,12 +53,7 @@ public abstract class Command implements Supplier<HashMap<String,String>> {
             HashMap<String, String> h = new HashMap<>();
 
             h.put("status", String.valueOf(Status.OK));
-            if (result != null){
-                h.put("result", result);
-            }
-            else {
-                h.put("result", "successfully completed");
-            }
+            h.put("result", Objects.requireNonNullElse(result, "successfully completed"));
 
             return h;
         }
