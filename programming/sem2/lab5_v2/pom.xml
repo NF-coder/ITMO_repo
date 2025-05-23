@@ -8,6 +8,8 @@
     <artifactId>lab5_v2</artifactId>
     <version>1.0</version>
 
+    <packaging>pom</packaging>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -34,45 +36,9 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
-                <executions>
-                    <!-- Build the client JAR -->
-                    <execution>
-                        <id>build-client-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>client</classifier>
-                            <includes>
-                                <include>**/client/**</include>
-                                <include>**/shared/**</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                    <!-- Build the server JAR -->
-                    <execution>
-                        <id>build-server-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>server</classifier>
-                            <includes>
-                                <include>**/server/**</include>
-                                <include>**/shared/**</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>shared</module>
+        <module>server</module>
+        <module>client</module>
+    </modules>
 </project>
