@@ -1,7 +1,7 @@
-package server.storage.collection.drivers;
+package storage.collection.drivers;
 
-import server.storage.objects.City;
-import server.storage.objects.exceptions.ElementNotFound;
+import storage.objects.City;
+import storage.objects.exceptions.ElementNotFound;
 
 import java.util.ArrayDeque;
 

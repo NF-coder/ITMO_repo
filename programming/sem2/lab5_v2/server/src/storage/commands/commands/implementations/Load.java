@@ -1,7 +1,7 @@
-package server.storage.commands.commands.implementations;
+package storage.commands.commands.implementations;
 
-import server.storage.commands.components.Vault;
-import server.storage.commands.commands.Command;
+import storage.commands.components.Vault;
+import storage.commands.commands.Command;
 
 import java.io.IOException;
 

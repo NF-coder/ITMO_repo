@@ -28,7 +28,8 @@ public final class Engine {
             new Clear(printer), new Exit(), new Show(printer),
             new Update(printer), new Execute(printer), new Save(printer),
             new AvgOfMetersAboveSea(printer), new FilterStartsWithName(printer),
-            new AddIfMax(printer), new RemoveGreater(printer), new Load(printer)
+            new AddIfMax(printer), new RemoveGreater(printer), new Load(printer),
+            new Register(printer)
     };
 
     private final HashMap<String, BasicCommand> commandsHashMap = new HashMap<>();

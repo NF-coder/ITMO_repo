@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:13.3
+    container_name: lab7_db
+    restart: always
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: "release"
+      POSTGRES_PASSWORD: "horse_ate_green_guinea_pig"
+    volumes:
+      - lab7pg:/var/lib/postgresql/data  # Volume для хранения данных
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "db", "-U", "release"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    ports:
+      - "5459:5432"
+volumes:
+  lab7pg:

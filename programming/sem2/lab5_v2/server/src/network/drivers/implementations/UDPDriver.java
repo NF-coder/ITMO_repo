@@ -1,7 +1,7 @@
-package server.network.drivers.implementations;
+package network.drivers.implementations;
 
-import server.network.drivers.INetworkDriver;
-import server.network.container.NetworkContainer;
+import network.drivers.INetworkDriver;
+import network.container.NetworkContainer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

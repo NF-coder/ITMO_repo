@@ -1,4 +1,4 @@
-package server.storage.objects.exceptions;
+package storage.objects.exceptions;
 
 public class UnacceptableValue extends Exception {
     public UnacceptableValue(String message) {

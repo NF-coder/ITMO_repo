@@ -1,14 +1,14 @@
-package server.core;
+package core;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 
-import server.core.components.CommandFactory;
-import server.core.components.RequestSupplier;
-import server.core.components.ResponseConsumer;
-import server.network.drivers.INetworkDriver;
-import server.network.serializers.INetworkSerializers;
-import server.storage.collection.drivers.IStructDriver;
+import core.components.CommandFactory;
+import core.components.RequestSupplier;
+import core.components.ResponseConsumer;
+import network.drivers.INetworkDriver;
+import network.serializers.INetworkSerializers;
+import storage.collection.drivers.IStructDriver;
 
 /**
  * Движок сервера

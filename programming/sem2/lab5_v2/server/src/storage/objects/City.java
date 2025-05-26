@@ -1,11 +1,11 @@
-package server.storage.objects;
+package storage.objects;
 
-import server.storage.objects.exceptions.UnacceptableValue;
-import server.storage.objects.enums.Climate;
-import server.storage.objects.enums.Government;
-import server.storage.objects.enums.StandardOfLiving;
-import server.storage.objects.interfaces.CSVSerializable;
-import server.storage.objects.validators.CityValidators;
+import storage.objects.exceptions.UnacceptableValue;
+import storage.objects.enums.Climate;
+import storage.objects.enums.Government;
+import storage.objects.enums.StandardOfLiving;
+import storage.objects.interfaces.CSVSerializable;
+import storage.objects.validators.CityValidators;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -23,9 +23,11 @@ public class City implements CSVSerializable { // To JavaBean
     private Government government; //Поле не может быть null
     private StandardOfLiving standardOfLiving; //Поле может быть null
     private Human governor; //Поле не может быть null
+    private String creator;
 
     public City() {}
     public City(HashMap<String,String> args) throws UnacceptableValue  {
+        this.setCreator(args.get("login"));
         this.setName(args.get("name"));
         this.setArea(args.get("area"));
         this.setPopulation(args.get("population"));
@@ -66,11 +68,7 @@ public class City implements CSVSerializable { // To JavaBean
      */
     public void setName(String name) throws UnacceptableValue {this.name = CityValidators.validateName(name);}
 
-    /**
-     * Установка координат города
-     * @param coordinates
-     * @throws UnacceptableValue
-     */
+    public void setCreator(String creator) {this.creator = creator;}
     public void setCoordinates(Coordinates coordinates) throws UnacceptableValue {this.coordinates = coordinates;}
     public void setArea(String area) throws UnacceptableValue {this.area = CityValidators.validateArea(Double.parseDouble(area));}
     public void setPopulation(String population) throws UnacceptableValue {this.population = CityValidators.validatePopulation(Long.parseLong(population));}
@@ -80,6 +78,7 @@ public class City implements CSVSerializable { // To JavaBean
     public void setStandardOfLiving(String standardOfLiving) throws UnacceptableValue {this.standardOfLiving = StandardOfLiving.valueOf(standardOfLiving);}
     public void setGovernor(Human human) throws UnacceptableValue {this.governor = human;}
 
+    public String getCreator() {return creator;}
     public Long getId() {return id;}
     public LocalDateTime getCreationDate() {return creationDate;}
     public String getName() {return name;}

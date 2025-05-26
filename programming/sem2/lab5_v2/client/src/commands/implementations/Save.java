@@ -17,7 +17,7 @@ public class Save extends BasicCommand {
         engine.networkManager.send(
                 new NetworkRequestDTO(
                         "save",
-                        new HashMap<>()
+                        args
                 )
         );
         this.getOutHandler().accept(

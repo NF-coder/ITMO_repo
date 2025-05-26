@@ -1,7 +1,7 @@
-package server.storage.commands.commands.implementations;
+package storage.commands.commands.implementations;
 
-import server.storage.commands.commands.Command;
-import server.storage.objects.exceptions.UnacceptableValue;
+import storage.commands.commands.Command;
+import storage.objects.exceptions.UnacceptableValue;
 
 import java.util.HashMap;
 

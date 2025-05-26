@@ -17,7 +17,7 @@ public class AvgOfMetersAboveSea extends BasicCommand {
         engine.networkManager.send(
                 new NetworkRequestDTO(
                         "average_of_meters_above_sea_level",
-                        new HashMap<>()
+                        args
                 )
         );
         this.getOutHandler().accept(

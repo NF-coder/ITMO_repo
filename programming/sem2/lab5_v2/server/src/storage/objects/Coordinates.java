@@ -1,7 +1,7 @@
-package server.storage.objects;
+package storage.objects;
 
 
-import server.storage.objects.interfaces.CSVSerializable;
+import storage.objects.interfaces.CSVSerializable;
 
 public class Coordinates implements CSVSerializable {
     private final double x;

@@ -1,4 +1,4 @@
-package server.storage.commands.commands;
+package storage.commands.commands;
 
 /**
  * Статус выполнения команды

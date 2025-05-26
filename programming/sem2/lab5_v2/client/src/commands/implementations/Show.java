@@ -17,7 +17,7 @@ public class Show extends BasicCommand {
         engine.networkManager.send(
                 new NetworkRequestDTO(
                         "show",
-                        new HashMap<>()
+                        args
                 )
         );
         this.getOutHandler().accept(

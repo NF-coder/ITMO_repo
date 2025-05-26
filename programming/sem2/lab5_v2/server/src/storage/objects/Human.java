@@ -1,6 +1,6 @@
-package server.storage.objects;
-import server.storage.objects.exceptions.UnacceptableValue;
-import server.storage.objects.interfaces.CSVSerializable;
+package storage.objects;
+import storage.objects.exceptions.UnacceptableValue;
+import storage.objects.interfaces.CSVSerializable;
 
 import java.time.DateTimeException;
 import java.time.LocalDateTime;

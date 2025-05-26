@@ -1,6 +1,7 @@
-package server.storage.commands.commands;
+package storage.commands.commands;
 
-import server.storage.collection.drivers.IStructDriver;
+import storage.collection.drivers.IStructDriver;
+import storage.objects.City;
 
 import java.util.HashMap;
 

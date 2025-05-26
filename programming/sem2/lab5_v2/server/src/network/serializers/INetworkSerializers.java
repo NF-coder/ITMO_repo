@@ -1,4 +1,4 @@
-package server.network.serializers;
+package network.serializers;
 
 import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;

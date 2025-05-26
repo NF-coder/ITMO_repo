@@ -1,4 +1,4 @@
-package server.network.drivers.implementations;
+package network.drivers.implementations;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -8,8 +8,8 @@ import java.nio.channels.SocketChannel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import server.network.container.NetworkContainer;
-import server.network.drivers.INetworkDriver;
+import network.container.NetworkContainer;
+import network.drivers.INetworkDriver;
 
 public class TCPDriver implements INetworkDriver<SocketChannel> {
     private final int port;

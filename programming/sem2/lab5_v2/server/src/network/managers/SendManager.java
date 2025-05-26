@@ -1,8 +1,8 @@
-package server.network.managers;
+package network.managers;
 
-import server.network.container.NetworkContainer;
-import server.network.drivers.NetDriverSend;
-import server.network.serializers.INetworkSerializer;
+import network.container.NetworkContainer;
+import network.drivers.NetDriverSend;
+import network.serializers.INetworkSerializer;
 import shared.objects.NetworkResponseDTO;
 
 import java.io.IOException;

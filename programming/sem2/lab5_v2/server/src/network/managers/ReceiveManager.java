@@ -1,11 +1,11 @@
-package server.network.managers;
+package network.managers;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
-import server.network.container.NetworkContainer;
-import server.network.drivers.NetDriverReceive;
-import server.network.serializers.INetworkDeserializer;
+import network.container.NetworkContainer;
+import network.drivers.NetDriverReceive;
+import network.serializers.INetworkDeserializer;
 import shared.objects.NetworkRequestDTO;
 
 /**

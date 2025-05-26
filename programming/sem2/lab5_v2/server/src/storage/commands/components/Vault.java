@@ -1,8 +1,8 @@
-package server.storage.commands.components;
+package storage.commands.components;
 
-import server.storage.collection.drivers.IStructDriver;
-import server.storage.objects.City;
-import server.storage.objects.exceptions.UnacceptableValue;
+import storage.collection.drivers.IStructDriver;
+import storage.objects.City;
+import storage.objects.exceptions.UnacceptableValue;
 
 import java.io.*;
 

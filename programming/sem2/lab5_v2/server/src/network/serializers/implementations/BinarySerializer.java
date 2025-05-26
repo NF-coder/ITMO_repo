@@ -1,6 +1,6 @@
-package server.network.serializers.implementations;
+package network.serializers.implementations;
 
-import server.network.serializers.INetworkSerializers;
+import network.serializers.INetworkSerializers;
 import shared.objects.NetworkRequestDTO;
 import shared.objects.NetworkResponseDTO;
 

@@ -1,6 +1,6 @@
-package server.network.drivers;
+package network.drivers;
 
-import server.network.container.NetworkContainer;
+import network.container.NetworkContainer;
 
 import java.io.IOException;
 import java.net.SocketException;

@@ -1,4 +1,4 @@
-package server.network.serializers.implementations;
+package network.serializers.implementations;
 
 public class JsonSerializer {
 }

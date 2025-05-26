@@ -1,4 +1,4 @@
-package server.storage.objects.enums;
+package storage.objects.enums;
 
 /**
  * Допустимые климаты городов

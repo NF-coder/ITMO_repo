@@ -1,4 +1,4 @@
-package server.network.container;
+package network.container;
 
 import java.net.SocketAddress;
 

@@ -1,7 +1,7 @@
-package server.storage.commands.commands.implementations;
+package storage.commands.commands.implementations;
 
-import server.storage.commands.commands.Command;
-import server.storage.objects.enums.StandardOfLiving;
+import storage.commands.commands.Command;
+import storage.objects.enums.StandardOfLiving;
 
 import java.util.HashMap;
 

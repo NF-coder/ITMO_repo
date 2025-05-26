@@ -1,8 +1,8 @@
-package server.storage.collection.drivers.implementations;
+package storage.collection.drivers.implementations;
 
-import server.storage.collection.drivers.IStructDriver;
-import server.storage.objects.City;
-import server.storage.objects.exceptions.ElementNotFound;
+import storage.collection.drivers.IStructDriver;
+import storage.objects.City;
+import storage.objects.exceptions.ElementNotFound;
 
 import java.time.LocalDateTime;
 import java.util.ArrayDeque;

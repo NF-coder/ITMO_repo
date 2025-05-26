@@ -1,6 +1,6 @@
-package server.storage.objects.validators;
+package storage.objects.validators;
 
-import server.storage.objects.exceptions.UnacceptableValue;
+import storage.objects.exceptions.UnacceptableValue;
 
 public class HumanValidators {
     public static String validateName(String value) throws UnacceptableValue{

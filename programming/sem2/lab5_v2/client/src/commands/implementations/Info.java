@@ -17,7 +17,7 @@ public class Info extends BasicCommand {
         engine.networkManager.send(
                 new NetworkRequestDTO(
                         "info",
-                        new HashMap<>()
+                        args
                 )
         );
         this.getOutHandler().accept(

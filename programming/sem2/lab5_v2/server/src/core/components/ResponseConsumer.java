@@ -1,12 +1,12 @@
-package server.core.components;
+package core.components;
 
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 
-import server.network.container.NetworkContainer;
-import server.network.drivers.NetDriverSend;
-import server.network.managers.SendManager;
-import server.network.serializers.INetworkSerializer;
+import network.container.NetworkContainer;
+import network.drivers.NetDriverSend;
+import network.managers.SendManager;
+import network.serializers.INetworkSerializer;
 import shared.objects.NetworkResponseDTO;
 
 public class ResponseConsumer<T> {

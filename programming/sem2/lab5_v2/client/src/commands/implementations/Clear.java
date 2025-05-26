@@ -17,7 +17,7 @@ public class Clear extends BasicCommand {
         engine.networkManager.send(
                 new NetworkRequestDTO(
                         "clear",
-                        new HashMap<>()
+                        args
                 )
         );
         this.getOutHandler().accept(

@@ -17,7 +17,7 @@ public class Load extends BasicCommand {
         engine.networkManager.send(
                 new NetworkRequestDTO(
                         "load",
-                        new HashMap<>()
+                        args
                 )
         );
         this.getOutHandler().accept(

@@ -1,11 +1,11 @@
-package server.core.components;
+package core.components;
 
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 
-import server.network.container.NetworkContainer;
-import server.storage.collection.drivers.IStructDriver;
-import server.storage.commands.CommandsManager;
+import network.container.NetworkContainer;
+import storage.collection.drivers.IStructDriver;
+import storage.commands.CommandsManager;
 import shared.objects.NetworkRequestDTO;
 
 public class CommandFactory {

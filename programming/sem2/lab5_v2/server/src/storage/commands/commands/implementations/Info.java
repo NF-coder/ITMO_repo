@@ -1,9 +1,9 @@
-package server.storage.commands.commands.implementations;
+package storage.commands.commands.implementations;
 
-import server.storage.commands.commands.Command;
-import server.storage.objects.City;
-import server.storage.objects.Coordinates;
-import server.storage.objects.Human;
+import storage.commands.commands.Command;
+import storage.objects.City;
+import storage.objects.Coordinates;
+import storage.objects.Human;
 
 public class Info extends Command {
     public Info() {

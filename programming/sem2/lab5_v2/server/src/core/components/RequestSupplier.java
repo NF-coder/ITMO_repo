@@ -1,12 +1,12 @@
-package server.core.components;
+package core.components;
 
 import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
-import server.network.container.NetworkContainer;
-import server.network.drivers.NetDriverReceive;
-import server.network.managers.ReceiveManager;
-import server.network.serializers.INetworkDeserializer;
+import network.container.NetworkContainer;
+import network.drivers.NetDriverReceive;
+import network.managers.ReceiveManager;
+import network.serializers.INetworkDeserializer;
 import shared.objects.NetworkRequestDTO;
 
 public class RequestSupplier<T> {
