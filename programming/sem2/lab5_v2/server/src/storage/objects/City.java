@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class City implements CSVSerializable { // To JavaBean
+public class City { // To JavaBean
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -91,19 +91,6 @@ public class City implements CSVSerializable { // To JavaBean
     public StandardOfLiving getStandardOfLiving() {return standardOfLiving;}
     public Human getGovernor() {return governor;}
 
-    public String toCSVString() {
-        return id + "," +
-                name + "," +
-                coordinates.toCSVString() + "," +
-                area + "," +
-                population + "," +
-                metersAboveSeaLevel + "," +
-                climate + "," +
-                government + "," +
-                standardOfLiving + "," +
-                governor.toCSVString() + "," +
-                creationDate;
-    }
     public void fromCSVString(String csvString) throws UnacceptableValue {
         String[] csvArray = csvString.split(",");
 

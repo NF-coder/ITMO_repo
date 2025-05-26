@@ -5,7 +5,6 @@ import java.util.concurrent.CompletableFuture;
 
 import storage.collection.drivers.IStructDriver;
 import storage.commands.components.sql.AuthRequiredCommandDecorator;
-import storage.commands.components.Vault;
 import storage.commands.commands.Command;
 import storage.commands.commands.implementations.*;
 import storage.commands.components.sql.StructWithSQLDriverDecorator;
@@ -17,8 +16,8 @@ public class CommandsManager {
     private final Command[] authedOpArr = {
             new Add(), new Update(), new Clear(), new FilterStartsWithName(),
             new RemoveAllByStandardOfLiving(), new RemoveById(),
-            new RemoveFirst(), new Show(), new Info(), new Save(new Vault()),
-            new AddIfMax(), new RemoveGreater(), new Load(new Vault()), new AvgOfMetersAboveSea()
+            new RemoveFirst(), new Show(), new Info(),
+            new AddIfMax(), new RemoveGreater(), new AvgOfMetersAboveSea()
     };
     private final Command[] nonAuthedOpArr = {
             new Register()
@@ -28,7 +27,7 @@ public class CommandsManager {
      * @param driver Драйвер структуры данных
      */
     public CommandsManager(IStructDriver driver) {
-        this.driver = new StructWithSQLDriverDecorator(driver);
+        this.driver = driver;
         this.initOpTable();
     }
 

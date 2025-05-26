@@ -1,6 +1,8 @@
 package storage.commands.commands.implementations;
 
 import storage.commands.commands.Command;
+import storage.commands.components.sql.CheckOwner;
+import storage.commands.components.sql.operations.DTOs.CityIdAndCreatorDTO;
 import storage.objects.enums.StandardOfLiving;
 
 import java.util.HashMap;
@@ -14,6 +16,7 @@ public class RemoveAllByStandardOfLiving extends Command {
                 .filter(item -> item.getStandardOfLiving().equals(
                         StandardOfLiving.valueOf(args.get("standard_of_living"))
                 ))
+                .filter(item -> CheckOwner.apply(item.getId(), item.getCreator()))
                 .forEach(
                         elem -> driver.removeById(elem.getId())
                 );

@@ -1,5 +1,6 @@
 commands/implementations/Show.class
 commands/objects/validators/HumanValidators.class
+commands/implementations/RemoveById.class
 network/drivers/implementations/TCPDriver.class
 commands/implementations/FilterStartsWithName.class
 commands/implementations/parsers/AdditionalParsers.class
@@ -7,12 +8,13 @@ commands/BasicCommand.class
 commands/implementations/AvgOfMetersAboveSea.class
 commands/exceptions/ElementNotFound.class
 commands/exceptions/FileProcessorException.class
+commands/implementations/RemoveFirst.class
+commands/implementations/RemoveAllByStandardOfLiving.class
 commands/implementations/parsers/CheckedConsumer.class
 Main.class
 commands/implementations/Register.class
 commands/implementations/Update.class
 commands/implementations/components/output/CommandOutput.class
-commands/implementations/Load.class
 commands/objects/validators/numberParser/BasicParser.class
 commands/implementations/Exit.class
 commands/implementations/Help.class
@@ -23,7 +25,6 @@ textWorkers/Invokers/IInvoker.class
 commands/implementations/AddIfMax.class
 commands/objects/enums/Government.class
 commands/objects/enums/EnumInterface.class
-commands/implementations/Save.class
 commands/implementations/Add.class
 commands/implementations/Clear.class
 commands/implementations/parsers/EnumsParser.class

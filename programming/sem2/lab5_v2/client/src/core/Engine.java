@@ -26,10 +26,10 @@ public final class Engine {
     private final BasicCommand[] commands = {
             new Help(printer), new Add(printer), new Info(printer),
             new Clear(printer), new Exit(), new Show(printer),
-            new Update(printer), new Execute(printer), new Save(printer),
+            new Update(printer), new Execute(printer),
             new AvgOfMetersAboveSea(printer), new FilterStartsWithName(printer),
-            new AddIfMax(printer), new RemoveGreater(printer), new Load(printer),
-            new Register(printer)
+            new AddIfMax(printer), new RemoveGreater(printer), new RemoveById(printer),
+            new Register(printer), new RemoveFirst(printer), new RemoveAllByStandardOfLiving(printer)
     };
 
     private final HashMap<String, BasicCommand> commandsHashMap = new HashMap<>();
@@ -77,6 +77,8 @@ public final class Engine {
      * @param args аргументы команды
      */
     public void runCommand(String commandName, HashMap<String, String> args) {
+        if (commandName.isEmpty()) return;
+
         BasicCommand command = this.commandsHashMap.get(commandName);
 
         if (command == null) {

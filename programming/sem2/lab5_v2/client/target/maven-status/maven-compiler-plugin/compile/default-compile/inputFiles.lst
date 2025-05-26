@@ -12,10 +12,11 @@
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/FilterStartsWithName.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Help.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Info.java
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Load.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Register.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/RemoveAllByStandardOfLiving.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/RemoveById.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/RemoveFirst.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/RemoveGreater.java
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Save.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Show.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/Update.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/commands/implementations/components/output/CommandOutput.java

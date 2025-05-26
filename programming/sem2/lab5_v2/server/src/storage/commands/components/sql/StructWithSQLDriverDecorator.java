@@ -5,36 +5,44 @@ import storage.commands.components.sql.operations.CollectionTable;
 import storage.commands.components.sql.operations.DTOs.DataWithLoginDTO;
 import storage.objects.City;
 import storage.objects.exceptions.ElementNotFound;
-import storage.objects.exceptions.UnacceptableValue;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayDeque;
-import java.util.HashMap;
 
 public class StructWithSQLDriverDecorator implements IStructDriver {
-    IStructDriver driver;
+    private final IStructDriver structDriver;
 
-    public StructWithSQLDriverDecorator(IStructDriver driver) {
-        this.driver = driver;
+    public StructWithSQLDriverDecorator(IStructDriver structDriver) {
+        this.structDriver = structDriver;
+        try {
+            for (City city : SQLVault.connectionExecutor(new CollectionTable()::getAll, null))
+                this.structDriver.add(city);
+        } catch (SQLException ignored) {}
+    }
+
+    public City getById(Long id) throws ElementNotFound {
+        return structDriver.getById(id);
+    }
+    public ArrayDeque<City> getCollection(){
+        return structDriver.getCollection();
     }
 
     public void add(City data) {
         try {
-            SQLVault.connectionExecutor(
+            data.setCreationDate(LocalDateTime.now());
+
+            long id = SQLVault.connectionExecutor(
                     new CollectionTable()::addCity,
                     new DataWithLoginDTO<>(data, data.getCreator())
             );
-            data.setId(100L);
+            data.setId(id);
 
-            driver.add(data);
+            structDriver.add(data);;
         } catch (SQLException e) {
-            System.out.println("error on adding city" + e.getMessage());
+            System.out.println("Error while adding city" + e.getMessage());
             throw new RuntimeException(e);
         }
-    }
-
-    public City getById(Long id) throws ElementNotFound {
-        return driver.getById(id);
     }
 
     public void removeById(Long id){
@@ -44,22 +52,40 @@ public class StructWithSQLDriverDecorator implements IStructDriver {
                     new CollectionTable()::deleteById,
                     id
             );
-            driver.removeById(id);
+
+            structDriver.removeById(id);
         } catch (SQLException e) {
             System.out.println("Error while removing id " + id + "\n" + e.getMessage());
             throw new RuntimeException(e);
         }
     }
 
-    public ArrayDeque<City> getCollection(){
-        return driver.getCollection();
-    }
-
     public void removeFirst(){
-        driver.removeFirst();
+        /*try {
+            SQLVault.connectionExecutor(
+                    new CollectionTable()::removeFirst,
+                    null
+            );
+            driver.removeFirst();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
     }
 
     public void clearCollection(){
-        driver.clearCollection();
+        try {
+            SQLVault.connectionExecutor(
+                    new CollectionTable()::clearTable,
+                    null
+            );
+            structDriver.clearCollection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "SQLDecorator+" + this.structDriver.toString();
     }
 }

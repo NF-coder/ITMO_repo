@@ -1,6 +1,7 @@
 package storage.commands.commands.implementations;
 
 import storage.commands.commands.Command;
+import storage.commands.components.sql.CheckOwner;
 import storage.objects.City;
 import storage.objects.Coordinates;
 import storage.objects.Human;
@@ -24,6 +25,7 @@ public class RemoveGreater extends Command {
 
         driver.getCollection().stream()
                 .filter(elem -> comp.compare(elem, newCity) > 0)
+                .filter(item -> CheckOwner.apply(item.getId(), item.getCreator()))
                 .map(City::getId)
                 .forEach(elem -> this.driver.removeById(elem));
 

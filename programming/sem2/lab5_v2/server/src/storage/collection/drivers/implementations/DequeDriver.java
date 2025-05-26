@@ -6,12 +6,14 @@ import storage.objects.exceptions.ElementNotFound;
 
 import java.time.LocalDateTime;
 import java.util.ArrayDeque;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 public class DequeDriver implements IStructDriver {
     private ArrayDeque<City> mainCollection = new ArrayDeque<>();
     private final LocalDateTime createdDateTime = LocalDateTime.now();
-
+    private final ReentrantLock locker = new ReentrantLock();
 
     /**
      * Генерация нового уникального идентификатора
@@ -23,44 +25,74 @@ public class DequeDriver implements IStructDriver {
                 .orElse(0);
     }
 
-    public synchronized void add(City entity){
-        if (entity.getId() == null) {
-            entity.setId(
-                    this.generateId()
-            );
-        }
-        if (entity.getCreationDate() == null) {
-            entity.setCreationDate(
-                    LocalDateTime.now()
-            );
+    public void add(City entity){
+        locker.lock();
+        try {
+            if (entity.getId() == null) {
+                entity.setId(
+                        this.generateId()
+                );
+            }
+            if (entity.getCreationDate() == null) {
+                entity.setCreationDate(
+                        LocalDateTime.now()
+                );
+            }
+            mainCollection.addLast(entity);
+        } finally {
+            locker.unlock();
         }
 
-        mainCollection.addLast(entity);
     }
 
-    public synchronized ArrayDeque<City> getCollection(){
+    public ArrayDeque<City> getCollection(){
         //return new ArrayDeque<>(this.mainCollection);
-        return this.mainCollection;
+        locker.lock();
+        try {
+            return this.mainCollection;
+        } finally {
+            locker.unlock();
+        }
     }
-    public synchronized void removeById(Long id){
-        this.mainCollection = mainCollection.stream()
+    public void removeById(Long id){
+        locker.lock();
+        try {
+            this.mainCollection = mainCollection.stream()
                 .filter(item -> !item.getId().equals(id))
                 .collect(Collectors.toCollection(ArrayDeque<City>::new));
+        } finally {
+            locker.unlock();
+        }
     }
-    public synchronized void removeFirst(){
-        this.mainCollection.removeFirst();
+    public void removeFirst(){
+        locker.lock();
+        try {
+            this.mainCollection.removeFirst();
+        } finally {
+            locker.unlock();
+        }
     }
-    public synchronized void clearCollection(){
-        this.mainCollection.clear();
+    public void clearCollection(){
+        locker.lock();
+        try {
+            this.mainCollection.clear();
+        } finally {
+            locker.unlock();
+        }
     }
 
-    public synchronized City getById(Long id) throws ElementNotFound {
-        for (City element: this.mainCollection){
-            if (element.getId().equals(id)){
-                return element;
-            }
+    public City getById(Long id) throws ElementNotFound {
+        locker.lock();
+        try {
+            for (City element: this.mainCollection){
+                    if (element.getId().equals(id)){
+                        return element;
+                    }
+                }
+            throw new ElementNotFound("No such element in collection!");
+        } finally {
+            locker.unlock();
         }
-        throw new ElementNotFound("No such element in collection!");
     }
 
     @Override

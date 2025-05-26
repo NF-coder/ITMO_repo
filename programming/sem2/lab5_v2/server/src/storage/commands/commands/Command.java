@@ -1,7 +1,6 @@
 package storage.commands.commands;
 
 import storage.collection.drivers.IStructDriver;
-import storage.objects.City;
 
 import java.util.HashMap;
 
@@ -12,11 +11,9 @@ public abstract class Command implements Supplier<HashMap<String,String>> {
     public String NAME;
     protected IStructDriver driver;
     protected HashMap<String,String> args;
-    //public ArgsBuilder reqArgs;
 
-    protected Command(String name/*, ArgsBuilder argsBuilder*/) {
+    protected Command(String name) {
         this.NAME = name;
-        //this.reqArgs = argsBuilder;
     }
     /**
      * Передача аргументов и драйвера доступа к структуре

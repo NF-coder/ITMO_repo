@@ -20,7 +20,6 @@ public class AuthRequiredCommandDecorator extends Command {
     public void setData(HashMap<String, String> args, IStructDriver driver) {
         this.command.setData(args, driver);
         this.args = args;
-        System.out.println(args);
     }
 
     @Override

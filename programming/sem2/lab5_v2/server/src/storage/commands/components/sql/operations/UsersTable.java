@@ -42,16 +42,9 @@ public class UsersTable {
         return null;
     }
     public boolean check(Connection connection, UserDTO data) throws SQLException {
-        System.out.println("Checking user " + data);
-
         String SQL = "SELECT * FROM USERS WHERE LOGIN = '" + data.username() + "';";
         ResultSet result = connection.createStatement().executeQuery(SQL);
-
-        System.out.println(result);
-        System.out.println(data.password());
-        System.out.println(getfprint(data.password()));
-        System.out.println(result.next());
-
+        result.next();
         return result.getString("password")
                 .equals(getfprint(data.password()));
     }
