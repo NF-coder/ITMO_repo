@@ -12,7 +12,7 @@ $ integral_(a)^x f_k d x ==>_([a,b]) integral_(a)^x f d x $
 
 *Доказательство.* То, что $f in C[a, b]$ следует из теоремы о непрерывности предельной функции (145). Докажем теперь вторую часть теоремы. Пусть $epsilon > 0$. Тогда, в силу равномерной сходимости,
 
-$ exists k_0 : forall k > k_0 forall x in [a, b] |f(x) - f_k(x)| < epsilon/(b-a) $
+$ exists k_0 : forall k > k_0 forall x in [a, b] |f(x) - f_k (x)| < epsilon/(b-a) $
 
 Пусть $k > k_0$, тогда
 

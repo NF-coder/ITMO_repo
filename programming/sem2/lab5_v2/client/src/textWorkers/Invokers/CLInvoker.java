@@ -1,6 +1,5 @@
 package textWorkers.Invokers;
 
-
 import core.Engine;
 import textWorkers.Invoker;
 

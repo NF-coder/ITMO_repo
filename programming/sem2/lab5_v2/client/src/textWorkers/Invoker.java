@@ -25,6 +25,13 @@ public class Invoker {
         );
     }
 
+    public void run(String opName, HashMap<String,String> inlineArgs, Engine engine) {
+        engine.runCommand(
+                opName,
+                inlineArgs
+        );
+    }
+
     /**
      * Парсинг аргументов
      * @param tokens массив токенов (аргументы и их значения)

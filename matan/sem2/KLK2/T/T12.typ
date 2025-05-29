@@ -3,6 +3,6 @@
 = +T12\*. Критерий Коши равномерной сходимости функционального ряда
 Ряд с общим членом $f_k: X -> RR$ сходится равномерно на $D subset X$ тогда и только тогда, когда  
 
-$ forall ε > 0 exists n_0 in NN : forall n > n_0 forall p in NN forall x in D |sum_(k=n+1)^(n+p) f_k(x)| < ε $
+$ forall epsilon > 0 exists n_0 in NN : forall n > n_0 quad forall p in NN quad forall x in D quad abs(sum_(k=n+1)^(n+p) f_k (x)) < epsilon $
 
 *Доказательство.* Доказательство следует из предыдущей теоремы, так как равномерная сходимость ряда — суть равномерная сходимость последовательности его частичных сумм.

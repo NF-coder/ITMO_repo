@@ -9,7 +9,7 @@ import storage.commands.components.sql.operations.CollectionTable;
 
 import java.util.concurrent.Executors;
 
-public class Main {
+public class  Main {
     public static void main(String[] args) {
         try {
             //SQLVault.connectionExecutor(new CollectionTable()::deleteTable, null);

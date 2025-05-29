@@ -30,10 +30,11 @@
 #include "O/O2.typ"
 #include "O/O3.typ"
 #include "O/O4.typ"
-#include "O/O5.typ"
+
 #include "O/O6.typ"
 
 #include "E/E1.typ"
+#include "E/E1.1.typ"
 #include "E/E2.typ"
 
 #include "O/O7.typ"
