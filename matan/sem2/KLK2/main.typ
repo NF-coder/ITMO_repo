@@ -130,3 +130,19 @@
 #include "L/L10.typ"
 
 #include "T/T40.typ"
+
+
+#set page(width: 20cm, height: auto, fill: color.hsl(0deg, 0%, 82.75%, 63.6%), margin: 15pt)
+
+#figure(
+  image("img/4.jpg", width: 80%)
+)
+#figure(
+  image("img/2.jpg", width: 80%)
+)
+#figure(
+  image("img/5.jpg", width: 80%),
+)
+#figure(
+  image("img/6.jpg", width: 80%),
+)
