@@ -47,9 +47,10 @@
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/Main.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/MapLayout.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/components/JPanelWithBg.java
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/components/PointPanel.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/components/RelativePoint.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/components/RelativePointPanel.java
+/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/components/deprecated/PointPanel.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/tests/BackgroundImageExample2.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/tests/PtsTest.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/tests/Test.java
 /home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/tests/relp/RelativePointApp.java
-/home/nf/Рабочий стол/итмо/ITMO_repo/programming/sem2/lab5_v2/client/src/ui/tests/relp/RelativePointPanel.java

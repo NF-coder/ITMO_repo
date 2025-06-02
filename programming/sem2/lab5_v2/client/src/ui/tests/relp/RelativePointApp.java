@@ -1,5 +1,6 @@
 package ui.tests.relp;
 
+import ui.components.RelativePoint;
 import ui.components.RelativePointPanel;
 
 import javax.swing.*;
@@ -24,7 +25,7 @@ public class RelativePointApp {
 
         // Сохранение состояния
         saveBtn.addActionListener(e -> {
-            List<Point2D.Float> points = panel.getPoints();
+            List<RelativePoint> points = panel.getPoints();
             // Здесь можно сохранить points в файл или БД
             System.out.println("Точки сохранены: " + points);
         });
@@ -32,8 +33,8 @@ public class RelativePointApp {
         // Загрузка состояния
         loadBtn.addActionListener(e -> {
             // Здесь можно загрузить points из файла или БД
-            List<Point2D.Float> points = new ArrayList<>();
-            points.add(new Point2D.Float(0.5f, 0.5f)); // Пример центральной точки
+            List<RelativePoint> points = new ArrayList<>();
+            points.add(new RelativePoint(0.5f, 0.5f)); // Пример центральной точки
             panel.setPoints(points);
         });
 

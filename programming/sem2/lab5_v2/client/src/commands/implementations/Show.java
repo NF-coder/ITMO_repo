@@ -2,13 +2,14 @@ package commands.implementations;
 
 import commands.BasicCommand;
 import core.Engine;
+import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Show extends BasicCommand {
-    public Show(Consumer<HashMap<String,String>> outHandler){
+    public Show(Consumer<JSONObject> outHandler){
         super("show", "Shows all entities from collection.", outHandler);
     }
 

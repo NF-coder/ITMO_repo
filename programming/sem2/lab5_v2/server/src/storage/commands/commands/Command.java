@@ -1,5 +1,6 @@
 package storage.commands.commands;
 
+import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 
 import java.util.HashMap;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-public abstract class Command implements Supplier<HashMap<String,String>> {
+public abstract class Command implements Supplier<JSONObject> {
     public String NAME;
     protected IStructDriver driver;
     protected HashMap<String,String> args;
@@ -44,22 +45,19 @@ public abstract class Command implements Supplier<HashMap<String,String>> {
      * Вызов команды
      * @return Результат работы команды
      */
-    public HashMap<String,String> get(){
+    public JSONObject get(){
+        JSONObject jo = new JSONObject();
         try {
             String result = this.call();
-            HashMap<String, String> h = new HashMap<>();
 
-            h.put("status", String.valueOf(Status.OK));
-            h.put("result", Objects.requireNonNullElse(result, "successfully completed"));
-
-            return h;
+            jo.put("status", String.valueOf(Status.OK));
+            jo.put("result", Objects.requireNonNullElse(result, "successfully completed"));
+            return jo;
         }
         catch (Exception e) {
-            HashMap<String,String> h = new HashMap<>();
-
-            h.put("status", String.valueOf(Status.ERROR));
-            h.put("description", e.getMessage());
-            return h;
+            jo.put("status", String.valueOf(Status.ERROR));
+            jo.put("description", e.getMessage());
+            return jo;
         }
     }
 }

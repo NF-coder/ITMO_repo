@@ -3,13 +3,11 @@ package ui.components;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RelativePointPanel extends JPanel {
-    private final List<Point2D.Float> relativePoints = new ArrayList<>();
-    private Color pointColor = Color.RED;
+    private final List<RelativePoint> relativePoints = new ArrayList<>();
     private int pointSize = 8;
 
     public RelativePointPanel() {
@@ -17,7 +15,7 @@ public class RelativePointPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // Добавляем точку с относительными координатами
-                addRelativePoint(e.getX(), e.getY());
+                addAbsPoint(e.getX(), e.getY());
             }
         });
 
@@ -31,18 +29,23 @@ public class RelativePointPanel extends JPanel {
     }
 
     // Добавление точки с относительными координатами
-    public void addRelativePoint(float x, float y) {
+    public void addAbsPoint(float x, float y) {
         if (getWidth() == 0 || getHeight() == 0) return;
 
         // Преобразуем абсолютные координаты в относительные (0.0-1.0)
         float relX = x / getWidth();
         float relY = y / getHeight();
-        relativePoints.add(new Point2D.Float(relX, relY));
+        relativePoints.add(new RelativePoint(relX, relY));
+        repaint();
+    }
+
+    public void addRelPoint(float x, float y) {
+        relativePoints.add(new RelativePoint(x, y));
         repaint();
     }
 
     // Преобразование относительных координат в абсолютные
-    private Point getAbsolutePoint(Point2D.Float relPoint) {
+    private Point getAbsoluteCoordinates(RelativePoint relPoint) {
         int x = (int) (relPoint.x * getWidth());
         int y = (int) (relPoint.y * getHeight());
         return new Point(x, y);
@@ -53,20 +56,20 @@ public class RelativePointPanel extends JPanel {
         super.paintComponent(g);
 
         // Рисуем все точки
-        g.setColor(pointColor);
-        for (Point2D.Float relPoint : relativePoints) {
-            Point absPoint = getAbsolutePoint(relPoint);
-            g.fillOval(absPoint.x - pointSize/2, absPoint.y - pointSize/2, pointSize, pointSize);
+        for (RelativePoint relPoint : relativePoints) {
+            Point absPoint = getAbsoluteCoordinates(relPoint);
+            g.setColor(Color.decode(relPoint.color));
+            g.fillOval(absPoint.x - pointSize/2, absPoint.y - pointSize/2, relPoint.radius, relPoint.radius);
         }
     }
 
     // Сохранение точек
-    public List<Point2D.Float> getPoints() {
+    public List<RelativePoint> getPoints() {
         return new ArrayList<>(relativePoints);
     }
 
     // Загрузка точек
-    public void setPoints(List<Point2D.Float> points) {
+    public void setPoints(List<RelativePoint> points) {
         relativePoints.clear();
         relativePoints.addAll(points);
         repaint();

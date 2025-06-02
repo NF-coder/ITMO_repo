@@ -12,10 +12,11 @@ import commands.objects.enums.Government;
 import commands.objects.enums.StandardOfLiving;
 import commands.BasicCommand;
 import core.Engine;
+import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 public class Add extends BasicCommand {
-    public Add(Consumer<HashMap<String,String>> outHandler) {
+    public Add(Consumer<JSONObject> outHandler) {
         super("add", "Adds new City to collection." +
                 "\n\t Example: add -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

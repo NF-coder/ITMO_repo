@@ -2,13 +2,14 @@ package commands.implementations;
 
 import commands.BasicCommand;
 import core.Engine;
+import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class FilterStartsWithName extends BasicCommand {
-    public FilterStartsWithName(Consumer<HashMap<String,String>> outHandler) {
+    public FilterStartsWithName(Consumer<JSONObject> outHandler) {
         super("filter_starts_with_name", "Calculates average meters above the sea." +
                 "\n\t Example: filter_starts_with_name -name_beginning [String] ",
                 outHandler

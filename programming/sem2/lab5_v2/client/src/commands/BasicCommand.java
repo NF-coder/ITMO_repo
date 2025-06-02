@@ -1,6 +1,7 @@
 package commands;
 
 import core.Engine;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
@@ -11,7 +12,7 @@ import java.util.function.Consumer;
 public abstract class BasicCommand {
     private String name;
     private String info;
-    private final Consumer<HashMap<String,String>> outputHandler;
+    private final Consumer<JSONObject> outputHandler;
 
     /**
      * Получение имени команды
@@ -41,9 +42,9 @@ public abstract class BasicCommand {
      * Получение информации о системе вывода
      * @return информация о выводе
      */
-    protected Consumer<HashMap<String,String>> getOutHandler(){ return this.outputHandler;}
+    protected Consumer<JSONObject> getOutHandler(){ return this.outputHandler;}
 
-    public BasicCommand(String name, String info, Consumer<HashMap<String,String>> outputHandler){
+    public BasicCommand(String name, String info, Consumer<JSONObject> outputHandler){
         this.setName(name);
         this.setInfo(info);
         this.outputHandler = outputHandler;

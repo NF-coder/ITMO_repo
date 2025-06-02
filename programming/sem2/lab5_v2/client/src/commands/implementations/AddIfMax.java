@@ -8,13 +8,14 @@ import commands.objects.enums.Government;
 import commands.objects.enums.StandardOfLiving;
 import commands.objects.validators.CityValidators;
 import core.Engine;
+import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class AddIfMax extends BasicCommand {
-    public AddIfMax(Consumer<HashMap<String,String>> outHandler) {
+    public AddIfMax(Consumer<JSONObject> outHandler) {
         super("add_if_max", "Adds new City to collection." +
                 "\n\t Example: add_if_max -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

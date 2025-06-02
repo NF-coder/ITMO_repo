@@ -9,12 +9,13 @@ import commands.objects.enums.Government;
 import commands.objects.enums.StandardOfLiving;
 import commands.objects.validators.CityValidators;
 import core.Engine;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Register extends BasicCommand {
-    public Register(Consumer<HashMap<String,String>> outHandler) {
+    public Register(Consumer<JSONObject> outHandler) {
         super("register", "Registers new user",
                 outHandler
         );

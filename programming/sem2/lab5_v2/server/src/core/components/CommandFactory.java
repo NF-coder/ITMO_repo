@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 
 import network.container.NetworkContainer;
+import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 import storage.commands.CommandsManager;
 import shared.objects.NetworkRequestDTO;
@@ -17,7 +18,7 @@ public class CommandFactory {
         );
     }
 
-    public <R> CompletableFuture<NetworkContainer<HashMap<String,String>, R>> run(
+    public <R> CompletableFuture<NetworkContainer<JSONObject, R>> run(
             NetworkContainer<NetworkRequestDTO, R> data
     ) {
         return commandsManager.run(

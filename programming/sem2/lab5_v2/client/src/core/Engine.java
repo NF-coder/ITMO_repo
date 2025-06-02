@@ -9,6 +9,7 @@ import commands.implementations.components.output.CommandOutput;
 import network.NetworkManager;
 import network.drivers.INetworkDriver;
 import network.drivers.implementations.TCPDriver;
+import org.json.JSONObject;
 import textWorkers.Invokers.CLInvoker;
 import textWorkers.Invokers.IInvoker;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +22,7 @@ public final class Engine {
 
     private final Logger logger = LogManager.getLogger();
 
-    public Consumer<HashMap<String,String>> printer = CommandOutput::logger;
+    public Consumer<JSONObject> printer = CommandOutput::logger;
 
     private final BasicCommand[] commands = {
             new Help(printer), new Add(printer), new Info(printer),

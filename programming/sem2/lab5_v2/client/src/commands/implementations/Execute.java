@@ -3,6 +3,7 @@ package commands.implementations;
 import commands.BasicCommand;
 import commands.exceptions.FileProcessorException;
 import core.Engine;
+import org.json.JSONObject;
 import textWorkers.Invokers.FileInvoker;
 
 
@@ -10,7 +11,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Execute extends BasicCommand {
-    public Execute(Consumer<HashMap<String,String>> outHandler) {
+    public Execute(Consumer<JSONObject> outHandler) {
         super("execute_script", "Takes commands from file." +
                 "\n\t Example: execute_script -filename [String]",
                 outHandler);

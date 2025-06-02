@@ -7,6 +7,7 @@ import network.container.NetworkContainer;
 import network.drivers.NetDriverSend;
 import network.managers.SendManager;
 import network.serializers.INetworkSerializer;
+import org.json.JSONObject;
 import shared.objects.NetworkResponseDTO;
 
 public class ResponseConsumer<T> {
@@ -20,7 +21,7 @@ public class ResponseConsumer<T> {
     }
 
     public CompletableFuture<Void> run(
-            NetworkContainer<HashMap<String,String>, T> data
+            NetworkContainer<JSONObject, T> data
     ) {
         return CompletableFuture.supplyAsync(
                 () -> new NetworkContainer<>(

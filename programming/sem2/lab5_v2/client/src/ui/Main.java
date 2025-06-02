@@ -8,8 +8,8 @@ public class Main {
         Engine engine = new Engine();
         UIInvoker uiInvoker = new UIInvoker();
 
-        HelloLayout thread = new HelloLayout();
-        thread.uiInvoker = uiInvoker;
+        MapLayout thread = new MapLayout();
+        //thread.uiInvoker = uiInvoker;
         thread.run();
 
         engine.setInvoker(uiInvoker);

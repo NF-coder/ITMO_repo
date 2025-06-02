@@ -9,13 +9,14 @@ import commands.objects.enums.Government;
 import commands.objects.enums.StandardOfLiving;
 import commands.objects.validators.CityValidators;
 import core.Engine;
+import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class RemoveGreater extends BasicCommand {
-    public RemoveGreater(Consumer<HashMap<String,String>> outHandler) {
+    public RemoveGreater(Consumer<JSONObject> outHandler) {
         super("remove_greater", "Remove all Cities that has higher rating." +
                 "\n\t Example: remove_greater -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

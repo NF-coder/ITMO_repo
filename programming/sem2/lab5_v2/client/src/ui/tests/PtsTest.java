@@ -1,6 +1,6 @@
 package ui.tests;
 
-import ui.components.PointPanel;
+import ui.components.deprecated.PointPanel;
 
 import javax.swing.*;
 import java.awt.*;

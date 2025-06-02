@@ -19,8 +19,15 @@ public class MapLayout extends JFrame implements Runnable{
         frame.setTitle("Hello World");
         frame.setSize(800, 600);
 
+        createAllPts();
+
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
+    private void createAllPts(){
+        relativePointPanel1.addRelPoint((float) 1 /477, (float) 8 /477);
+        relativePointPanel1.addRelPoint((float) 200/477, (float) 200/477);
+        relativePointPanel1.addRelPoint((float) 100 /477, (float) 300 /477);
     }
 }

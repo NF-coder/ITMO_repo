@@ -3,6 +3,7 @@ package storage.commands;
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 
+import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 import storage.commands.components.sql.AuthRequiredCommandDecorator;
 import storage.commands.commands.Command;
@@ -49,7 +50,7 @@ public class CommandsManager {
      * @param args аргументы для команды
      * @return результат работы команды
      */
-    public CompletableFuture<HashMap<String, String>> run(String command, HashMap<String, String> args) {
+    public CompletableFuture<JSONObject> run(String command, HashMap<String, String> args) {
         Command cmd = opTable.get(command);
         cmd.setData(args, driver);
         return CompletableFuture.supplyAsync(

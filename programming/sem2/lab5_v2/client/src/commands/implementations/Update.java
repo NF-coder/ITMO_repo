@@ -9,13 +9,14 @@ import commands.objects.enums.Climate;
 import commands.objects.enums.Government;
 import commands.objects.enums.StandardOfLiving;
 import commands.BasicCommand;
+import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Update extends BasicCommand {
-    public Update(Consumer<HashMap<String,String>> outHandler){
+    public Update(Consumer<JSONObject> outHandler){
         super("update", "Updates City with specified id" +
                 "\n\t Example: update -id [Long] -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

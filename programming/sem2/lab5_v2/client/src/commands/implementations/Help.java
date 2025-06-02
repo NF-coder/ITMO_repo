@@ -5,9 +5,10 @@ import java.util.function.Consumer;
 
 import commands.BasicCommand;
 import core.Engine;
+import org.json.JSONObject;
 
 public class Help extends BasicCommand {
-    public Help(Consumer<HashMap<String,String>> outHandler){
+    public Help(Consumer<JSONObject> outHandler){
         super("help", "Returns information about all commands.", outHandler);
     }
 
