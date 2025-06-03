@@ -1,4 +1,5 @@
 # Репка из ИТМО
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/NF-coder/ITMO_repo">
 
 <div align="center">
 :exclamation: <b>Все мы понимаем, что копировать чужой код нельзя. Если вас поймают, то будет больно и мне, и вам!</b> :exclamation:
