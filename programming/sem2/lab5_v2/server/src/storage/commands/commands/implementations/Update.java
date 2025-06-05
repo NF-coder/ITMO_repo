@@ -1,5 +1,6 @@
 package storage.commands.commands.implementations;
 
+import org.json.JSONObject;
 import storage.commands.commands.Command;
 import storage.commands.components.sql.CheckOwner;
 import storage.objects.City;
@@ -10,7 +11,7 @@ public class Update extends Command {
     public Update(){
         super("update");
     }
-    public String call() throws UnacceptableValue, ElementNotFound {
+    public JSONObject call() throws UnacceptableValue, ElementNotFound {
         if (!CheckOwner.apply(this.args.get("id"), this.args.get("login"))){
             throw new UnacceptableValue("You're not owner");
         }

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Show extends BasicCommand {
-    public Show(Consumer<JSONObject> outHandler){
+    public Show(Consumer<String> outHandler){
         super("show", "Shows all entities from collection.", outHandler);
     }
 

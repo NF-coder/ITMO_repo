@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Execute extends BasicCommand {
-    public Execute(Consumer<JSONObject> outHandler) {
+    public Execute(Consumer<String> outHandler) {
         super("execute_script", "Takes commands from file." +
                 "\n\t Example: execute_script -filename [String]",
                 outHandler);

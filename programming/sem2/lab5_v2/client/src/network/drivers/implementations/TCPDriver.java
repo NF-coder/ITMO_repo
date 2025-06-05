@@ -49,7 +49,9 @@ public final class TCPDriver implements INetworkDriver {
         if (socket == null || socket.isClosed() || !socket.isConnected()) socketInit();
         outputStream.write(data);
         outputStream.flush(); // Ensure all data is sent
-        logger.debug("Data sent: {}", new String(data));
+        //logger.debug("Data sent: {}", new String(data));
+
+        System.out.println("Data sent: " + new String(data));
     }
 
     @Override
@@ -59,12 +61,17 @@ public final class TCPDriver implements INetworkDriver {
             throw new IOException("Socket is not connected.");
         }
 
+        System.out.println("Receiving data");
+
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        byte[] temp = new byte[4096];
+        byte[] temp = new byte[4096*10000];
         int bytesRead;
+
+        System.out.println("Buffer initialized");
 
         // Read data from the input stream
         while ((bytesRead = inputStream.read(temp)) != -1) {
+            System.out.println("Read " + bytesRead + " bytes");
             buffer.write(temp, 0, bytesRead);
             if (bytesRead < temp.length) {
                 break; // Exit if no more data is available
@@ -75,6 +82,10 @@ public final class TCPDriver implements INetworkDriver {
             byte[] receivedData = buffer.toByteArray();
             logger.debug("Data received: {}", new String(receivedData));
             socket.close();
+
+            System.out.println("Data received: " + new String(receivedData));
+
+
             return receivedData;
         }
         catch (Exception e){

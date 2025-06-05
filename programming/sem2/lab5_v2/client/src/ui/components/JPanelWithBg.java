@@ -8,7 +8,7 @@ import java.util.Objects;
 import javax.imageio.ImageIO;
 
 public class JPanelWithBg extends JPanel {
-    private Image backgroundImage = ImageIO.read(Objects.requireNonNull(getClass().getResource("/images/img.png")));
+    private final Image backgroundImage = ImageIO.read(Objects.requireNonNull(getClass().getResource("/images/img.png")));
 
     public JPanelWithBg() throws IOException {}
 

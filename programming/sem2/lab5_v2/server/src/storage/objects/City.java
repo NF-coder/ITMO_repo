@@ -1,5 +1,7 @@
 package storage.objects;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import storage.objects.exceptions.UnacceptableValue;
 import storage.objects.enums.Climate;
 import storage.objects.enums.Government;
@@ -128,5 +130,20 @@ public class City { // To JavaBean
                 "\n\tgovernor=" + this.governor + ", " +
                 "\n\tcreationDate=" + this.creationDate + ", " +
                 "\n}";
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .put("id", id)
+                .put("name", name)
+                .put("coordinates", coordinates.toJSON())
+                .put("area", area)
+                .put("population", population)
+                .put("metersAboveSeaLevel", metersAboveSeaLevel)
+                .put("climate", climate)
+                .put("government", government)
+                .put("standardOfLiving", standardOfLiving)
+                .put("governor", governor.toJSON())
+                .put("creationDate", creationDate);
     }
 }

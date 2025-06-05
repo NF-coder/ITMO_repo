@@ -1,5 +1,6 @@
 package storage.collection.drivers;
 
+import org.json.JSONObject;
 import storage.objects.City;
 import storage.objects.exceptions.ElementNotFound;
 
@@ -35,4 +36,6 @@ public interface IStructDriver {
      * Очистка коллекции
      */
     void clearCollection();
+
+    JSONObject getJSON();
 }

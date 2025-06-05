@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class AddIfMax extends BasicCommand {
-    public AddIfMax(Consumer<JSONObject> outHandler) {
+    public AddIfMax(Consumer<String> outHandler) {
         super("add_if_max", "Adds new City to collection." +
                 "\n\t Example: add_if_max -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

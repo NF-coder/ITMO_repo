@@ -22,7 +22,7 @@ public final class Engine {
 
     private final Logger logger = LogManager.getLogger();
 
-    public Consumer<JSONObject> printer = CommandOutput::logger;
+    public Consumer<String> printer = CommandOutput::logger;
 
     private final BasicCommand[] commands = {
             new Help(printer), new Add(printer), new Info(printer),

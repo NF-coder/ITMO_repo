@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class AvgOfMetersAboveSea extends BasicCommand {
-    public AvgOfMetersAboveSea(Consumer<JSONObject> outHandler) {
+    public AvgOfMetersAboveSea(Consumer<String> outHandler) {
         super("average_of_meters_above_sea_level", "Calculates average meters above the sea.", outHandler);
     }
 

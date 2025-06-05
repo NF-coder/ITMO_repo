@@ -22,6 +22,7 @@ public class Engine{
             INetworkSerializers networkSerializer,
             IStructDriver structDriver
     ) {
+        System.out.println("Starting Engine");
         try {
             networkDriver.init();
         } catch (Exception ignored) {}
@@ -46,6 +47,8 @@ public class Engine{
                                 sendExecutor
                         )
         );
+
+        System.out.println("Engine initialized");
 
         rs.run();
     }

@@ -22,6 +22,8 @@ public class UIInvoker implements IInvoker {
         UIInvoker.isReady = true;
     }
     public void setInfo(String opName, HashMap<String,String> inlineArgs) {
+        System.out.println("Sinfo signal");
+
         UIInvoker.opName = opName;
         UIInvoker.inlineArgs = inlineArgs;
         UIInvoker.isReady = true;
@@ -39,12 +41,14 @@ public class UIInvoker implements IInvoker {
         opAdditionalArgsPtr = 0;
         while (!isReady) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
+                //System.out.println("Sinfo signal wait 1000ms");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
         UIInvoker.isReady = false;
+        System.out.println("Sinfo signal");
         invoker.run(opName, inlineArgs, engine);
     }
 }

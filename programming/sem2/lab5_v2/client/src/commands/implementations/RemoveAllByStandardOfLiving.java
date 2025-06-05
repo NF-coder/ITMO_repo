@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class RemoveAllByStandardOfLiving extends BasicCommand {
-    public RemoveAllByStandardOfLiving(Consumer<JSONObject> outHandler){
+    public RemoveAllByStandardOfLiving(Consumer<String> outHandler){
         super("remove_all_by_standard_of_living", "Removes all cities with specified standard of life", outHandler);
     }
 

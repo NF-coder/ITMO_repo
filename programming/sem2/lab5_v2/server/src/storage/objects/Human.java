@@ -1,4 +1,5 @@
 package storage.objects;
+import org.json.JSONObject;
 import storage.objects.exceptions.UnacceptableValue;
 import storage.objects.interfaces.CSVSerializable;
 
@@ -93,5 +94,13 @@ public class Human implements CSVSerializable {
                 "height=" + this.height + ", " +
                 "birthday=" + this.birthday +
                 "}";
+    }
+
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .put("name", name)
+                .put("age", age)
+                .put("height", height)
+                .put("birthday", birthday);
     }
 }

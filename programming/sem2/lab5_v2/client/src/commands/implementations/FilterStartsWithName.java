@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class FilterStartsWithName extends BasicCommand {
-    public FilterStartsWithName(Consumer<JSONObject> outHandler) {
+    public FilterStartsWithName(Consumer<String> outHandler) {
         super("filter_starts_with_name", "Calculates average meters above the sea." +
                 "\n\t Example: filter_starts_with_name -name_beginning [String] ",
                 outHandler

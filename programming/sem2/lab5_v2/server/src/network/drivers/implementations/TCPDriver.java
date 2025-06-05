@@ -45,7 +45,7 @@ public class TCPDriver implements INetworkDriver<SocketChannel> {
         }
         catch (Exception e) {
             logger.warn("Unhandled exception: {}", e.getMessage(), e);
-            throw e;
+            throw new RuntimeException(e);
         }
     }
 
@@ -53,8 +53,11 @@ public class TCPDriver implements INetworkDriver<SocketChannel> {
     public NetworkContainer<byte[], SocketChannel> receive() throws IOException {
 
         try{
+            System.out.println("Waiting for connection...");
             SocketChannel clientChannel = serverChannel.accept();
+            System.out.println("Connection accepted");
             logger.debug("Client connected: {}", clientChannel.getRemoteAddress());
+            System.out.println(clientChannel.getRemoteAddress());
 
             ByteBuffer buffer = ByteBuffer.allocate(PACKET_SIZE);
 

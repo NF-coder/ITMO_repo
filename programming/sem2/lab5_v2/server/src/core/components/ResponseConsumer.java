@@ -26,7 +26,7 @@ public class ResponseConsumer<T> {
         return CompletableFuture.supplyAsync(
                 () -> new NetworkContainer<>(
                     data.connInfo(),
-                    new NetworkResponseDTO(data.data())
+                    new NetworkResponseDTO(data.data().toString())
                 )
         ).thenCompose(
                 sendManager::call

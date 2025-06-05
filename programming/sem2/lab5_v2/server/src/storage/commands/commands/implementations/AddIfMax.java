@@ -1,5 +1,6 @@
 package storage.commands.commands.implementations;
 
+import org.json.JSONObject;
 import storage.commands.commands.Command;
 import storage.objects.City;
 import storage.objects.Coordinates;
@@ -16,7 +17,7 @@ public class AddIfMax extends Command {
     public AddIfMax() {
         super("add_if_max");
     }
-    public String call() throws Exception{
+    public JSONObject call() throws Exception{
         Double value =  driver.getCollection().stream()
                 .map(fn)
                 .max(Comparator.comparing(Double::valueOf))

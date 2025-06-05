@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Info extends BasicCommand {
-    public Info(Consumer<JSONObject> outHandler){
+    public Info(Consumer<String> outHandler){
         super("info", "Returns information about Collection.", outHandler);
     }
 

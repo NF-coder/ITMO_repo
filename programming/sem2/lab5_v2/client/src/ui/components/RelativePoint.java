@@ -6,11 +6,15 @@ public class RelativePoint {
     String color;
     Integer radius;
 
+    Long instanceId;
+
     public RelativePoint(float x, float y) {
         this.x=x;
         this.y=y;
         this.radius=10;
         this.color="#00FFF0";
+
+        this.instanceId = 0L;
     }
 
     public RelativePoint(float x, float y, int radius) {
@@ -18,6 +22,8 @@ public class RelativePoint {
         this.y=y;
         this.radius=radius;
         this.color="#00FFF0";
+
+        this.instanceId = 0L;
     }
 
     public RelativePoint(float x, float y, int radius, String color) {
@@ -25,5 +31,7 @@ public class RelativePoint {
         this.y=y;
         this.radius=radius;
         this.color=color;
+
+        this.instanceId = 0L;
     }
 }

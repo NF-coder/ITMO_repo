@@ -1,5 +1,7 @@
 package storage.commands.commands;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 
@@ -12,6 +14,7 @@ public abstract class Command implements Supplier<JSONObject> {
     public String NAME;
     protected IStructDriver driver;
     protected HashMap<String,String> args;
+    protected final Logger logger = LogManager.getLogger();
 
     protected Command(String name) {
         this.NAME = name;
@@ -39,19 +42,23 @@ public abstract class Command implements Supplier<JSONObject> {
      * @return Результат работы команды
      * @throws Exception любое необработанное исключение, полученное в результате исполнения
      */
-    public abstract String call() throws Exception;
+    public abstract JSONObject call() throws Exception;
 
     /**
      * Вызов команды
      * @return Результат работы команды
      */
     public JSONObject get(){
+        System.out.println("Command Abstract class called");
         JSONObject jo = new JSONObject();
         try {
-            String result = this.call();
+            JSONObject result = this.call();
 
             jo.put("status", String.valueOf(Status.OK));
             jo.put("result", Objects.requireNonNullElse(result, "successfully completed"));
+
+            System.out.println(jo);
+
             return jo;
         }
         catch (Exception e) {

@@ -16,7 +16,7 @@ import org.json.JSONObject;
 import shared.objects.NetworkRequestDTO;
 
 public class Add extends BasicCommand {
-    public Add(Consumer<JSONObject> outHandler) {
+    public Add(Consumer<String> outHandler) {
         super("add", "Adds new City to collection." +
                 "\n\t Example: add -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

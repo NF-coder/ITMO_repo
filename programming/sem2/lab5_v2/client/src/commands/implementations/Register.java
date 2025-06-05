@@ -1,13 +1,6 @@
 package commands.implementations;
 
 import commands.BasicCommand;
-import commands.exceptions.UnacceptableValue;
-import commands.implementations.parsers.AdditionalParsers;
-import commands.implementations.parsers.EnumsParser;
-import commands.objects.enums.Climate;
-import commands.objects.enums.Government;
-import commands.objects.enums.StandardOfLiving;
-import commands.objects.validators.CityValidators;
 import core.Engine;
 import org.json.JSONObject;
 
@@ -15,7 +8,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Register extends BasicCommand {
-    public Register(Consumer<JSONObject> outHandler) {
+    public Register(Consumer<String> outHandler) {
         super("register", "Registers new user",
                 outHandler
         );

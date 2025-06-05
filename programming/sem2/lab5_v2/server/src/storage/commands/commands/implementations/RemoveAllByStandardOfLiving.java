@@ -1,5 +1,6 @@
 package storage.commands.commands.implementations;
 
+import org.json.JSONObject;
 import storage.commands.commands.Command;
 import storage.commands.components.sql.CheckOwner;
 import storage.commands.components.sql.operations.DTOs.CityIdAndCreatorDTO;
@@ -11,7 +12,7 @@ public class RemoveAllByStandardOfLiving extends Command {
     public RemoveAllByStandardOfLiving() {
         super("remove_all_by_standard_of_living");
     }
-    public String call(){
+    public JSONObject call(){
         driver.getCollection().stream()
                 .filter(item -> item.getStandardOfLiving().equals(
                         StandardOfLiving.valueOf(args.get("standard_of_living"))

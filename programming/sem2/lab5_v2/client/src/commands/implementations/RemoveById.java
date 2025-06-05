@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class RemoveById extends BasicCommand {
-    public RemoveById(Consumer<JSONObject> outHandler){
+    public RemoveById(Consumer<String> outHandler){
         super("remove_by_id", "Clears all information about collection.", outHandler);
     }
 

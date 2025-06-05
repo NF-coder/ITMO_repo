@@ -1,5 +1,6 @@
 package storage.commands.components.sql;
 
+import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 import storage.commands.commands.Command;
 import storage.commands.components.sql.operations.DTOs.UserDTO;
@@ -23,7 +24,7 @@ public class AuthRequiredCommandDecorator extends Command {
     }
 
     @Override
-    public String call() throws Exception {
+    public JSONObject call() throws Exception {
         Boolean result = SQLVault.connectionExecutor(
                 new UsersTable()::check,
                 new UserDTO(

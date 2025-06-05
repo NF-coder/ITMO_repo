@@ -1,12 +1,9 @@
 package ui;
 
-import core.Engine;
 import textWorkers.Invokers.UIInvoker;
+import ui.storage.AuthStorage;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class HelloLayout extends JFrame implements Runnable{
@@ -16,42 +13,47 @@ public class HelloLayout extends JFrame implements Runnable{
     private JPasswordField passwordField1;
     private JTextField textField1;
 
-    public UIInvoker uiInvoker = new UIInvoker();
+    public UIInvoker uiInvoker;
 
     public HelloLayout() {
-        register.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                StringBuilder passwd = new StringBuilder();
-                for (char c : passwordField1.getPassword()) passwd.append(c);
-                String login = textField1.getText();
+        this.setContentPane(this.mainPanel);
+        this.setTitle("Auth Panel");
+        this.setSize(800, 600);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-                HashMap<String,String> data = new HashMap<>();
-                data.put("password", passwd.toString());
-                data.put("login", login);
-                uiInvoker.setInfo("register", data);
+        register.addActionListener(e -> {
+            StringBuilder passwd = new StringBuilder();
+            for (char c : passwordField1.getPassword()) passwd.append(c);
+            String login = textField1.getText();
 
-                JOptionPane.showMessageDialog(register, "Register successfully with " + login + " password: " + passwd);
-            }
+            HashMap<String,String> data = new HashMap<>();
+            data.put("password", passwd.toString());
+            data.put("login", login);
+            uiInvoker.setInfo("register", data);
+
+            //JOptionPane.showMessageDialog(register, "Register successfully with " + login + " password: " + passwd);
+
+            this.setVisible(false);
+            this.setEnabled(false);
+            new MapLayout().setVisible(true);
         });
-        signIn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String passwd = Arrays.toString(passwordField1.getPassword());
-                String login = textField1.getText();
-                JOptionPane.showMessageDialog(signIn, "Login successfully with " + login + " password: " + passwd);
-            }
+        signIn.addActionListener(e -> {
+            StringBuilder passwd = new StringBuilder();
+            for (char c : passwordField1.getPassword()) passwd.append(c);
+
+            AuthStorage.login = textField1.getText();
+            AuthStorage.password = passwd.toString();
+
+            //JOptionPane.showMessageDialog(signIn, "Login successfully with " + login + " password: " + passwd);
+
+            this.setVisible(false);
+            this.setEnabled(false);
+            new MapLayout().setVisible(true);
         });
     }
 
     public void run() {
         HelloLayout frame = new HelloLayout();
-        frame.setContentPane(frame.mainPanel);
-
-        frame.setTitle("Hello World");
-        frame.setSize(800, 600);
-
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

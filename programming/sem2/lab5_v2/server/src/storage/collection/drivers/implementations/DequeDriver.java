@@ -1,5 +1,6 @@
 package storage.collection.drivers.implementations;
 
+import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 import storage.objects.City;
 import storage.objects.exceptions.ElementNotFound;
@@ -101,5 +102,13 @@ public class DequeDriver implements IStructDriver {
                 "\n\tsize=" + this.mainCollection.size() +
                 "\n\tcreated_time=" + createdDateTime +
                 "}";
+    }
+
+    @Override
+    public JSONObject getJSON(){
+        return new JSONObject()
+                .put("driverName", "DequeDriver")
+                .put("size", this.mainCollection.size())
+                .put("created_time", createdDateTime);
     }
 }

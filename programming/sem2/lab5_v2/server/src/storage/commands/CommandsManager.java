@@ -53,6 +53,7 @@ public class CommandsManager {
     public CompletableFuture<JSONObject> run(String command, HashMap<String, String> args) {
         Command cmd = opTable.get(command);
         cmd.setData(args, driver);
+        System.out.println("Executing command: " + cmd.getName());
         return CompletableFuture.supplyAsync(
                 cmd
         );

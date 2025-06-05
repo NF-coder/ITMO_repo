@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 public abstract class BasicCommand {
     private String name;
     private String info;
-    private final Consumer<JSONObject> outputHandler;
+    private final Consumer<String> outputHandler;
 
     /**
      * Получение имени команды
@@ -42,9 +42,9 @@ public abstract class BasicCommand {
      * Получение информации о системе вывода
      * @return информация о выводе
      */
-    protected Consumer<JSONObject> getOutHandler(){ return this.outputHandler;}
+    protected Consumer<String> getOutHandler(){ return this.outputHandler;}
 
-    public BasicCommand(String name, String info, Consumer<JSONObject> outputHandler){
+    public BasicCommand(String name, String info, Consumer<String> outputHandler){
         this.setName(name);
         this.setInfo(info);
         this.outputHandler = outputHandler;

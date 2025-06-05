@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class RemoveFirst extends BasicCommand {
-    public RemoveFirst(Consumer<JSONObject> outHandler){
+    public RemoveFirst(Consumer<String> outHandler){
         super("remove_first", "Removes first element from collection.", outHandler);
     }
 

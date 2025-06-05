@@ -1,5 +1,6 @@
 package storage.commands.commands.implementations;
 
+import org.json.JSONObject;
 import storage.commands.commands.Command;
 import storage.objects.City;
 import storage.objects.Coordinates;
@@ -10,7 +11,7 @@ public class Info extends Command {
         super("info");
     }
 
-    public String call() throws Exception{
-        return this.driver.toString();
+    public JSONObject call() throws Exception{
+        return this.driver.getJSON();
     }
 }

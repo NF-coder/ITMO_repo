@@ -19,9 +19,9 @@ public class  Main {
             IStructDriver driver = new StructWithSQLDriverDecorator(new DequeDriver());
             Engine engine = new Engine(
                     new TCPDriver(4056),
-                    Executors.newSingleThreadExecutor(),
-                    Executors.newCachedThreadPool(),
-                    Executors.newSingleThreadExecutor(),
+                    Executors.newFixedThreadPool(2),
+                    Executors.newFixedThreadPool(2),
+                    Executors.newFixedThreadPool(2),
                     new BinarySerializer(),
                     driver
             );

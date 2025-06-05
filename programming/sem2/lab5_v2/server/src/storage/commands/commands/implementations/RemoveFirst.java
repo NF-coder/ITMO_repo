@@ -1,5 +1,6 @@
 package storage.commands.commands.implementations;
 
+import org.json.JSONObject;
 import storage.commands.commands.Command;
 import storage.commands.components.sql.CheckOwner;
 import storage.commands.components.sql.SQLVault;
@@ -13,7 +14,7 @@ public class RemoveFirst extends Command {
     public RemoveFirst(){
         super("remove_first");
     }
-    public String call() throws UnacceptableValue {
+    public JSONObject call() throws UnacceptableValue {
 
         try{
             Long cityId = SQLVault.connectionExecutor(

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Clear extends BasicCommand {
-    public Clear(Consumer<JSONObject> outHandler){
+    public Clear(Consumer<String> outHandler){
         super("clear", "Clears all information about collection.", outHandler);
     }
 

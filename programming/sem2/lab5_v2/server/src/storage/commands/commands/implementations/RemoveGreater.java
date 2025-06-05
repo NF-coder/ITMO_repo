@@ -1,5 +1,6 @@
 package storage.commands.commands.implementations;
 
+import org.json.JSONObject;
 import storage.commands.commands.Command;
 import storage.commands.components.sql.CheckOwner;
 import storage.objects.City;
@@ -20,7 +21,7 @@ public class RemoveGreater extends Command {
     public RemoveGreater() {
         super("remove_greater");
     }
-    public String call() throws Exception{
+    public JSONObject call() throws Exception{
         City newCity = new City(args);
 
         driver.getCollection().stream()

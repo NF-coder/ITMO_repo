@@ -5,17 +5,26 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RelativePointPanel extends JPanel {
     private final List<RelativePoint> relativePoints = new ArrayList<>();
-    private int pointSize = 8;
 
     public RelativePointPanel() {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Добавляем точку с относительными координатами
-                addAbsPoint(e.getX(), e.getY());
+                for (Long id: pointsIdsByCords(e.getX(), e.getY())){
+                    System.out.println("PTR_ON: " + id);
+
+                    PCW2 popup = new PCW2();
+
+                    popup.setLocation(new Point(e.getXOnScreen(), e.getYOnScreen()));
+                    popup.setVisible(true);
+
+
+                }
             }
         });
 
@@ -28,15 +37,19 @@ public class RelativePointPanel extends JPanel {
         });
     }
 
-    // Добавление точки с относительными координатами
-    public void addAbsPoint(float x, float y) {
-        if (getWidth() == 0 || getHeight() == 0) return;
-
-        // Преобразуем абсолютные координаты в относительные (0.0-1.0)
-        float relX = x / getWidth();
-        float relY = y / getHeight();
-        relativePoints.add(new RelativePoint(relX, relY));
-        repaint();
+    public ArrayList<Long> pointsIdsByCords (float x, float y) {
+        return this.relativePoints.stream()
+                .filter(point -> {
+                    Point cords = getAbsoluteCoordinates(point);
+                    return cords.x - point.radius <= x &&
+                            x <= cords.x + point.radius &&
+                            cords.y - point.radius <= y &&
+                            y <= cords.y + point.radius ; // Упрощаем зону клика до квадрата. Потом разберусь
+                }).map(
+                        point -> point.instanceId
+                ).collect(
+                        Collectors.toCollection(ArrayList::new)
+                );
     }
 
     public void addRelPoint(float x, float y) {
@@ -59,7 +72,8 @@ public class RelativePointPanel extends JPanel {
         for (RelativePoint relPoint : relativePoints) {
             Point absPoint = getAbsoluteCoordinates(relPoint);
             g.setColor(Color.decode(relPoint.color));
-            g.fillOval(absPoint.x - pointSize/2, absPoint.y - pointSize/2, relPoint.radius, relPoint.radius);
+            int pointSize = 8;
+            g.fillOval(absPoint.x - pointSize /2, absPoint.y - pointSize /2, relPoint.radius, relPoint.radius);
         }
     }
 

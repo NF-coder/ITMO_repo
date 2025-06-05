@@ -1,5 +1,6 @@
 package storage.commands.components.sql;
 
+import org.json.JSONObject;
 import storage.collection.drivers.IStructDriver;
 import storage.commands.components.sql.operations.CollectionTable;
 import storage.commands.components.sql.operations.DTOs.DataWithLoginDTO;
@@ -87,5 +88,11 @@ public class StructWithSQLDriverDecorator implements IStructDriver {
     @Override
     public String toString() {
         return "SQLDecorator+" + this.structDriver.toString();
+    }
+
+    @Override
+    public JSONObject getJSON(){
+        JSONObject jo = this.structDriver.getJSON();
+        return jo.put("driverName", "SQLDecorator+"+jo.getString("driverName"));
     }
 }

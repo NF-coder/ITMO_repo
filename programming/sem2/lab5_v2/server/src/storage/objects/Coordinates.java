@@ -1,6 +1,7 @@
 package storage.objects;
 
 
+import org.json.JSONObject;
 import storage.objects.interfaces.CSVSerializable;
 
 public class Coordinates implements CSVSerializable {
@@ -25,5 +26,10 @@ public class Coordinates implements CSVSerializable {
                 "x=" + this.x + ", " +
                 "y=" + this.y +
                 "}";
+    }
+    public JSONObject toJSON() {
+        return new JSONObject()
+                .put("x", x)
+                .put("y", y);
     }
 }

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class RemoveGreater extends BasicCommand {
-    public RemoveGreater(Consumer<JSONObject> outHandler) {
+    public RemoveGreater(Consumer<String> outHandler) {
         super("remove_greater", "Remove all Cities that has higher rating." +
                 "\n\t Example: remove_greater -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler

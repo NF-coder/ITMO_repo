@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Update extends BasicCommand {
-    public Update(Consumer<JSONObject> outHandler){
+    public Update(Consumer<String> outHandler){
         super("update", "Updates City with specified id" +
                 "\n\t Example: update -id [Long] -name [String] -area [double] -population [long] -metersAboveSeaLevel [float]",
                 outHandler
