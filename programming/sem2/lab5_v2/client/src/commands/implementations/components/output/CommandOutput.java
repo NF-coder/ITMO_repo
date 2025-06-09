@@ -3,9 +3,7 @@ package commands.implementations.components.output;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
-import ui.storage.ResultStorage;
-
-import java.util.HashMap;
+import ui.utils.storage.ResultStorage;
 
 /**
  * Система вывода полученных в результате выполнения команды данных

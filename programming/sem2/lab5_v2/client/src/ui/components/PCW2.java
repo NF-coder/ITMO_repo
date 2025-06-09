@@ -1,22 +1,35 @@
 package ui.components;
 
-import javax.swing.*;
+import org.json.JSONObject;
+import ui.CityPanel;
+import ui.utils.ReqBuilder;
+import ui.utils.ReqController;
+import ui.utils.enums.CityPopupOpt;
+
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public class PCW2 extends JWindow {
+import javax.swing.*;
+
+public class PCW2 extends JFrame {
     private static Timer closeTimer;
-    private static final int CLOSE_DELAY = 3000; // 3 секунды до закрытия
+    private static final int CLOSE_DELAY = 60000; // 60 секунд до закрытия
+    private ReqController reqController;
+    private boolean isEditable = false;
 
-    public PCW2() {
-        this.setSize(200, 100);
+    public PCW2(JSONObject data, ReqController reqController) {
+        this.setSize(350, 400);
+        this.setUndecorated(true);
 
-        buildUI();
+        this.reqController = reqController;
+
+        buildUI(data);
 
         closeTimer = new Timer(CLOSE_DELAY, e -> {
-            this.dispose();
+            closeWindow();
             closeTimer.stop();
         });
         closeTimer.setRepeats(true);
@@ -40,17 +53,68 @@ public class PCW2 extends JWindow {
         });
     }
 
-    private void buildUI(){
+    private void closeWindow() {
+        this.dispose();
+    }
 
-        //JLabel label = new JLabel(new ImageIcon(Objects.requireNonNull(getClass().getResource("/images/img.png"))));
-        //this.add(label);
+    private void buildUI(JSONObject data){
+        CityPanel cityPanel = new CityPanel(
+                Double.toString(data.getDouble("area")),
+                Float.toString(data.getFloat("metersAboveSeaLevel")),
+                data.getString("climate"),
+                data.getString("government"),
+                data.getString("standardOfLiving"),
+                data.getString("name"),
+                ((Long) data.getLong("population")).toString(),
+                Float.toString(data.getJSONObject("coordinates").getFloat("x")),
+                Float.toString(data.getJSONObject("coordinates").getFloat("y")),
+                data.getJSONObject("governor").getString("name"),
+                Long.toString(data.getJSONObject("governor").getLong("age")),
+                Double.toString(data.getJSONObject("governor").getDouble("height")),
+                data.getJSONObject("governor").getString("birthday")
+        );
+        this.setContentPane(cityPanel.panel);
 
-        JLabel popupLabel = new JLabel("Это всплывающее окно!");
-        popupLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        popupLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        this.add(popupLabel);
+        cityPanel.setOptions(new CityPopupOpt[]{CityPopupOpt.EDIT, CityPopupOpt.DELETE});
 
+        cityPanel.cancel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                closeWindow();
+            }
+        });
+        cityPanel.delete.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                reqController.call("remove_by_id").addArg("id", String.valueOf(data.getLong("id"))).build();
+                closeWindow();
+            }
+        });
+        cityPanel.edit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                isEditable = !isEditable;
+                cityPanel.isEditable(isEditable);
+                cityPanel.isCordsEditable(isEditable);
+
+                if (isEditable) cityPanel.setOptions(new CityPopupOpt[]{CityPopupOpt.EDIT, CityPopupOpt.DELETE, CityPopupOpt.SAVE});
+                else cityPanel.setOptions(new CityPopupOpt[]{CityPopupOpt.EDIT, CityPopupOpt.DELETE});
+            }
+        });
+        cityPanel.save.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                ReqBuilder rb = reqController.call("update");
+                final HashMap<String, String> data = cityPanel.getData();
+
+                for (String key: data.keySet()){
+                    rb.addArg(key, data.get(key));
+                }
+                rb.build();
+                closeWindow();
+            }
+        });
         this.getContentPane().setBackground(new Color(240, 240, 240));
+
+
     }
 }

@@ -24,7 +24,7 @@ public class AddIfMax extends BasicCommand {
 
     @Override
     public void execute(HashMap<String, String> args, Engine engine) throws Exception {
-            CityValidators.validateName(args.get("name"));
+            /*CityValidators.validateName(args.get("name"));
             CityValidators.validateArea(args.get("area"));
             CityValidators.validatePopulation(args.get("population"));
             CityValidators.validateMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
@@ -34,7 +34,7 @@ public class AddIfMax extends BasicCommand {
 
             args2.put("climate", EnumsParser.parse(Climate.class, "тип климата", engine.invoker).toString());
             args2.put("government", EnumsParser.parse(Government.class, "тип правительства", engine.invoker).toString());
-            args2.put("standardOfLiving", EnumsParser.parse(StandardOfLiving.class, "стандарт качества жизни", engine.invoker).toString());
+            args2.put("standardOfLiving", EnumsParser.parse(StandardOfLiving.class, "стандарт качества жизни", engine.invoker).toString());*/
 
             engine.networkManager.send(
                     new NetworkRequestDTO(

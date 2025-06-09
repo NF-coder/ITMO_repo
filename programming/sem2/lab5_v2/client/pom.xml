@@ -11,6 +11,7 @@
     </parent>
 
     <dependencies>
+
         <dependency>
             <groupId>1</groupId>
             <artifactId>shared</artifactId>

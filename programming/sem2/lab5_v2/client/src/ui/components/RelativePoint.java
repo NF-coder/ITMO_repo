@@ -1,37 +1,24 @@
 package ui.components;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.awt.*;
+
 public class RelativePoint {
     Float x;
     Float y;
-    String color;
+    Color color;
     Integer radius;
 
-    Long instanceId;
+    JSONObject data;
 
-    public RelativePoint(float x, float y) {
-        this.x=x;
-        this.y=y;
-        this.radius=10;
-        this.color="#00FFF0";
-
-        this.instanceId = 0L;
-    }
-
-    public RelativePoint(float x, float y, int radius) {
-        this.x=x;
-        this.y=y;
-        this.radius=radius;
-        this.color="#00FFF0";
-
-        this.instanceId = 0L;
-    }
-
-    public RelativePoint(float x, float y, int radius, String color) {
+    public RelativePoint(float x, float y, int radius, Color color, JSONObject data) {
         this.x=x;
         this.y=y;
         this.radius=radius;
         this.color=color;
 
-        this.instanceId = 0L;
+        this.data=data;
     }
 }

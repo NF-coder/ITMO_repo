@@ -118,6 +118,7 @@ public class City { // To JavaBean
     @Override
     public String toString() {
         return "City{" +
+                "\n\tcreator=" + creator +
                 "\n\tid=" + id +
                 "\n\tname=" + this.name + ", " +
                 "\n\tcoordinates=" + this.coordinates + ", " +
@@ -144,6 +145,7 @@ public class City { // To JavaBean
                 .put("government", government)
                 .put("standardOfLiving", standardOfLiving)
                 .put("governor", governor.toJSON())
-                .put("creationDate", creationDate);
+                .put("creationDate", creationDate)
+                .put("creator", creator);
     }
 }

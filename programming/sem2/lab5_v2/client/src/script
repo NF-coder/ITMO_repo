@@ -1,8 +1,6 @@
-register -login 1 -password 2
-
 add -name city1 -area 100 -population 1000 -metersAboveSeaLevel 0 -login 1 -password 2
-2
-2
+200
+230
 test name
 48
 175
@@ -10,7 +8,3 @@ test name
 OCEANIC
 JUNTA
 HIGH
-
-show -login 1 -password 2
-
-remove_first -login 1 -password 2

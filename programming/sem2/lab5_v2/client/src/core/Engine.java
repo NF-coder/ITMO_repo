@@ -44,7 +44,9 @@ public final class Engine {
     /**
      * Запуск ввода команд
      */
-    public void start(){invoker.mainCycle(this);}
+    public void start(){
+        invoker.mainCycle(this);
+    }
 
     /**
      * Изменение источника команд

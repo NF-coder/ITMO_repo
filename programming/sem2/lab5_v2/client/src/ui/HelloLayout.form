@@ -5,7 +5,10 @@
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-1862270977"/>
+      <foreground color="-1862270977"/>
+    </properties>
     <border type="none"/>
     <children>
       <grid id="33d4e" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -13,7 +16,9 @@
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="18e05" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
@@ -48,18 +53,25 @@
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="ce70a" class="javax.swing.JButton" binding="register">
             <constraints/>
             <properties>
+              <background color="-3543553"/>
+              <borderPainted value="false"/>
+              <selected value="false"/>
               <text resource-bundle="ui" key="signUp"/>
             </properties>
           </component>
           <component id="ff14c" class="javax.swing.JButton" binding="signIn">
             <constraints/>
             <properties>
+              <background color="-3543553"/>
+              <borderPainted value="false"/>
               <text resource-bundle="ui" key="signIn"/>
             </properties>
           </component>

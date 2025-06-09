@@ -25,30 +25,35 @@ public class Add extends BasicCommand {
 
     @Override
     public final void execute(HashMap<String, String> args, Engine engine) throws Exception {
-        try {
-            CityValidators.validateName(args.get("name"));
-            CityValidators.validateArea(args.get("area"));
-            CityValidators.validatePopulation(args.get("population"));
-            CityValidators.validateMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
+        /*CityValidators.validateName(args.get("name"));
+        CityValidators.validateArea(args.get("area"));
+        CityValidators.validatePopulation(args.get("population"));
+        CityValidators.validateMetersAboveSeaLevel(args.get("metersAboveSeaLevel"));
 
-            HashMap<String, String> args1 = AdditionalParsers.parseCoordinates(args, engine.invoker);
-            HashMap<String, String> args2 = AdditionalParsers.parseHuman(args1, engine.invoker);
+        HashMap<String, String> args1 = AdditionalParsers.parseCoordinates(args, engine.invoker);
+        HashMap<String, String> args2 = AdditionalParsers.parseHuman(args1, engine.invoker);
 
-            args2.put("climate", EnumsParser.parse(Climate.class, "тип климата", engine.invoker).toString());
-            args2.put("government", EnumsParser.parse(Government.class, "тип правительства", engine.invoker).toString());
-            args2.put("standardOfLiving", EnumsParser.parse(StandardOfLiving.class, "стандарт качества жизни", engine.invoker).toString());
+        args2.put(
+                "climate",
+                EnumsParser.parse(Climate.class, "тип климата", engine.invoker).toString()
+        );
+        args2.put(
+                "government",
+                EnumsParser.parse(Government.class, "тип правительства", engine.invoker).toString()
+        );
+        args2.put(
+                "standardOfLiving",
+                EnumsParser.parse(StandardOfLiving.class,"стандарт качества жизни", engine.invoker).toString()
+        );*/
 
-            engine.networkManager.send(
-                    new NetworkRequestDTO(
-                            "add",
-                            args2
-                    )
-            );
-            this.getOutHandler().accept(
-                    engine.networkManager.receive().result()
-            );
-        } catch (UnacceptableValue err) {
-            System.out.println("Ошибка во время создания объекта: " + err.getMessage());
-        }
+        engine.networkManager.send(
+                new NetworkRequestDTO(
+                        "add",
+                        args
+                )
+        );
+        this.getOutHandler().accept(
+                engine.networkManager.receive().result()
+        );
     }
 }

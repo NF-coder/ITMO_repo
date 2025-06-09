@@ -1,4 +1,4 @@
-package ui.storage;
+package ui.utils.storage;
 
 import org.json.JSONObject;
 

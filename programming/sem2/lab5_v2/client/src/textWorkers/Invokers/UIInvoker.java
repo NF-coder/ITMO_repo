@@ -7,30 +7,30 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class UIInvoker implements IInvoker {
-    private static final Invoker invoker = new Invoker();
+    private final Invoker invoker = new Invoker();
 
-    private static String opName;
-    private static HashMap<String,String> inlineArgs;
-    private static String[] opAdditionalArgs;
+    private String opName;
+    private HashMap<String,String> inlineArgs;
+    private String[] opAdditionalArgs;
     private int opAdditionalArgsPtr = 0;
-    private static boolean isReady = false;
+    private boolean isReady = false;
 
     public void setInfo(String opName, HashMap<String,String> inlineArgs, String[] opAdditionalArgs) {
-        UIInvoker.opName = opName;
-        UIInvoker.inlineArgs = inlineArgs;
-        UIInvoker.opAdditionalArgs = opAdditionalArgs;
-        UIInvoker.isReady = true;
+        this.opName = opName;
+        this.inlineArgs = inlineArgs;
+        this.opAdditionalArgs = opAdditionalArgs;
+        this.isReady = true;
     }
     public void setInfo(String opName, HashMap<String,String> inlineArgs) {
         System.out.println("Sinfo signal");
 
-        UIInvoker.opName = opName;
-        UIInvoker.inlineArgs = inlineArgs;
-        UIInvoker.isReady = true;
+        this.opName = opName;
+        this.inlineArgs = inlineArgs;
+        this.isReady = true;
     }
     public void setInfo(String opName) {
-        UIInvoker.opName = opName;
-        UIInvoker.isReady = true;
+        this.opName = opName;
+        this.isReady = true;
     }
 
     public String parseFieldInput(String entryText){
@@ -38,17 +38,14 @@ public class UIInvoker implements IInvoker {
     }
 
     public void mainCycle(Engine engine) {
-        opAdditionalArgsPtr = 0;
-        while (!isReady) {
-            try {
-                Thread.sleep(10);
-                //System.out.println("Sinfo signal wait 1000ms");
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        while (true){
+            opAdditionalArgsPtr = 0;
+            while (!isReady)
+                Thread.yield();
+            this.isReady = false;
+            System.out.println("Sinfo signal");
+            invoker.run(opName, inlineArgs, engine);
         }
-        UIInvoker.isReady = false;
-        System.out.println("Sinfo signal");
-        invoker.run(opName, inlineArgs, engine);
+
     }
 }
