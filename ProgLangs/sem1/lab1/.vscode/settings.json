@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.toml": "yaml",
+        "inttypes.h": "c",
+        "stdio.h": "c"
+    }
+}
