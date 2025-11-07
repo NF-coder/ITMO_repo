@@ -1,0 +1,15 @@
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.GeneratedMSBuildEditorConfig.editorconfig
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.AssemblyInfoInputs.cache
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.AssemblyInfo.cs
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.csproj.CoreCompileInputs.cache
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.sourcelink.json
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/bin/Debug/net8.0/project
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/bin/Debug/net8.0/project.deps.json
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/bin/Debug/net8.0/project.runtimeconfig.json
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/bin/Debug/net8.0/project.dll
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/bin/Debug/net8.0/project.pdb
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.dll
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/refint/project.dll
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.pdb
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/project.genruntimeconfig.cache
+/home/nf/Рабочий стол/итмо/ITMO_repo/prog_langs/sem3/lab4/obj/Debug/net8.0/ref/project.dll

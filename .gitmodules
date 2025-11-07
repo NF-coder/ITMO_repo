@@ -1,3 +1,9 @@
 [submodule "web/sem3/lab1/WebProgramming_lab1"]
 	path = web/sem3/lab1/WebProgramming_lab1
 	url = https://github.com/NF-itmo/WebProgramming_lab1
+[submodule "web/sem3/lab2/WebProgramming_lab2"]
+	path = web/sem3/lab2/WebProgramming_lab2
+	url = https://github.com/NF-itmo/WebProgramming_lab2.git
+[submodule "TFKP/sem3/lab1/TFCP_Lab1"]
+	path = TFKP/sem3/lab1/TFCP_Lab1
+	url = https://github.com/NF-itmo/TFCP_Lab1
