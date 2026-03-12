@@ -1,0 +1,124 @@
+@startuml system
+skinparam actorStyle awesome
+skinparam rectangle {
+  BorderColor black
+  BackgroundColor lightblue
+  StereotypeFontSize 12
+}
+left to right direction
+
+actor "Платежная\nсистема" as PaymentSystem <<external>>
+actor "Почтовый\nсервис" as MailService <<external>>
+actor "Внешние\nисточники\nвакансий" as ExternalSources <<external>>
+
+actor "Неавторизованный\nпользователь" as Guest
+actor "Соискатель" as Applicant
+actor "Работодатель" as Employer
+actor "Администратор" as Admin
+
+Guest <|-- Applicant
+Guest <|-- Employer
+
+rectangle "Подсистема поиска\nи просмотра" <<boundary>> {
+  usecase "UC1\nПоиск вакансий" as Search
+  usecase "UC2\nПросмотр карточки\nвакансии" as ViewVacancy
+  usecase "FR3\nПросмотр аналитики\nрынка труда" as Analytics
+  usecase "FR4\nПросмотр справочной\nинформации" as Help
+  
+  Search --> ViewVacancy : <<include>>
+  Analytics --> ViewVacancy : <<include>>
+}
+
+rectangle "Подсистема управления\nаккаунтом" <<boundary>> {
+  usecase "UC3\nРегистрация" as Register
+  usecase "UC4\nАвторизация" as Login
+  usecase "FR7\nВосстановление\nпароля" as Recover
+  usecase "FR8\nУправление\nпрофилем" as Profile
+}
+
+rectangle "Подсистема\nдля соискателя" <<boundary>> {
+  usecase "UC5\nСоздание\nрезюме" as CreateResume
+  usecase "UC6\nПубликация\nрезюме" as PublishResume
+  usecase "UC7\nОтклик\nна вакансию" as Respond
+  usecase "UC8\nИстория\nоткликов" as History
+  usecase "UC9\nИзбранное" as Favorite
+  usecase "UC10\nПодписка на\nпоиск" as Subscribe
+  
+  PublishResume --> CreateResume : <<include>>
+  Respond --> CreateResume : <<include>>
+  History --> Respond : <<include>>
+  Favorite .> Search : <<extend>>
+  Subscribe .> Search : <<extend>>
+}
+
+rectangle "Подсистема\nдля работодателя" <<boundary>> {
+  usecase "UC11\nПрофиль\nкомпании" as CreateCompany
+  usecase "UC12\nПубликация\nвакансии" as PublishVacancy
+  usecase "UC13\nПросмотр\nоткликов" as ViewResponses
+  usecase "UC14\nКоммуникация" as Communicate
+  usecase "UC15\nПоиск\nсоискателей" as SearchCandidates
+  usecase "UC16\nПриглашение" as Invite
+  usecase "UC17\nСтатистика" as Statistics
+  usecase "UC18\nТарифы и\nоплата" as Tariffs
+  
+  PublishVacancy --> CreateCompany : <<include>>
+  ViewResponses --> PublishVacancy : <<include>>
+  Communicate --> ViewResponses : <<include>>
+  Invite --> SearchCandidates : <<include>>
+  Invite --> PublishVacancy : <<include>>
+  Statistics --> PublishVacancy : <<include>>
+  Tariffs --> PublishVacancy : <<include>>
+}
+
+rectangle "Подсистема\nадминистрирования" <<boundary>> {
+  usecase "UC19\nМодерация\nконтента" as Moderate
+  usecase "UC20\nБлокировка\nпользователей" as Block
+  usecase "UC21\nОбращения\nпользователей" as Support
+}
+
+rectangle "Подсистема\nинтеграции" <<boundary>> {
+  usecase "FR25\nАгрегация вакансий\nиз внешних\nисточников" as Aggregate
+}
+
+Guest --> Search
+Guest --> ViewVacancy
+Guest --> Analytics
+Guest --> Help
+Guest --> Register
+
+Applicant --> Login
+Applicant --> Recover
+Applicant --> Profile
+Applicant --> CreateResume
+Applicant --> PublishResume
+Applicant --> Respond
+Applicant --> History
+Applicant --> Favorite
+Applicant --> Subscribe
+
+Employer --> Login
+Employer --> Recover
+Employer --> Profile
+Employer --> CreateCompany
+Employer --> PublishVacancy
+Employer --> ViewResponses
+Employer --> Communicate
+Employer --> SearchCandidates
+Employer --> Invite
+Employer --> Statistics
+Employer --> Tariffs
+
+Admin --> Moderate
+Admin --> Block
+Admin --> Support
+
+Tariffs --> PaymentSystem : взаимодействует
+Register --> MailService : отправка подтверждения
+Recover --> MailService : отправка ссылки
+Respond --> MailService : уведомление
+Communicate --> MailService : уведомление
+Invite --> MailService : уведомление
+Support --> MailService : ответ
+Aggregate --> ExternalSources : получение данных
+
+@enduml

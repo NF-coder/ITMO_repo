@@ -1,0 +1,27 @@
+@startuml guest
+
+skinparam actorStyle awesome
+left to right direction
+
+actor "Неавторизованный\nпользователь" as Guest
+
+rectangle "Подсистема поиска и просмотра" {
+  usecase "UC1\nПоиск вакансий\nпо параметрам" as Search
+  usecase "UC2\nПросмотр карточки\nвакансии" as ViewVacancy
+  usecase "FR3\nПросмотр аналитики\nрынка труда" as Analytics
+  usecase "FR4\nПросмотр справочной\nинформации" as Help
+}
+rectangle "Подсистема авторизации" {
+  usecase "UC3\nРегистрация\nв системе" as Register
+  usecase "UC4\nАвторизация\nв системе" as Login
+}
+
+Search ..> ViewVacancy : <<extend>>
+
+Guest --> Search
+Guest --> ViewVacancy
+Guest --> Analytics
+Guest --> Help
+Guest --> Register
+Guest --> Login
+@enduml

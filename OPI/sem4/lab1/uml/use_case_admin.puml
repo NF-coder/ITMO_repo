@@ -1,0 +1,18 @@
+@startuml admin
+skinparam actorStyle awesome
+left to right direction
+
+actor "Администратор" as Admin
+
+rectangle "Функции администратора" {
+  usecase "UC19\nМодерация\nконтента" as Moderate
+  usecase "UC20\nБлокировка\nпользователей" as Block
+  usecase "UC21\nРабота с\nобращениями" as Support
+}
+
+Moderate .> Block : <<extend>>
+
+Admin --> Moderate
+Admin --> Support
+
+@enduml

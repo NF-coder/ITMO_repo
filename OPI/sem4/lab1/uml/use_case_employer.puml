@@ -1,0 +1,38 @@
+@startuml employer
+skinparam actorStyle awesome
+left to right direction
+
+actor "Неавторизованный\nпользователь" as Guest
+actor "Работодатель" as Employer
+
+Guest <|-- Employer
+
+rectangle "Функции работодателя" {
+  usecase "UC11\nСоздание профиля\nкомпании" as CreateCompany
+  usecase "UC12\nПубликация\nвакансии" as PublishVacancy
+  usecase "UC13\nПросмотр откликов\nна вакансию" as ViewResponses
+  usecase "UC14\nКоммуникация\nс соискателем" as Communicate
+  usecase "UC15\nПоиск соискателей\nпо резюме" as SearchCandidates
+  usecase "UC16\nПриглашение\nсоискателя" as Invite
+  usecase "UC17\nПросмотр\nстатистики" as Statistics
+  usecase "UC18\nУправление\nтарифами" as Tariffs
+}
+
+CreateCompany .> PublishVacancy : <<include>>
+PublishVacancy .down.> ViewResponses : <<include>>
+ViewResponses ..> Communicate : <<include>>
+SearchCandidates .> Communicate : <<include>>
+
+PublishVacancy .up.> Statistics : <<extend>>
+SearchCandidates .down.> Invite : <<extend>>
+ViewResponses .down.> Invite : <<extend>>
+PublishVacancy .up.> Tariffs : <<extend>>
+
+Employer --> CreateCompany
+Employer --> PublishVacancy
+Employer --> ViewResponses
+Employer --> SearchCandidates
+Employer --> Statistics
+Employer --> Tariffs
+
+@enduml
