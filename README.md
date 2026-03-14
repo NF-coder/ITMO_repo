@@ -23,18 +23,25 @@
 
 | Предмет / семестр | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 | ----------------- | - | - | - | - | - | - | - | - |
-| Основы профессиональной деятельности | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| Программирование | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| Информатика | :white_check_mark: | - | - | - | - | - | - | - |
-| Дискретная математика | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| Математический анализ | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| Линейная алгебра | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| Англ язык | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| История (ИРК) | :white_check_mark: | - | - | - | - | - | - | - |
-| Физическая культура | :white_check_mark: | :white_check_mark: | - | - | - | - | - | - |
-| Базы данных | - | :white_check_mark: | - | - | - | - | - | - |
-| Безопасность жизнедеятельности | - | :white_check_mark: | - | - | - | - | - | - |
-| Коммуникации и командообразование | - | :white_check_mark: | - | - | - | - | - | - |
+| Основы профессиональной деятельности | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/mark3.png" width="19px"/> | | | | | | |
+| Программирование | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/mark5.png" width="19px"/> | | | | | | |
+| Информатика | <img src="./.assets/marks/mark5.png" width="19px"/> | | | | | | | |
+| Дискретная математика | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/tick.png" width="19px"/> | | | | | | |
+| Математический анализ | <img src="./.assets/marks/mark4.png" width="19px"/> | <img src="./.assets/marks/mark3.png" width="19px"/> | | | | | | |
+| Линейная алгебра | <img src="./.assets/marks/mark5.png" width="19px"/> | <img src="./.assets/marks/mark4.png" width="19px"/> | | | | | | |
+| История (ИРК) | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/mark4.png" width="19px"/> | | | | | | |
+| Базы данных | | <img src="./.assets/marks/mark4.png" width="19px"/> | | | | | | |
+| Безопасность жизнедеятельности | | <img src="./.assets/marks/tick.png" width="19px"/> | | | | | | |
+| Коммуникации и командообразование | | <img src="./.assets/marks/tick.png" width="19px"/> | | | | | | |
+| Введение в технологическое предпринимательство | | | <img src="./.assets/marks/mark5.png" width="19px"/> | | | | | |
+| Веб-программирование | | |  <img src="./.assets/marks/mark4.png" width="19px"/> | | | | | |
+| Дополнительные главы математического анализа | | | <img src="./.assets/marks/mark5.png" width="19px"/> | | | | | |
+| Теория вероятностей | | | <img src="./.assets/marks/tick.png" width="19px"/> | | | | | |
+| Теория фкнкций комплексного переменного | | | <img src="./.assets/marks/mark5.png" width="19px"/> | | | | | |
+| Физика | | | <img src="./.assets/marks/mark4.png" width="19px"/> | | | | | |
+| Языки программирования | | | <img src="./.assets/marks/mark5.png" width="19px"/> | | | | | |
+| Английский язык | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/tick.png" width="19px"/> | | | | | |
+| Физическая культура | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/tick.png" width="19px"/> | <img src="./.assets/marks/tick.png" width="19px"/> | | | | | |
 
 ### Поясненмя имён папок
 ```
