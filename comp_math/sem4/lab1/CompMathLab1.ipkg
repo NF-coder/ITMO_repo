@@ -1,0 +1,7 @@
+package CompMathLab
+
+sourcedir = "src"
+modules = Main, Matrix, Gaussian, IOHelpers
+main = Main
+
+executable = Main
