@@ -1,0 +1,30 @@
+limit: 2000
+memory_size: 4096
+
+memory_mapped_io:
+  0x80: [49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 10]
+  0x84: []
+
+reports:
+  - name: Execution trace
+    slice: all
+    view: |
+      D: {stack:hex} | A: {A:hex} | B: {B:hex}
+      String dump: {memory:0x00:0x20}
+      {pc}:{pc:label}:{instruction}
+      --- name: Check results
+    slice: last
+    filter:
+      - state
+    view: |
+      numio[0x80]: {io:0x80:dec}
+      numio[0x84]: {io:0x84:dec}
+      symio[0x80]: {io:0x80:sym}
+      symio[0x84]: {io:0x84:sym}
+      {memory:0:31}
+    assert: |
+      numio[0x80]: [] >>> []
+      numio[0x84]: [] >>> [49,50,51,52,53,54,55,56,57,48,49,50,51,52,53,54,55,56,57,48,49,50,51,52,53,54,55,56,57,48,49]
+      symio[0x80]: "" >>> ""
+      symio[0x84]: "" >>> "1234567890123456789012345678901"
+      mem[0..31]:   1f 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30 31
