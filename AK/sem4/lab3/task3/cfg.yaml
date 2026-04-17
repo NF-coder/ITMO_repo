@@ -1,0 +1,28 @@
+limit: 2500
+memory_size: 0x1000
+memory_mapped_io:
+  0x80: [65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 10]
+  0x84: []
+reports:
+  - name: Execution trace
+    slice: all
+    view: |
+      A0: {A0:hex} | A1: {A1:hex} | A2: {A2:hex} | A3: {A3:hex} | A4: {A4:hex} | A5: {A5:hex} | A6: {A6:hex} | A7: {A7:hex}
+      D0: {D0:hex} | D1: {D1:hex} | D2: {D2:hex} | D3: {D3:hex} | D4: {D4:hex} | D5: {D5:hex} | D6: {D6:hex} | D7: {D7:hex}
+      String dump: {memory:0x00:0x20}
+      ---
+      {pc}:{pc:label}:{instruction}
+  - name: Check results
+    slice: last
+    filter:
+      - state
+    view: |
+      numio[0x80]: {io:0x80:dec}
+      numio[0x84]: {io:0x84:dec}
+      symio[0x80]: {io:0x80:sym}
+      symio[0x84]: {io:0x84:sym}
+    assert: |
+      numio[0x80]: [65,10] >>> []
+      numio[0x84]: [] >>> [-858993460]
+      symio[0x80]: "A\n" >>> ""
+      symio[0x84]: "" >>> "?"
