@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:149.0) Gecko/20100101 Firefox/149.0">
   <diagram name="Страница-1" id="IjDdldrPgyksedBKP7n-">
-    <mxGraphModel dx="2491" dy="935" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1298" dy="265" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -192,15 +192,6 @@
         </mxCell>
         <mxCell id="Y-b0qQBtifYXPjyqjhLu-307" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;siganals&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="60" x="-120" y="1180" as="geometry" />
-        </mxCell>
-        <mxCell id="Y-b0qQBtifYXPjyqjhLu-300" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;latch A&lt;/font&gt;" vertex="1">
-          <mxGeometry height="10" width="40" x="550" y="1005" as="geometry" />
-        </mxCell>
-        <mxCell id="Y-b0qQBtifYXPjyqjhLu-422" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;dashed=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;jumpStyle=arc;jumpSize=12;" target="Y-b0qQBtifYXPjyqjhLu-275" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="550" y="1020" as="sourcePoint" />
-            <mxPoint x="557.66" y="980" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="Y-b0qQBtifYXPjyqjhLu-435" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;dashed=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;jumpStyle=arc;jumpSize=12;" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
