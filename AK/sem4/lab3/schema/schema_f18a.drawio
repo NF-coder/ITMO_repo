@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:149.0) Gecko/20100101 Firefox/149.0">
   <diagram name="Страница-1" id="IjDdldrPgyksedBKP7n-">
-    <mxGraphModel dx="2664" dy="883" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1893" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -430,6 +430,15 @@
             <mxPoint x="210" y="840" as="sourcePoint" />
             <mxPoint x="220" y="710" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="hSy4tsMi9vB7X7l1Yz0i-1" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;dashed=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="Y-b0qQBtifYXPjyqjhLu-143" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="980" y="770" as="sourcePoint" />
+            <mxPoint x="980" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hSy4tsMi9vB7X7l1Yz0i-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="latch data" vertex="1">
+          <mxGeometry height="30" width="80" x="950" y="747" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
