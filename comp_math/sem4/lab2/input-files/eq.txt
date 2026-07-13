@@ -1,0 +1,9 @@
+task=equation
+function=1
+a=-3
+b=-2
+method=2
+eps=0.01
+output=file
+output_file=/tmp/result.txt
+plot=no

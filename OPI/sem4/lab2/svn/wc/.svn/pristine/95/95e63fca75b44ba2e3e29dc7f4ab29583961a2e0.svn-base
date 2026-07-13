@@ -1,0 +1,22 @@
+// var. 160401
+public class Lab4 {
+  public static void main(String[] args) {
+  A a = new A();
+  A b = new H();
+  H c = new H();
+  c.x38();
+  b.x34();
+  c.x18();
+  a.x27();
+  b.x40();
+  c.x1();
+  a.x22();
+  a.x5();
+  a.x31();
+  b.x21();
+  c.x23(a);
+  a.x23(b);
+  c.x23(c);
+  }
+}
+previous : 7

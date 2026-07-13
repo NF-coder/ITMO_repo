@@ -1,0 +1,6 @@
+task=system
+system=1
+x0=0.5
+y0=0.5
+eps=0.01
+output=screen

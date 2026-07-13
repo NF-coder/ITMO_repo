@@ -3,13 +3,19 @@
 	url = https://github.com/NF-itmo/WebProgramming_lab1
 [submodule "web/sem3/lab2/WebProgramming_lab2"]
 	path = web/sem3/lab2/WebProgramming_lab2
-	url = https://github.com/NF-itmo/WebProgramming_lab2.git
-[submodule "TFKP/sem3/lab1/TFCP_Lab1"]
-	path = TFKP/sem3/lab1/TFCP_Lab1
-	url = https://github.com/NF-itmo/TFCP_Lab1
+	url = https://github.com/NF-itmo/WebProgramming_lab2
 [submodule "web/sem3/lab3/WebProgramming_lab3"]
 	path = web/sem3/lab3/WebProgramming_lab3
 	url = https://github.com/NF-itmo/WebProgramming_lab3
 [submodule "web/sem3/lab4/WebProgramming_lab4"]
 	path = web/sem3/lab4/WebProgramming_lab4
 	url = https://github.com/NF-itmo/WebProgramming_lab4
+[submodule "TFKP/sem3/lab1/TFCP_Lab1"]
+	path = TFKP/sem3/lab1/TFCP_Lab1
+	url = https://github.com/NF-itmo/TFCP_Lab1
+[submodule "OPI/sem4/lab3/OPI_lab3"]
+	path = OPI/sem4/lab3/OPI_lab3
+	url = https://github.com/NF-itmo/OPI_lab3
+[submodule "OPI/sem4/lab4/OPI_lab4"]
+	path = OPI/sem4/lab4/OPI_lab4
+	url = https://github.com/NF-itmo/OPI_lab4

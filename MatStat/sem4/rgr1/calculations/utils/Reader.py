@@ -1,0 +1,8 @@
+class Reader:
+    def __init__(self, filename: str) -> None:
+        self._filename = filename
+    
+    def read_column(self, column_idx: int) -> list[float]:
+        with open(self._filename, "r", encoding="utf-8-sig") as f:
+            data = [float(line.split(",")[column_idx]) for line in f.read().split("\n")[1:]]
+        return data

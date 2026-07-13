@@ -1,0 +1,31 @@
+name: "sum_and_sum_sq"
+limit: 1000
+memory_size: 0x1000
+memory_mapped_io:
+  0x80: [2, 50000, 50000]
+  0x84: []
+reports:
+  - name: Check results
+    slice: last
+    filter:
+      - state
+    view: |
+      numio[0x80]: {io:0x80:dec}
+      numio[0x84]: {io:0x84:dec}
+    assert: |
+      numio[0x80]: [] >>> []
+      numio[0x84]: [] >>> [-858993460]
+  - name: Execution trace
+    slice: all
+    view: |
+      T0: {T0:hex} | T1: {T1:hex} | T2: {T2:hex}
+      S1: {S1:hex} | S2: {S2:hex} | S3: {S3:hex} | S4: {S4:hex} 
+      A0: {A0:hex} | A1: {A1:hex}
+      ---
+      {pc}:{pc:label}:{instruction}
+  - name: vliw-load
+    slice: last
+    view: |
+      vliw:load-percent:    {vliw:load-percent}
+      vliw:avg-load:        {vliw:avg-load}
+      vliw:bundles-by-load: {vliw:bundles-by-load}
