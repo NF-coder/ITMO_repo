@@ -149,62 +149,72 @@ _P3_ | [`ВТ мемы`](https://t.me/addstickers/vt_lore_by_fStikBot)
 > [!NOTE]
 > TODO: закинуть общую инфу
 ### [Ленсовета 23](https://student.itmo.ru/ru/campus2/)
-<details>
-<summary>Нажмите для подробностей</summary>
-
-<div style="display: flex;justify-content: space-around; gap: 10px;width: 100%;">
-  <table>
-    <th colspan="2">
-      Основные данные
-    </th>
+<table>
+  <thead>
     <tr>
-      <td><b>Стоимость</b> </td>
-      <td>~1800 ₽ / месяц</td>
+      <th colspan="3" align="center">Основные данные</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Стоимость</em></td>
+      <td colspan="2">~1800 ₽ / месяц</td>
     </tr>
     <tr>
-      <td><b>Комнаты</b> </td>
-      <td>Коридорный тип, 2–3 человека</td>
+      <td><em>Комнаты</em></td>
+      <td colspan="2">Коридорный тип, по 2–3 человека</td>
     </tr>
     <tr>
-      <td><b>Здание</b></td>
-      <td>5 этажей / мужское и женское крыло</td>
+      <td><em>Здание</em></td>
+      <td colspan="2">5 этажей, мужское и женское крыло</td>
     </tr>
     <tr>
-      <td><b>На этаже</b></td>
-      <td>Кухня / душ / туалет</td>
+      <td><em>На этаже</em></td>
+      <td colspan="2">Кухня / душ / туалет</td>
     </tr>
     <tr>
-      <td><b>Транспорт</b></td>
-      <td>Метро «Московская» ~ 5 минут</td>
+      <td><em>Метро</em></td>
+      <td colspan="2">«Московская» ~5 минут пешком</td>
     </tr>
-  </table>
-
-  <table>
-    <th colspan="3">
-      Дополнительные услуги
-    </th>
     <tr>
-      <th rowspan="2">Прачечная</th>
+      <th colspan="3" align="center">Дополнительно</th>
+    </tr>
+    <tr>
+      <td rowspan="2"><em>Прачечная</em></td>
       <td>Стирка</td>
-      <td><b>100 ₽</b></td>
+      <td align="right">100 ₽</td>
     </tr>
     <tr>
       <td>Стирка + сушка</td>
-      <td><b>180 ₽</b></td>
+      <td align="right">180 ₽</td>
     </tr>
     <tr>
-      <th>Столовая</th>
-      <td>Обед</td>
-      <td><b>~300 ₽</b></td>
+      <td><em>Столовая</em></td>
+      <td colspan="2" align="left">В среднем за 2 блюда 300 ₽</td>
     </tr>
-  </table>
-
-</details>
-</div style="display: flex;justify-content: space-around; gap: 10px;width: 100%;">
-
-#### Маршруты
-  - [До корпуса на ломоносова](https://yandex.ru/maps/-/CHXnzX95): ~45 минут на метро + пешком
-  - [До корпуса на кронверкском](https://yandex.ru/maps/-/CHXrEJLF): ~50 минут на метро + пешком
+    <tr>
+      <td><em>Спортзал</em></td>
+      <td colspan="2" align="left">Бесплатно</td>
+    </tr>
+    <tr>
+      <th colspan="3" align="left">Маршруты до корпусов</th>
+    </tr>
+    <tr>
+      <td><em>Ломоносова</em></td>
+      <td>
+        <a href="https://yandex.ru/maps/-/CHXnzX95">Открыть маршрут ↗</a>
+      </td>
+      <td align="right">~45 мин</td>
+    </tr>
+    <tr>
+      <td><em>Кронверкский</em></td>
+      <td>
+        <a href="https://yandex.ru/maps/-/CHXrEJLF">Открыть маршрут ↗</a>
+      </td>
+      <td align="right">~50 мин</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Система оценивания
 В ИТМО действует бально-рейтинговая система.\
