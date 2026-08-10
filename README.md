@@ -197,19 +197,19 @@ _P3_ | [`ВТ мемы`](https://t.me/addstickers/vt_lore_by_fStikBot)
       <td colspan="2" align="left">Бесплатно</td>
     </tr>
     <tr>
-      <th colspan="3" align="left">Маршруты до корпусов</th>
+      <th colspan="3" align="center">Маршруты до корпусов</th>
     </tr>
     <tr>
       <td><em>Ломоносова</em></td>
       <td>
-        <a href="https://yandex.ru/maps/-/CHXnzX95">Открыть маршрут ↗</a>
+        <a href="https://yandex.ru/maps/-/CHXnzX95">Открыть маршрут :link:</a>
       </td>
       <td align="right">~45 мин</td>
     </tr>
     <tr>
       <td><em>Кронверкский</em></td>
       <td>
-        <a href="https://yandex.ru/maps/-/CHXrEJLF">Открыть маршрут ↗</a>
+        <a href="https://yandex.ru/maps/-/CHXrEJLF">Открыть маршрут :link:</a>
       </td>
       <td align="right">~50 мин</td>
     </tr>
