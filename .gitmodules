@@ -19,3 +19,6 @@
 [submodule "OPI/sem4/lab4/OPI_lab4"]
 	path = ОПИ/sem4/lab4/OPI_lab4
 	url = https://github.com/NF-itmo/OPI_lab4
+[submodule "АК/sem4/lab4/CSA-lab4"]
+	path = АК/sem4/lab4/CSA-lab4
+	url = https://github.com/NF-itmo/CSA-lab4
