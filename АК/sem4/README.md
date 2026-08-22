@@ -18,7 +18,7 @@
 > [!TIP]
 > 1. Лабораторные выполняются в +- произвольном порядке
 > 2. 4-ую лабораторную начинайте писать СРАЗУ. Поглядите на готовые репозитории и постарайтесь делать даже если не понимаете - к концу курса вы будете понимать может и больше, но вот понимание едва ли компенсирует упущенное время.
-> 3. Можно попробовать коммитить в (Wrench)[https://github.com/ryukzak/wrench] - это приносит баллы и это хороший опыт. Например, можно доделать (SPI)[https://github.com/ryukzak/wrench/pull/152]
+> 3. Можно попробовать коммитить в [Wrench](https://github.com/ryukzak/wrench) - это приносит баллы и это хороший опыт. Например, можно доделать [SPI](https://github.com/ryukzak/wrench/pull/152)
 
 <details>
 <summary>Лабораторная 2. Эссе</summary>
@@ -40,8 +40,8 @@
 </details>
 
 ## Преподаватели
-Лектор: (Пенской Александр Владимирович)[https://my.itmo.ru/persons/142415] \
+Лектор: [Пенской Александр Владимирович](https://my.itmo.ru/persons/142415) \
 __Про лектора__: Умён и харизматичен. Активничайте, пожалуйста, на лекциях, он очень расстраивается когда никого не слышит
 
 ## Журналы
-4 семестр - (онлайн журнал)[https://docs.google.com/spreadsheets/d/1iebVw-6m9Bmzq_LzqEdVZd0w5ha6oIZpPp4pfbWUXsM/edit>] / (копия)[https://github.com/NF-coder/ITMO_repo/blob/main/АК/sem4/additional/csa-ак-2026.1.xlsx]
+4 семестр - [онлайн журнал](https://docs.google.com/spreadsheets/d/1iebVw-6m9Bmzq_LzqEdVZd0w5ha6oIZpPp4pfbWUXsM/edit) / [копия](https://github.com/NF-coder/ITMO_repo/blob/main/АК/sem4/additional/csa-ак-2026.1.xlsx)
