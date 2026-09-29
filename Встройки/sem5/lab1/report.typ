@@ -84,3 +84,6 @@
   image("assets/image-4.png",height: 20%),
   caption: [Результат - 12/2=6]
 )]
+
+= Репозиторий
+Код доступен по ссылке: #link("https://github.com/NF-coder/ITMO_repo/tree/main/%D0%92%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8/sem5/lab1")
